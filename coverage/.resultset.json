@@ -1,0 +1,97 @@
+{
+  "MiniTest": {
+    "coverage": {
+      "/home/hanchaw/code/dealsfordata/test/controllers/admin_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/customers_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/employees_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/faq_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/home_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/merchants_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/offers_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/users_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/models/offer_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/models/user_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1569087189
+  }
+}
