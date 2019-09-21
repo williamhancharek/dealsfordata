@@ -1,3 +1,11 @@
 TODO:Make it so the customers don't see which customer number they are. it should just say /customers/welcome or something
 TODO: need to implement cancancan authorizations.. for now it seems it's just authentication
 TODO: run reek on my files
+
+TODO: build coupon model
+  -have pictures
+
+TODO: integrate plaid
+TODO: store user transaction data
+TODO: have method of presenting analysing transaction data
+TODO: associate a identicon with each customer
