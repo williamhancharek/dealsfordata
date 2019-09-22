@@ -11,4 +11,7 @@ TODO: have method of presenting analysing transaction data
 TODO: associate a identicon with each customer
 
 TODO: Declare Active Storage services in config/storage.yml
+TODO: add encryption for certain tables in the datbase, namely the access token which are two private API
+keys for plaid
+TODO: use something locally, and then something on heroku to store the PLAID client_id and secret
 https://guides.rubyonrails.org/active_storage_overview.html
