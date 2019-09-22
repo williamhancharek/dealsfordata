@@ -10,9 +10,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+   def create
+     super
+     RubyIdenticon.create_and_save(
+                    "#{@user.email}",
+                    "tmp/identicon_#{@user.email}.png",
+                    square_size: 20)
+     data = open("tmp/identicon_#{@user.email}.png")
+     @user.identicon.attach(io:data,
+                            filename:"tmp/identicon_#{@user.email}.png")
+     @user.save
+   end
 
   # GET /resource/edit
   # def edit

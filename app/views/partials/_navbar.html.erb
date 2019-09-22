@@ -1,8 +1,6 @@
-<%if user_signed_in? %>
-    <div class="row">
-      <div class="col">
-        <%=link_to "logo linking to app", "", class:"nav-link" %>
-      </div>
+<nav class="navbar navbar-light">
+  <%= link_to fa_icon("adn 2x",text:"logo"), "", class:"navbar-brand"%>
+  <%if user_signed_in? %>
       <%if current_user.customer?%>
         <%=render 'partials/navbars/customer'%>
       <%elsif current_user.merchant?%>
@@ -10,29 +8,17 @@
       <%elsif current_user.employee?%>
         <%=render 'partials/navbars/employee'%>
       <%elsif current_user.admin?%>
-        <%=render 'partials/navbars/admin'%>
+        <%div=render 'partials/navbars/admin'%>
       <%end%>
-      <div class="col">
         <ul class="nav justify-content-end">
           <li class="nav-item">
-            <%=link_to "Log out", destroy_user_session_path, method: :delete, class:"nav-link" %>
+            <%=link_to fa_icon("user 2x", text: "Profile"), user_path(current_user), class:"nav-link" %>
           </li>
           <li class="nav-item">
-            <%=link_to "User Profile", user_path(current_user), class:"nav-link" %>
+            <%=link_to fa_icon("sign-out 2x", text: "Sign-out"), destroy_user_session_path, method: :delete, class:"nav-link" %>
           </li>
         </ul>
-      </div>
-    </div>
-<%else%>
-  <ul class="nav justify-content-end">
-    <li class="nav-item">
-      <%=link_to "Log in", new_user_session_path, class:"nav-link" %>
-    </li>
-    <li class="nav-item">
-      <%=link_to "Sign up", new_user_registration_path, class:"nav-link" %>
-    </li>
-    <li class="nav-item">
-      <%=link_to "FAQ", faq_index_path, class:"nav-link" %>
-    </li>
-  </ul>
-<%end%>
+  <%else%>
+    <%=render "partials/navbars/logged_out"%>
+  <%end%>
+</nav>
