@@ -25,6 +25,7 @@ gem 'sidekiq' #TODO
 gem 'aws-sdk-s3' #TODO - storing transaction info here
 gem 'ruby_identicon'
 gem 'font-awesome-rails'
+gem 'plaid'
 #TODO set up identicons
 
 #TODO decide about the following gems:
