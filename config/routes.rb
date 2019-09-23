@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   resources :customers, only: [:show]
   resources :faq, only: [:index]
 
+  namespace :plaid do
+    resources :access_token, only: [:create]
+  end
+
 end

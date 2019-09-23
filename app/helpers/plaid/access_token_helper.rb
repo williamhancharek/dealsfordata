@@ -1,0 +1,2 @@
+module Plaid::AccessTokenHelper
+end
