@@ -1,1 +1,15 @@
 customer show page
+
+
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Attached cards</h5>
+    <p class="card-text">
+      <div data-controller="item">
+        <span data-target="item.output"></span>
+      </div>You have <%=@customer.items.count%>
+    </p>
+    <p><%=render 'partials/plaid_link'%></p>
+  </div>
+</div>

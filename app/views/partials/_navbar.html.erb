@@ -10,14 +10,6 @@
       <%elsif current_user.admin?%>
         <%div=render 'partials/navbars/admin'%>
       <%end%>
-        <ul class="nav justify-content-end">
-          <li class="nav-item">
-            <%=link_to fa_icon("user 2x", text: "Profile"), user_path(current_user), class:"nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%=link_to fa_icon("sign-out 2x", text: "Sign-out"), destroy_user_session_path, method: :delete, class:"nav-link" %>
-          </li>
-        </ul>
   <%else%>
     <%=render "partials/navbars/logged_out"%>
   <%end%>

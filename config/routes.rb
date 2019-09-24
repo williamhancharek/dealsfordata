@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  resources :users, only: [:show]
   resources :admin, only: [:show]
   resources :employees, only: [:show]
   resources :merchants, only: [:show]
