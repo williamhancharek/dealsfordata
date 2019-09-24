@@ -16,3 +16,5 @@ keys for plaid
 TODO: use something locally, and then something on heroku to store the PLAID client_id and secret
 https://guides.rubyonrails.org/active_storage_overview.html
 TODO: for the plaid link, do I need to include the link to jquery, or isn't it already installed in webpacker?
+TODO: make sure plaid item id is set to plaid's unique identifier and not just 1,2,3 etc.
+TODO: need a way for plaid items to show they are disconnected, and then for user to reset them

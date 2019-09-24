@@ -5,7 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :offers
-  has_many: :items
+  has_many :items
 
 
   enum role: [:customer, :merchant, :employee, :admin]
