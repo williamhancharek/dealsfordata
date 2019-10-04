@@ -18,3 +18,16 @@ https://guides.rubyonrails.org/active_storage_overview.html
 TODO: for the plaid link, do I need to include the link to jquery, or isn't it already installed in webpacker?
 TODO: make sure plaid item id is set to plaid's unique identifier and not just 1,2,3 etc.
 TODO: need a way for plaid items to show they are disconnected, and then for user to reset them
+TODO: only allow plaid webhook requests from the following IP addresses:
+52.21.26.131
+52.21.47.157
+52.41.247.19
+52.88.82.239
+https://support.plaid.com/hc/en-us/articles/360008414233-Webhook-overview
+
+TODO: take care of this error: A cookie associated with a cross-site resource at
+http://cdn.plaid.com/ was set without the `SameSite` attribute. A future release
+of Chrome will only deliver cookies with cross-site requests if they are set with
+ `SameSite=None` and `Secure`. You can review cookies in developer tools under
+ Application>Storage>Cookies and see more details at
+ https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.

@@ -9,11 +9,9 @@ class Plaid::AccessTokenController < ApplicationController
                             access_token: exchange_token_response['access_token'])
     respond_to do |format|
       if @item.save
-
+        #format.js #OPTIMIZE - I want to use jquery to do a small database call so I don't have to do
+        #a full refresh to get all the data regarding customer integrations
         format.html {redirect_to(customer_path(current_user))}
-        #TODO if I don't redirect_to, then turbolinks prevents a full refresh, which
-        #causes the "linked cards number to not increase.  I would like to just refresh"
-        #the user object and leave everything else the same... but not sure how
         format.json {exchange_token_response.to_json}
       else
 

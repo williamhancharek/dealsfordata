@@ -17,4 +17,8 @@ Rails.application.routes.draw do
     resources :access_token, only: [:create]
   end
 
+  namespace :webhooks do
+    resources :plaid_transactions, only: [:show]
+  end
+
 end

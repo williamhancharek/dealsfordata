@@ -1,15 +1,33 @@
-customer show page
+<h1>customer show page</h1>
 
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <%= image_tag(current_user.identicon, class:"card-img") %>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5Cards class="card-title">Your Details</h5>
+            <p class='card-text'><%=link_to "Change password", edit_user_registration_path %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Attached cards</h5>
-    <p class="card-text">
-      <div data-controller="item">
-        <span data-target="item.output"></span>
-      </div>You have <%=@customer.items.count%>
-    </p>
-    <p><%=render 'partials/plaid_link'%></p>
+  <div class="col-sm-6">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Attached cards</h5>
+        <p>You have
+          <%=current_user.items.count%>
+          cards attached
+        </p>
+        <p class="card-text"></p>
+        <p><%=render 'partials/plaid_link'%></p>
+      </div>
+    </div>
   </div>
 </div>
