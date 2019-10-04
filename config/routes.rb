@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   namespace :webhooks do
-    resources :plaid_transactions, only: [:show]
+    resources :plaid_webhook, only: [:index]
   end
 
 end

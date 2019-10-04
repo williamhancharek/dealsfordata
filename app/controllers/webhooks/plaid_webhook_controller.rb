@@ -1,7 +1,7 @@
-class Webhooks::PlaidTransactionsController < ApplicationController
+class Webhooks::PlaidWebhookController < ApplicationController
 
-  def show
-    #TODO pretty_generate probably fails
+  def index
+    debugger
     now = Date.today
     thirty_days_ago = (now - 30)
     begin
