@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_23_173230) do
+ActiveRecord::Schema.define(version: 2019_10_07_205109) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "hstore"
   enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
@@ -63,6 +64,18 @@ ActiveRecord::Schema.define(version: 2019_09_23_173230) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "account_id"
+    t.float "amount"
+    t.string "category"
+    t.integer "category_id"
+    t.date "date"
+    t.string "iso_currency_code"
+    t.string "location"
+    t.string "name"
+    t.hstore "payment_meta"
+    t.hstore "payment_location"
+    t.boolean "pending"
+    t.string "transaction_id"
+    t.string "transaction_place"
     t.index ["account_id"], name: "index_transactions_on_account_id"
   end
 
@@ -80,6 +93,7 @@ ActiveRecord::Schema.define(version: 2019_09_23_173230) do
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
     t.integer "role", default: 0
+    t.string "keywords", default: [], array: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

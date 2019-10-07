@@ -16,7 +16,7 @@ src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
     key: '<%=ENV['PLAID_PUBLIC_KEY']%>',
     product: ['transactions'],
     // Optional, use webhooks to get transaction and error updates
-    webhook: '<%=webhooks_plaid_%>',
+      webhook: 'https://requestb.in',
     // Optional, specify a language to localize Link
     language: 'en',
     // Optional, specify userLegalName and userEmailAddress to
