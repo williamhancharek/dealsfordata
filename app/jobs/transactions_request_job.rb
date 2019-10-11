@@ -8,11 +8,7 @@ class TransactionsRequestJob < ApplicationJob
       product_response = Client.transactions.get(access_token, thirty_days_ago, now)
       product_response.transactions.each do |t|
         Transaction.create()
-
       end
-
-
-
     rescue Plaid::PlaidAPIError => e
       error_response = format_error(e)
       JSON.pretty_generate(error_response)
