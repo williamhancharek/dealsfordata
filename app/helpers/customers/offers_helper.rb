@@ -1,0 +1,2 @@
+module Customers::OffersHelper
+end

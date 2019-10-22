@@ -10,6 +10,12 @@ class User < ApplicationRecord
 
   enum role: [:customer, :merchant, :employee, :admin]
 
+
+  def get_offer
+    
+
+  end
+
 #TODO set up omniauthable
 
 end
