@@ -6,14 +6,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :offers
   has_many :items
-
-
   enum role: [:customer, :merchant, :employee, :admin]
 
-
-  def get_offer
-    
-
+  def get_offers
+    self.offers.where("status = true")
   end
 
 #TODO set up omniauthable
