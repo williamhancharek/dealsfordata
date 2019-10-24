@@ -13,5 +13,7 @@ class User < ApplicationRecord
   end
 
 #TODO set up omniauthable
+#TODO modifiers are not supposed to be able to be modified by user - can only be modified by administtrator to associate Profile
+#with modifiers like "rich" or "eats lots of sushi"
 
 end
