@@ -1,15 +1,21 @@
-<%binding.remote_pry%>
-
 <div class="col-sm-6">
   <div class="card mb-3">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <%=offer.image.attached? ? image_tag(offer.image, class:"card-img") : nil #TODO replace this with a default image %>
+        <%=offer.image.attached? ? image_tag(offer.image, class:"card-img") : nil %>
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5>Cards class="card-title"><%=offer.title%></h5>
+          <h5 class="card-title"><%=offer.title%></h5>
           <p class='card-text'><%=offer.description%></p>
+          <%= simple_form_for offer do |f| %>
+          <%=f.input :selected_option,
+                      as: :radio_buttons,
+                      collection: offer.options,
+                      wrapper_html: {class: ['i-checks']},
+                      item_wrapper_tag: :div%>
+            <%= f.button :submit, "submit", class:["btn-sm", "btn-w-m btn-primary"] %>
+          <%end%>
         </div>
       </div>
     </div>

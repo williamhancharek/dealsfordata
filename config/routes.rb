@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :merchants, only: [:show]
   resources :customers, only: [:show]
   resources :faq, only: [:index]
-  resources :offers, only: [:index]
+  resources :offers, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
   namespace :plaid do
     resources :access_token, only: [:create]
