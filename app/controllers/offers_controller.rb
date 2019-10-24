@@ -1,11 +1,10 @@
 class OffersController < ApplicationController
+  before_action :set_offer, only: [:show, :edit, :update, :destroy]
 
   def show
-
   end
 
   def new
-
   end
 
   def index
@@ -14,35 +13,36 @@ class OffersController < ApplicationController
   end
 
   def create
-
   end
 
   def update
-    binding.pry_remote
-    @offer = Offer.find(offer_params)
-
     respond_to do |format|
       if @offer.update(offer_params)
-        redirect_to offers_path
+        flash[:success] = "successfully updated" #possibly delete this stupid message
+        format.html { redirect_back(fallback_location: offers_path)}
+        format.json { render :index, status: :ok  }
       else
-        flash[:warning] = "failed"
+        format.html { render :index}
+        format.json {render json: @offer.errors, status: :unprocessable_entity}
       end
     end
-
 
   end
 
   def destroy
-
   end
 
   def edit
-
   end
 
   private
 
   def offer_params
     params.require(:offer).permit(:selected_option, :id)
+  end
+
+  def set_offer
+    @offer = Offer.find(params[:id])
+  end
 
 end
