@@ -37,8 +37,13 @@
         <div class="card-body">
           <h5 class="card-title">Your Search Profile</h5>
           <p class="card-text"></p>
-          <p>Your search</p>
-          <p>your tags</p>
+          <p>Your search terms:</p>
+          <p><%=current_user.search_terms%></p>
+          <p>tags:</p>
+          <%=current_user.tags%>
+          <p>modifiers:</p>
+          <%
+          <p><%=current_user.modifiers%></p>
         </div>
       </div>
     </div>

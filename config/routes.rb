@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :admin, only: [:show]
   resources :employees, only: [:show]
   resources :merchants, only: [:show]
-  resources :customers, only: [:show]
+  resources :customers, only: [:show, :edit, :update]
   resources :faq, only: [:index]
   resources :offers, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
