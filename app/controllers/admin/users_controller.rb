@@ -33,6 +33,8 @@ class Admin::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
+
+
   end
   #
   # def create
@@ -47,7 +49,7 @@ class Admin::UsersController < ApplicationController
   #       format.json { render json: @blah.errors, status: :unprocessable_entity }
   #     end
   #   end
-  end
+  # end
 
 
   def destroy
