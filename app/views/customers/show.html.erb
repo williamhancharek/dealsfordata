@@ -39,11 +39,9 @@
           <p class="card-text"></p>
           <p>Your search terms:</p>
           <p><%=current_user.search_terms%></p>
-          <p>tags:</p>
-          <%=current_user.tags%>
-          <p>modifiers:</p>
-          <%= link_to "update search and tags",edit_customer_path(current_user)%>
-          <p><%=current_user.modifiers%></p>
+          <p>keywords: <%=current_user.keywords%></p>
+          <p>modifiers: There shouldn't be anything here since this may be hidden from the user eventually <%=current_user.modifiers%></p>
+          <%= link_to "update search and keywords", edit_customer_path(current_user)%>
         </div>
       </div>
     </div>

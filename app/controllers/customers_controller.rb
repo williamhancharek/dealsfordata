@@ -11,7 +11,6 @@ class CustomersController < ApplicationController
   def update
     respond_to do |format|
       if @customer.update(customer_params)
-        binding.pry_remote
         flash[:success] = "successfully updated" #possibly delete this stupid message
         format.html { redirect_back(fallback_location: customer_path)}
         format.json { render :edit, status: :ok  }
