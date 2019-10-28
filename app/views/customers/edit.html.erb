@@ -1,0 +1,6 @@
+customer edit page
+<%=simple_form_for @customer, url: customer_path(@customer), method: :patch do |f| %>
+  <%=f.input :search_terms%>
+  <%=f.input :keywords%>
+  <%=f.button :submit, "submit", class:["btn-sm", "btn-w-m btn-primary"] %>
+<%end%>

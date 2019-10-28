@@ -26,7 +26,6 @@ class OffersController < ApplicationController
         format.json {render json: @offer.errors, status: :unprocessable_entity}
       end
     end
-
   end
 
   def destroy

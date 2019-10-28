@@ -42,7 +42,7 @@
           <p>tags:</p>
           <%=current_user.tags%>
           <p>modifiers:</p>
-          <%
+          <%= link_to "update search and tags",edit_customer_path(current_user)%>
           <p><%=current_user.modifiers%></p>
         </div>
       </div>
