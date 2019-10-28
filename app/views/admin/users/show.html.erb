@@ -1,0 +1,32 @@
+<%=link_to "back to list", admin_users_path%>
+
+<table>
+  <tr>
+    <td>Email</td>
+    <td><%=@user.email%></td>
+  </tr>
+  <tr>
+    <td>role</td>
+    <td><%=@user.role%></td>
+  </tr>
+  <tr>
+    <td>keywords</td>
+    <td><%=@user.keywords%></td>
+  </tr>
+  <tr>
+    <td>search terms</td>
+    <td><%=@user.search_terms%></td>
+  </tr>
+  <tr>
+    <td>modifiers</td>
+    <td><%=@user.modifiers%></td>
+  </tr>
+  <tr>
+    <td>Created</td>
+    <td><%=@user.created_at%></td>
+  </tr>
+  <tr>
+    <td>last updated</td>
+    <td><%=@user.updated_at%></td>
+  </tr>
+</table>

@@ -1,1 +1,16 @@
 admin users index path
+
+
+<%= link_to "create new user", new_admin_user_path%>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Email</th>
+    <th>Role</th>
+    <th>Show</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <%=render partial: 'user', collection: @users%>
+</table>

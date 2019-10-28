@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_28_192449) do
+ActiveRecord::Schema.define(version: 2019_10_28_221717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -102,10 +102,9 @@ ActiveRecord::Schema.define(version: 2019_10_28_192449) do
     t.inet "last_sign_in_ip"
     t.integer "role", default: 0
     t.text "search_terms"
-    t.string "modifiers", array: true
     t.jsonb "keywords"
+    t.jsonb "modifiers"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["modifiers"], name: "index_users_on_modifiers", using: :gin
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

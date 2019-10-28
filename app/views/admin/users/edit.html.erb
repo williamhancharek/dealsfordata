@@ -1,0 +1,11 @@
+<%=link_to "back to list", admin_users_path%>
+
+<%=simple_form_for @user, url: admin_user_path(@user), method: :patch do |f| %>
+  <%=f.input :search_terms%>
+  <%=f.input :keywords%>
+  <%=f.button :submit, "submit", class:["btn-sm", "btn-w-m btn-primary"] %>
+  <%=link_to "back",admin_users_path%>
+
+<%end%>
+
+<%=link_to "delete user", admin_user_path, method: :delete%>
