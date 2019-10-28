@@ -8,7 +8,7 @@
       <%elsif current_user.employee?%>
         <%=render 'partials/navbars/employee'%>
       <%elsif current_user.admin?%>
-        <%div=render 'partials/navbars/admin'%>
+        <%=render 'partials/navbars/admin'%>
       <%end%>
   <%else%>
     <%=render "partials/navbars/logged_out"%>

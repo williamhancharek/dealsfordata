@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  resources :admin, only: [:show]
   resources :employees, only: [:show]
   resources :merchants, only: [:show]
   resources :customers, only: [:show, :edit, :update]
@@ -20,6 +19,10 @@ Rails.application.routes.draw do
 
   namespace :webhooks do
     resources :plaid_webhook, only: [:index]
+  end
+
+  namespace :admin do
+    resources :users
   end
 
 end
