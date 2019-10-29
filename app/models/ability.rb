@@ -10,12 +10,16 @@ class Ability
        if user.admin?
          can :manage, :all
        elsif user.employee?
-         can :manage Offer, :all
-
+         can :manage Offer
+         can :update User
        elsif user.merchant?
-         can :read Offer,
+         can :read Offer, id:offer.merchant_id
        elsif user.customer?
          can :update User, id: user.id
+         can :update Offer, id:offer.customer_id  #TODO there is an issue here - I want the user to be able to update the
+         #offer's selection, but they should not be able to update the offer's contents - they can't re-write the description
+         #so this means selectively only allowing updating certain properties of the object... otherwise I have to split the
+         #object in two - this is for another day... when we get more real
 
        end
     #     can :read, :all

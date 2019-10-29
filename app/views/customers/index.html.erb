@@ -1,0 +1,13 @@
+customer index path
+<table>
+  <tr>
+    <th>profile</th>
+    <th>email</th>
+    <th>search terms</th>
+    <th>keywords</th>
+    <th>modifiers</th>
+    <th>offer history</th>
+    <th>transaction history</th>
+  </tr>
+  <%= render partial: 'customer', collection: @customers, as: :customer%>
+</table>

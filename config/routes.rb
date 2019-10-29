@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :employees, only: [:show]
   resources :merchants, only: [:show]
-  resources :customers, only: [:show, :edit, :update, :index]
+  resources :customers, only: [:show, :edit, :update]
   resources :faq, only: [:index]
   resources :offers, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
@@ -23,6 +23,19 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users
+  end
+
+  namespace :customers do
+    resources :offers
+  end
+
+  namespace :merchants do
+    resources :offers, only: [:index, :show]
+  end
+
+  namespace :employees do
+    resources :customers, only: [:index, :show]
+    resources :merchants
   end
 
 end

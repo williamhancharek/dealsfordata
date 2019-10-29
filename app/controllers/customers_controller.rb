@@ -1,11 +1,14 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
-
   def show
   end
 
   def edit
+  end
+
+  def index #this should only be accessed by employees and maybe admins?
+    @customers = User.where(role: "customer")
   end
 
   def update
@@ -32,9 +35,6 @@ class CustomersController < ApplicationController
     params.require(:user).permit(:keywords, :search_terms, :attributes)
   end
 
-  def index #only employees and admin should be able to access
-
-  end
 
   private
 
