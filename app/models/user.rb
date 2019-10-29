@@ -4,9 +4,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :offers, foreign_key: "merchant_id"
-  has_many :offers, foreign_key: "customer_id"
-  has_many :items
+  has_many :merchant_offers, class_name: "Offer", foreign_key: "merchant_id"
+  has_many :customer_offers, class_name: "Offer", foreign_key: "customer_id"
+
   enum role: [:customer, :merchant, :employee, :admin]
   # validates_inclusion_of :keywords, :in => %r(a-zA-z)
 

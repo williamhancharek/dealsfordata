@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_28_221717) do
+ActiveRecord::Schema.define(version: 2019_10_29_164724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -56,16 +56,18 @@ ActiveRecord::Schema.define(version: 2019_10_28_221717) do
   create_table "offers", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
     t.boolean "status", default: true
     t.text "description"
     t.string "title"
     t.string "tags", array: true
     t.string "options", array: true
     t.string "selected_option"
+    t.bigint "customer_id", null: false
+    t.bigint "merchant_id", null: false
+    t.index ["customer_id"], name: "index_offers_on_customer_id"
+    t.index ["merchant_id"], name: "index_offers_on_merchant_id"
     t.index ["options"], name: "index_offers_on_options", using: :gin
     t.index ["tags"], name: "index_offers_on_tags", using: :gin
-    t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -111,6 +113,5 @@ ActiveRecord::Schema.define(version: 2019_10_28_221717) do
   add_foreign_key "accounts", "items"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "items", "users"
-  add_foreign_key "offers", "users"
   add_foreign_key "transactions", "accounts"
 end
