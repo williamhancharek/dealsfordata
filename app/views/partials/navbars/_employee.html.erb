@@ -2,11 +2,14 @@
   <li class="nav-item">
     <%=link_to "questions", "", class:"nav-link" %>
   </li>
+  <li class="nav-item">
+    <%=link_to fa_icon("gift 2x",text:"customers"), customers_path, class:"nav-link" %>
+  </li>
 </ul>
 
 <ul class="nav justify-content-end">
   <li class="nav-item">
-    <%=link_to fa_icon("user 2x", text: "Profile"), admin_path(current_user), class:"nav-link" %>
+    <%=link_to fa_icon("user 2x", text: "Profile"), employee_path(current_user), class:"nav-link" %>
   </li>
   <li class="nav-item">
     <%=link_to fa_icon("sign-out 2x", text: "Sign out"), destroy_user_session_path, method: :delete, class:"nav-link" %>

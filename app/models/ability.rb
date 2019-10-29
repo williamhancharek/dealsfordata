@@ -10,11 +10,13 @@ class Ability
        if user.admin?
          can :manage, :all
        elsif user.employee?
-         #stuff
+         can :manage Offer, :all
+
        elsif user.merchant?
-         #stuff
+         can :read Offer,
        elsif user.customer?
-         #stuff
+         can :update User, id: user.id
+
        end
     #     can :read, :all
     #   end

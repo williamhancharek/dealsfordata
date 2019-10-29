@@ -32,4 +32,12 @@ class CustomersController < ApplicationController
     params.require(:user).permit(:keywords, :search_terms, :attributes)
   end
 
+  def index #only employees and admin should be able to access
+
+  end
+
+  private
+
+
+
 end

@@ -32,42 +32,36 @@ class Admin::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
-
-
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_back fallback_location: :index, notice: "User was successfully created"}
+        format.json {render :new, status: :createc, location: @user} #I don't know what this means
+      else
+        format.html {render :new}
+        format.json {render json: @blah.errors, status: :unprocessable_entity}
+      end
+    end
   end
-  #
-  # def create
-  #   @blah = Blah.new(blah_params)
-  #
-  #   respond_to do |format|
-  #     if @blah.save
-  #       format.html { redirect_to @blah, notice: 'Blah was successfully created.' }
-  #       format.json { render :show, status: :created, location: @blah }
-  #     else
-  #       format.html { render :new }
-  #       format.json { render json: @blah.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
 
   def destroy
+    @user.destroy
+    respond_to do |format|
+      format.html {redirect_to admin_users_url, notice: "User was successfully destroyed"}
+      format.json {head :no_content}
+    end
   end
-
-  # f destroy
-  #   @blah.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to blahs_url, notice: 'Blah was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
-
 
   private
 
   def user_params
-    params.require(:user).permit(:role, :keywords, :search_terms, :attributes, :modifiers)
+    params.require(:user).permit(:role,
+                                 :keywords,
+                                 :search_terms,
+                                 :attributes,
+                                 :modifiers,
+                                 :email,
+                                 :password,
+                                 :password_confirmation)
   end
 
   def set_user
