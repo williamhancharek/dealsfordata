@@ -1,6 +1,6 @@
-class Employee::Customers::CustomersController < ApplicationController
+class Employees::Customers::CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
-
+  before_action :ensure_employee
   def show
 
   end
@@ -36,6 +36,13 @@ class Employee::Customers::CustomersController < ApplicationController
 
   def customer_params
     params.require(:user).permit(:keywords, :search_terms, :attributes, :modifiers)
+  end
+
+  def ensure_employee #TODO there is def a better way to do this via cancancan
+    if !(current_user.role == "admin" || "employee")
+      flash[:warning] = "not allowed access"
+      redirect_to root_path
+    end
   end
 
 end

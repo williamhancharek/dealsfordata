@@ -12,7 +12,7 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <%= render "partials/navbar" %>
+    <%= render "partials/navbar", locals: @user_role %>
   </head>
 
   <body class="background">

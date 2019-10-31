@@ -26,15 +26,17 @@ Rails.application.routes.draw do
     resources :offers, only: [:index, :show]
   end
 
-  scope module: 'employee/customers', path: 'employee', as: 'employee' do
+  scope module: 'employees/customers', path: 'employees', as: 'employee' do
+    resources :offers, only: [:show, :edit, :update, :new, :create, :destroy]
     resources :customers, only: [:show, :edit, :update, :index] do
-        resources :offers, only: [:index, :show, :edit, :update, :new, :create, :destroy]
+        resources :offers, only: [:index]
     end
   end
 
-  scope module: 'employee/merchants', path: 'employee', as: 'employee' do
+  scope module: 'employees/merchants', path: 'employees', as: 'employee' do
+    resources :offers, only: [:show, :edit, :update, :new, :create]
     resources :merchants, only: [:show, :edit, :update, :index, :new, :create] do
-        resources :offers, only: [:index, :show, :edit, :update, :new, :create]
+        resources :offers, only: [:index]
     end
   end
 

@@ -1,16 +1,4 @@
 <nav class="navbar navbar-light">
   <%= link_to fa_icon("adn 2x",text:"logo"), "", class:"navbar-brand"%>
-  <%if user_signed_in? %>
-      <%if current_user.customer?%>
-        <%=render 'partials/navbars/customer'%>
-      <%elsif current_user.merchant?%>
-        <%=render 'partials/navbars/merchant'%>
-      <%elsif current_user.employee?%>
-        <%=render 'partials/navbars/employee'%>
-      <%elsif current_user.admin?%>
-        <%=render 'partials/navbars/admin'%>
-      <%end%>
-  <%else%>
-    <%=render "partials/navbars/logged_out"%>
-  <%end%>
+    <%=render "partials/navbars/#{@user_role}"%>
 </nav>
