@@ -6,13 +6,6 @@ Rails.application.routes.draw do
   }
 
   root to: "home#index"
-
-  resources :employees, only: [:show]
-  resources :merchants, only: [:show]
-  resources :customers, only: [:show, :edit, :update]
-  resources :faq, only: [:index]
-  resources :offers, only: [:index, :new, :create, :show, :edit, :update, :destroy]
-
   namespace :plaid do
     resources :access_token, only: [:create]
   end
@@ -25,17 +18,29 @@ Rails.application.routes.draw do
     resources :users
   end
 
-  namespace :customers do
-    resources :offers
+  resources :customers, only: [:show, :edit, :update] do
+    resources :offers, only: [:index, :show, :edit, :update]
   end
 
-  namespace :merchants do
+  resources :merchants, only: [:show] do
     resources :offers, only: [:index, :show]
   end
 
-  namespace :employees do
-    resources :customers, only: [:index, :show]
-    resources :merchants
+  scope module: 'employee/customers', path: 'employee', as: 'employee' do
+    resources :customers, only: [:show, :edit, :update, :index] do
+        resources :offers, only: [:index, :show, :edit, :update, :new, :create, :destroy]
+    end
   end
+
+  scope module: 'employee/merchants', path: 'employee', as: 'employee' do
+    resources :merchants, only: [:show, :edit, :update, :index, :new, :create] do
+        resources :offers, only: [:index, :show, :edit, :update, :new, :create]
+    end
+  end
+
+
+  resources :employees, only: [:show]
+  resources :faq, only: [:index]
+  resources :offers, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
 end

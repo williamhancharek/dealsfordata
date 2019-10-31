@@ -1,0 +1,11 @@
+employee customer edit page
+
+
+<%=simple_form_for @customer, url: employee_customer_path(@customer), method: :patch do |f| %>
+  <%=f.input :search_terms%>
+  <%=f.input :keywords%>
+  <%=f.input :modifiers%>
+  <%=f.button :submit, "submit", class:["btn-sm", "btn-w-m btn-primary"] %>
+  <%=link_to "back",employee_customer_path%>
+
+<%end%>

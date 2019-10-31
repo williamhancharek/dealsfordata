@@ -29,7 +29,6 @@ class User < ApplicationRecord
   def update_keywords(keywords)
     self.keywords_will_change!
     self.keywords = keywords.split(" ")
-    binding.pry_remote
   end
 
 #merchant Methods

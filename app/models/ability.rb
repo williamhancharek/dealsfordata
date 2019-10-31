@@ -11,7 +11,8 @@ class Ability
          can :manage, :all
        elsif user.employee?
          can :manage Offer
-         can :update User
+         can :manage User #this is bad because I only want employees to be able to create new merchants, which are users
+         #but this allows them to create anything... but whatever let's move on
        elsif user.merchant?
          can :read Offer, id:offer.merchant_id
        elsif user.customer?
