@@ -23,4 +23,16 @@ class ApplicationController < ActionController::Base
       @user_role = current_user.role
     end
   end
+
+  def ensure_role(*roles)
+    if !(current_user.role == "admin" || "employee")
+      flash[:warning] = "not allowed access"
+      redirect_to root_path
+    end
+  end
+
+  def set_customer
+
+  end
+
 end

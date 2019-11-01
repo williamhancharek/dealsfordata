@@ -1,18 +1,14 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
 
-  def show
-  end
+  #this is only for customers or whoever to view the offer
 
-  def new
+  def show
   end
 
   def index
     @user = current_user
     @offers = @user.get_offers
-  end
-
-  def create
   end
 
   def update
@@ -26,9 +22,6 @@ class OffersController < ApplicationController
         format.json {render json: @offer.errors, status: :unprocessable_entity}
       end
     end
-  end
-
-  def destroy
   end
 
   def edit

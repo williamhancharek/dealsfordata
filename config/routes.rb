@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :offers, only: [:index, :show, :edit, :update]
   end
 
-  resources :merchants, only: [:show] do
+  resources :merchants, only: [:show, :edit, :update] do
     resources :offers, only: [:index, :show]
   end
 
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   end
 
   scope module: 'employees/merchants', path: 'employees', as: 'employee' do
-    resources :merchants, only: [:show, :edit, :update, :index, :new, :create] do
+    resources :merchants, only: [:show, :edit, :update, :index, :new, :create, :destroy] do
         resources :offers, only: [:index]
     end
   end
@@ -46,6 +46,6 @@ Rails.application.routes.draw do
 
   resources :employees, only: [:show]
   resources :faq, only: [:index]
-  resources :offers, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  resources :offers, only: [:index, :show, :edit, :update]
 
 end
