@@ -1,5 +1,5 @@
-employee customer index offers page
-
+<p>employee customer index offers page</p>
+<p>Offers for customer <%=@customer.email%></p>
 <table>
   <tr>
     <th>status</th>
@@ -11,8 +11,9 @@ employee customer index offers page
     <th>selected_options</th>
     <th>customer</th>
     <th>merchant</th>
+    <th>image</th>
   </tr>
-  <%= render partial "offer", collection: @customer_offers, as: :offer%>
+  <%= render partial: "offer", collection: @customer_offers, as: :offer%>
 
 </table>
 
