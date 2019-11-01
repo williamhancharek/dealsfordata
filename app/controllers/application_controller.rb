@@ -31,6 +31,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def ensure_employee #TODO there is def a better way to do this via cancancan
+    if !(current_user.role == "admin" || "employee")
+      flash[:warning] = "not allowed access"
+      redirect_to root_path
+    end
+  end
+
   def set_customer
 
   end
