@@ -7,8 +7,7 @@ class OffersController < ApplicationController
   end
 
   def index
-    @user = current_user
-    @offers = @user.get_offers
+    @offers = current_user.get_offers
   end
 
   def update

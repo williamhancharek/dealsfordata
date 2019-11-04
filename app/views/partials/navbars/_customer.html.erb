@@ -1,12 +1,12 @@
 <ul class="nav justify-content-center">
   <li class="nav-item">
-    <%=link_to fa_icon("gift 2x",text:"offers"), offers_path, class:"nav-link" %>
+    <%=link_to fa_icon("gift 2x",text:"offers"), customer_offers_path(customer_id: current_user), class:"nav-link" %>
   </li>
   <li class="nav-item">
     <%=link_to fa_icon("archive 2x",text:"purchased"), "", class:"nav-link" %>
   </li>
   <li class="nav-item">
-    <%=link_to fa_icon("history 2x",text:"history"), "", class:"nav-link" %>
+    <%=link_to fa_icon("history 2x",text:"history"), customer_completed_index_path(customer_id: current_user), class:"nav-link" %>
   </li>
   <li class="nav-item">
     <%=link_to fa_icon("question-circle 2x", text:"questions"), "", class:"nav-link" %>

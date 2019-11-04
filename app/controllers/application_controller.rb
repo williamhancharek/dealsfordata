@@ -39,7 +39,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_customer
-
+    @customer = User.find(params[:customer_id])
   end
 
 end

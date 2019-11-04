@@ -35,13 +35,13 @@ merchants = User.create([{email: "m1@m.com",
 merchants.each {|t| t.attach_identicon}
 
 employees = User.create([{email: "e1@e.com",
-                          role: "merchant",
+                          role: "employee",
                           password: "tentenfour"},
                           {email: "e2@e.com",
-                          role: "merchant",
+                          role: "employee",
                           password: "tentenfour"},
                           {email: "e3@e.com",
-                          role: "merchant",
+                          role: "employee",
                           password: "tentenfour"}])
 employees.each {|t| t.attach_identicon}
 

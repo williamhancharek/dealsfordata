@@ -10,32 +10,37 @@ class User < ApplicationRecord
   enum role: [:customer, :merchant, :employee, :admin]
   # validates_inclusion_of :keywords, :in => %r(a-zA-z)
 
-  # def update(params)
-  #   # case self.role
-  #   # when "customer"
-  #   #   # update_keywords(params[:keywords])
-  #   # when "merchant"
-  #   # when "employee"
-  #   # when "admin"
-  #   # end
-  #   super
-  #   binding.pry_remote
-  # end
-#Customer methods
-  def get_offers
-    self.offers.where("status = true")
+#CUSTOMER METHODS
+  def get_offers #I can probably make this a one-liner using some kind of build the method as I go thing... but fuck it
+    case self.role
+    when 'customer'
+      self.customer_offers.where("status = true")
+    when 'merchant'
+      self.merchant_offers.where("status = true")
+    end
   end
+
+  def get_old_offers
+    case self.role
+    when 'customer'
+      self.customer_offers.where("status = false")
+    when 'merchant'
+      self.merchant_offers.where("status = false")
+    end
+  end
+
 
   def update_keywords(keywords)
     self.keywords_will_change!
     self.keywords = keywords.split(" ")
   end
 
-#merchant Methods
+#MERCHANT METHODS
+
+#EMPLOYEE METHODS
 
 
-#administrator methods?
-
+#ADMIN METHODS
   def attach_identicon
     RubyIdenticon.create_and_save("#{self.email}",
                                   "tmp/identicon_#{self.email}.png",
@@ -49,5 +54,4 @@ class User < ApplicationRecord
 #TODO I think I should remove tags from the user database.  I think I added it in accidentally.
 #TODO modifiers are not supposed to be able to be modified by user - can only be modified by administtrator to associate Profile
 #with modifiers like "rich" or "eats lots of sushi"
-
 end

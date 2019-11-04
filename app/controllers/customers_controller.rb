@@ -2,7 +2,6 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   def show
-    binding.pry_remote
 
   end
 

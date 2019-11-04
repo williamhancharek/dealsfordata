@@ -20,7 +20,6 @@ class Employees::OffersController < ApplicationController
     @offer.options = JSON.parse(offer_params[:options])
     @offer.tags = offer_params[:tags].split(' ')
     @offer.image.attach offer_params[:image]
-    binding.pry_remote
 
     respond_to do |format|
       if @offer.save
