@@ -36,7 +36,14 @@ class User < ApplicationRecord
 
 #administrator methods?
 
-
+  def attach_identicon
+    RubyIdenticon.create_and_save("#{self.email}",
+                                  "tmp/identicon_#{self.email}.png",
+                                  square_size: 20)
+    data = open("tmp/identicon_#{self.email}.png")
+    self.identicon.attach(io:data,
+                          filename:"tmp/identicon_#{self.email}.png")
+  end
 
 #TODO set up omniauthable
 #TODO I think I should remove tags from the user database.  I think I added it in accidentally.

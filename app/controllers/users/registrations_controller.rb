@@ -12,13 +12,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
    def create
      super
-     RubyIdenticon.create_and_save(
-                    "#{@user.email}",
-                    "tmp/identicon_#{@user.email}.png",
-                    square_size: 20)
-     data = open("tmp/identicon_#{@user.email}.png")
-     @user.identicon.attach(io:data,
-                            filename:"tmp/identicon_#{@user.email}.png")
+     @user.attach_identicon
+     # RubyIdenticon.create_and_save(
+     #                "#{@user.email}",
+     #                "tmp/identicon_#{@user.email}.png",
+     #                square_size: 20)
+     # data = open("tmp/identicon_#{@user.email}.png")
+     # @user.identicon.attach(io:data,
+     #                        filename:"tmp/identicon_#{@user.email}.png")
      @user.save
    end
 
