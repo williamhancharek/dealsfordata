@@ -4,6 +4,7 @@
 // that code so it'll be compiled.
 
 //loading StimulusJS
+import 'stylesheets/application'
 import { Application } from 'stimulus'
 import { definitionsFromContext } from 'stimulus/webpack-helpers'
 
