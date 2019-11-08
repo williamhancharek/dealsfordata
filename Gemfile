@@ -19,7 +19,6 @@ gem 'turbolinks', '~> 5'
 gem 'devise'
 gem 'cancancan'
 gem 'simple_form'
-gem 'geo_coder'
 gem 'omniauth-google-oauth2' #TODO
 gem 'sidekiq' #TODO
 gem 'aws-sdk-s3' #TODO - storing transaction info here
@@ -31,8 +30,6 @@ gem 'image_processing', '~> 1.2'
 
 #TODO decide about the following gems:
 #gem 'rails_admin'
-
-
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
