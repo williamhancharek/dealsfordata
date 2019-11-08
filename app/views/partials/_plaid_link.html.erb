@@ -14,7 +14,7 @@ src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
     env: 'sandbox',
     // Replace with your public_key from the Dashboard
     key: '<%=ENV['PLAID_PUBLIC_KEY']%>',
-    product: ['transactions'],
+    product: ['transactions', 'auth'],
     // Optional, use webhooks to get transaction and error updates
       webhook: 'webhooks_plaid_webhook_index_path',
     // Optional, specify a language to localize Link

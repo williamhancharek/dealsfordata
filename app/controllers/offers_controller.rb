@@ -1,5 +1,7 @@
 class OffersController < ApplicationController
-  before_action :set_offer, only: [:show, :edit, :update, :destroy]
+  before_action only: [:show, :edit, :update, :destroy] do
+    set_user('offer', params[:id])
+  end
 
   #this is only for customers or whoever to view the offer
 
@@ -30,10 +32,6 @@ class OffersController < ApplicationController
 
   def offer_params
     params.require(:offer).permit(:selected_option, :id)
-  end
-
-  def set_offer
-    @offer = Offer.find(params[:id])
   end
 
 end

@@ -1,6 +1,8 @@
 class Admin::UsersController < ApplicationController
-  before_action :ensure_admin
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action {ensure_role('admin')}
+  before_action only: [:show, :edit, :update, :destroy] do
+    set_user("user", params[:id])
+  end
 
   def show
   end
@@ -52,7 +54,6 @@ class Admin::UsersController < ApplicationController
   end
 
   private
-
   def user_params
     params.require(:user).permit(:role,
                                  :keywords,
@@ -62,17 +63,6 @@ class Admin::UsersController < ApplicationController
                                  :email,
                                  :password,
                                  :password_confirmation)
-  end
-
-  def set_user
-    @user = User.find(params[:id])
-  end
-
-  def ensure_admin #TODO there is def a better way to do this via cancancan
-    if !(current_user.role == "admin")
-      flash[:warning] = "not allowed access"
-      redirect_to root_path
-    end
   end
 
 end

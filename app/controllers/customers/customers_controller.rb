@@ -1,5 +1,7 @@
-class CustomersController < ApplicationController
-  before_action :set_customer, only: [:show, :edit, :update, :destroy]
+class Customers::CustomersController < ApplicationController
+  before_action only: [:show, :edit, :update] do
+    set_user("customer",params[:id])
+  end
 
   def show
 
@@ -24,10 +26,6 @@ class CustomersController < ApplicationController
 
 
   private
-
-  def set_customer
-    @customer = User.find(params[:id])
-  end
 
   def customer_params
     params.require(:user).permit(:keywords, :search_terms, :attributes)

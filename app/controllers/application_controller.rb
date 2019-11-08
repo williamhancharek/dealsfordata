@@ -2,19 +2,12 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :set_role
 
-  def after_sign_in_path_for(resource)
-    if resource.role == 'customer'
-      customer_path(current_user)
-    elsif resource.role == "merchant"
-      merchant_path(current_user)
-    elsif resource.role == "employee"
-      employee_path(current_user)
-    elsif resource.role == "admin"
-      admin_users_path
-    end
-  end
 
   private
+
+  def after_sign_in_path_for(resource)
+    send("#{resource.role}_path",current_user)
+  end
 
   def set_role
     if current_user == nil
@@ -25,21 +18,19 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_role(*roles)
-    if !(current_user.role == "admin" || "employee")
+    if !(roles.include?(current_user.role))
       flash[:warning] = "not allowed access"
       redirect_to root_path
     end
   end
 
-  def ensure_employee #TODO there is def a better way to do this via cancancan
-    if !(current_user.role == "admin" || "employee")
-      flash[:warning] = "not allowed access"
-      redirect_to root_path
-    end
+  def set_user(instance,id)
+    instance_variable_set("@#{instance}",User.find(id))
   end
 
-  def set_customer
-    @customer = User.find(params[:customer_id])
+  def set_offer(instance,id)
+    instance_variable_set("@#{instance}",Offer.find(id))
   end
-
+  #TODO if I was legit I could combine set_user and set_offer into
+  #a single method and use some metaprogramming or some such
 end

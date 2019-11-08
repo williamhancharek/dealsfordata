@@ -1,6 +1,10 @@
 class Customers::OffersController < ApplicationController
-  before_action :set_customer, only: [:show, :edit, :update, :destroy, :index]
-  before_action :set_offer, only: [:show, :edit, :update, :destroy]
+  before_action only: [:show, :edit, :update, :destroy, :index] do
+    set_user("customer", params[:customer_id])
+  end
+  before_action only: [:show, :edit, :update, :destroy] do
+    set_offer("offer", params[:id])
+  end
 
   def index
     @offers = current_user.get_offers
@@ -27,9 +31,6 @@ class Customers::OffersController < ApplicationController
   end
 
   private
-  def set_offer
-    @offer = Offer.find(params[:id])
-  end
 
   def offer_params
     params.require(:offer).permit(:selected_option)

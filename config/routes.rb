@@ -14,9 +14,17 @@ Rails.application.routes.draw do
     resources :plaid_webhook, only: [:index]
   end
 
-  namespace :admin do
+  scope module: 'admin', path: 'admin', as: 'admin' do
     resources :users
   end
+
+  scope module: 'admin' do
+    resources :admin, only: [:show]
+  end
+  #
+  # namespace 'admin' do
+  #   resources :users
+  # end
 
   scope module: 'customers' do
     resources :customers, only: [:show, :edit, :update] do

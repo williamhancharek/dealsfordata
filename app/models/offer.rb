@@ -10,6 +10,12 @@ class Offer < ApplicationRecord
     self.save
   end
 
+  def merchant_name
+    self.merchant.name
+  end
+
+
+
 
 
 end

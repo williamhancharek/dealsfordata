@@ -1,6 +1,9 @@
 class Employees::Customers::CustomersController < ApplicationController
-  before_action :set_customer, only: [:show, :edit, :update, :destroy]
-  before_action :ensure_employee
+  before_action only: [:show, :edit, :update, :destroy] do
+    set_user("customer", params[:id])
+  end
+
+  before_action {ensure_role('employee')}
 
   def show
 
@@ -29,9 +32,7 @@ class Employees::Customers::CustomersController < ApplicationController
   end
 
   private
-  def set_customer
-    @customer = User.find(params[:id])
-  end
+
 
   def customer_params
     params.require(:user).permit(:keywords, :search_terms, :attributes, :modifiers)

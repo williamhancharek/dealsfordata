@@ -25,12 +25,15 @@ customers.each {|t| t.attach_identicon}
 
 merchants = User.create([{email: "m1@m.com",
                           role: "merchant",
+                          name: "merchant 1",
                           password: "tentenfour"},
                           {email: "m2@m.com",
+                          name: "merchant 2",
                           role: "merchant",
                           password: "tentenfour"},
                           {email: "m3@m.com",
                           role: "merchant",
+                          name: "merchant 3",
                           password: "tentenfour"}])
 merchants.each {|t| t.attach_identicon}
 

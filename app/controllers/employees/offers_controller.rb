@@ -21,6 +21,8 @@ class Employees::OffersController < ApplicationController
     @offer.tags = offer_params[:tags].split(' ')
     @offer.image.attach offer_params[:image]
 
+    #TODO the above code smells
+
     respond_to do |format|
       if @offer.save
         format.html { redirect_back fallback_location: :new, notice: "Offer was successfully created"}
