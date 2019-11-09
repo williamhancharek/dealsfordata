@@ -32,4 +32,5 @@ import '../stylesheets/application'
 // or the `imagePath` JavaScript helper below.
 
 //loading images
-const images = require.context('../images', true)
+//TODO this worked in local... but it's fucked in heroku
+//const images = require.context('../images', true)
