@@ -1,11 +1,13 @@
 class User < ApplicationRecord
   has_one_attached :identicon
+  #TODO Before_save, check that a customer doesn't have offers, and check that a
+  #merchant doesn't have boxes?
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :merchant_offers, class_name: "Offer", foreign_key: "merchant_id"
-  has_many :customer_offers, class_name: "Offer", foreign_key: "customer_id"
+  has_many :boxes
+  has_many :offers
 
   enum role: [:customer, :merchant, :employee, :admin]
   # validates_inclusion_of :keywords, :in => %r(a-zA-z)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_07_191506) do
+ActiveRecord::Schema.define(version: 2019_11_09_155443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -44,6 +44,24 @@ ActiveRecord::Schema.define(version: 2019_11_07_191506) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "boxes", force: :cascade do |t|
+    t.string "gender"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.text "search_terms"
+    t.string "name"
+    t.jsonb "keywords", default: "{}", null: false
+    t.jsonb "modifiers", default: "{}", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_boxes_on_user_id"
+  end
+
   create_table "items", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -62,12 +80,12 @@ ActiveRecord::Schema.define(version: 2019_11_07_191506) do
     t.string "tags", array: true
     t.string "options", array: true
     t.string "selected_option"
-    t.bigint "customer_id", null: false
-    t.bigint "merchant_id", null: false
-    t.index ["customer_id"], name: "index_offers_on_customer_id"
-    t.index ["merchant_id"], name: "index_offers_on_merchant_id"
+    t.bigint "box_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["box_id"], name: "index_offers_on_box_id"
     t.index ["options"], name: "index_offers_on_options", using: :gin
     t.index ["tags"], name: "index_offers_on_tags", using: :gin
+    t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -113,6 +131,9 @@ ActiveRecord::Schema.define(version: 2019_11_07_191506) do
 
   add_foreign_key "accounts", "items"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "boxes", "users"
   add_foreign_key "items", "users"
+  add_foreign_key "offers", "boxes"
+  add_foreign_key "offers", "users"
   add_foreign_key "transactions", "accounts"
 end

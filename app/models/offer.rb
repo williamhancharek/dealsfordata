@@ -1,6 +1,6 @@
 class Offer < ApplicationRecord
-  belongs_to :customer, class_name: "User"
-  belongs_to :merchant, class_name: "User"
+  belongs_to :box
+  belongs_to :user
   has_one_attached :image
 
 
