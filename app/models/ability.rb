@@ -9,13 +9,18 @@ class Ability
 
     if user.admin?
       can :manage, :all
-    elsif user.employee?
+    end
+
+    if user.employee?
       can :manage Offer
-      can :manage User #this is bad because I only want employees to be able to create new merchants, which are users
+      can :manage User
+    end #this is bad because I only want employees to be able to create new merchants, which are users
          #but this allows them to create anything... but whatever let's move on
-    elsif user.merchant?
+    if user.merchant?
       can :read Offer, id: offer.merchant_id
-    elsif user.customer?
+    end
+
+    if user.customer?
       can :update User, id: user.id
       can :update Offer, id: offer.customer_id
     end
