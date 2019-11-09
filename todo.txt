@@ -33,3 +33,6 @@ of Chrome will only deliver cookies with cross-site requests if they are set wit
  https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.
 
 TODO: took the following out of procfile.. webpacker: ./bin/webpack-dev-server
+TODO: I don't know how to set up the procfile correctly - before I uploaded to heroku, I had this thing to automatically start
+./bin/webpack-dev-server.  However, I removed that from the procfile so it wouldn't fuck with the heroku start... so am I supposed
+to have two procfiles? or somethign?  I don't know

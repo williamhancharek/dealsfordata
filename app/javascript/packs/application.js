@@ -36,3 +36,5 @@ import '../stylesheets/application'
 //loading images
 //TODO this worked in local... but it's fucked in heroku
 //const images = require.context('../images', true)
+
+import "controllers"
