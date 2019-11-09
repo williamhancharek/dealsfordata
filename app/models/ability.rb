@@ -12,17 +12,17 @@ class Ability
     end
 
     if user.employee?
-      can :manage Offer
-      can :manage User
+      can :manage, Offer
+      can :manage, User
     end #this is bad because I only want employees to be able to create new merchants, which are users
          #but this allows them to create anything... but whatever let's move on
     if user.merchant?
-      can :read Offer, id: offer.merchant_id
+      can :read, Offer, id: offer.merchant_id
     end
 
     if user.customer?
-      can :update User, id: user.id
-      can :update Offer, id: offer.customer_id
+      can :update, User, id: user.id
+      can :update, Offer, id: offer.customer_id
     end
        #   #TODO there is an issue here - I want the user to be able to update the
        #   #offer's selection, but they should not be able to update the offer's contents - they can't re-write the description
