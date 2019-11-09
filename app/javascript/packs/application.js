@@ -4,12 +4,14 @@
 // that code so it'll be compiled.
 
 //loading StimulusJS
-import { Application } from 'stimulus'
-import { definitionsFromContext } from 'stimulus/webpack-helpers'
+// import { Application } from 'stimulus'
+// import { definitionsFromContext } from 'stimulus/webpack-helpers'
+//
+// const application = Application.start()
+// const context = require.context("controllers", true, /\.js$/)
+// application.load(definitionsFromContext(context))
+//TODO  the line used to be like this: const context = require.context("./controllers", true, /\.js$/)
 
-const application = Application.start()
-const context = require.context("controllers", true, /\.js$/)
-application.load(definitionsFromContext(context))
 
 
 //template
