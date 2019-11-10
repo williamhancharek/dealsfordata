@@ -21,46 +21,39 @@ Rails.application.routes.draw do
   scope module: 'admin' do
     resources :admin, only: [:show]
   end
-  #
-  # namespace 'admin' do
-  #   resources :users
-  # end
 
-  scope module: 'customers' do
-    resources :customers, only: [:show, :edit, :update] do
-      resources :offers, only: [:index, :show, :edit, :update]
+  scope module: 'customers', as: 'customers', path: 'customers' do
+    resources :users, only: [:show, :edit, :update] do
+      resources :boxes, only: [:index]
+    end
+    resources :boxes, only: [:show, :edit, :update, :create, :new, :destroy] do
+      resources :offers, only: [:index]
       scope module: 'offers' do
         resources :completed, only: [:index]
       end
     end
-  end
-
-  scope module: 'merchants' do
-    resources :merchants, only: [:show, :edit, :update] do
-      resources :offers, only: [:index, :show]
+    resources :offers, only: [:edit, :update, :show] do
     end
   end
 
-  scope module: 'employees/customers', path: 'employees', as: 'employee' do
-    resources :customers, only: [:show, :edit, :update, :index] do
-        resources :offers, only: [:index]
+  scope module: 'merchants', as: 'merchants', path: 'merchants' do
+    resources :users, only: [:show, :edit, :update] do
+      resources :offers, only: [:index]
     end
-  end
-
-  scope module: 'employees/merchants', path: 'employees', as: 'employee' do
-    resources :merchants, only: [:show, :edit, :update, :index, :new, :create, :destroy] do
-        resources :offers, only: [:index]
-    end
+    resources :offers, only: [:show]
   end
 
   scope module: 'employees', path: 'employees', as: 'employee' do
+    resources :users do
+        resources :boxes, only: [:index]
+        resources :offers, only: [:index]
+    end
     resources :offers, only: [:show, :edit, :update, :new, :create, :destroy]
+    resources :boxes, only: [:show, :edit, :update, :destroy] do
+      resources :offers, only: [:index, :show, :edit, :update, :destroy]
+    end
   end
-
-
 
   resources :employees, only: [:show]
   resources :faq, only: [:index]
-  resources :offers, only: [:index, :show, :edit, :update]
-
 end
