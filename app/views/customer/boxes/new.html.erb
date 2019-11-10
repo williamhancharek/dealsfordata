@@ -1,0 +1,8 @@
+customer new box file
+
+  <%=simple_form_for @box, url:customer_boxes_path do |f| %>
+  <%=f.input :search_terms %>
+  <%=f.input :name%>
+  <%=f.input :keywords%>
+  <%= f.button :submit, "submit", class:["btn-sm", "btn-w-m btn-primary"] %>
+  <%end%>
