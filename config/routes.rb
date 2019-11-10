@@ -23,14 +23,13 @@ Rails.application.routes.draw do
   end
 
   scope module: 'customers', as: 'customers', path: 'customers' do
-    resources :users, only: [:show, :edit, :update] do
-      resources :boxes, only: [:index]
-    end
-    resources :boxes, only: [:show, :edit, :update, :create, :new, :destroy] do
-      resources :offers, only: [:index]
-      scope module: 'offers' do
-        resources :completed, only: [:index]
+      resources :users, only: [:show, :edit, :update] do
+        resources :boxes, only: [:index]
       end
+
+      resources :boxes, only: [:show, :edit, :update, :create, :new, :destroy] do
+        resources :offers, only: [:index]
+        resources :completed_offers, only: [:index]
     end
     resources :offers, only: [:edit, :update, :show] do
     end
@@ -44,13 +43,19 @@ Rails.application.routes.draw do
   end
 
   scope module: 'employees', path: 'employees', as: 'employee' do
-    resources :users do
-        resources :boxes, only: [:index]
-        resources :offers, only: [:index]
+    scope module: 'users' do
+      resources :users do
+          resources :boxes, only: [:index]
+          resources :offers, only: [:index]
+        end
     end
-    resources :offers, only: [:show, :edit, :update, :new, :create, :destroy]
-    resources :boxes, only: [:show, :edit, :update, :destroy] do
-      resources :offers, only: [:index, :show, :edit, :update, :destroy]
+    scope module: 'boxes' do
+      resources :boxes, only: [:show, :edit, :update, :destroy] do
+        resources :offers, only: [:index]
+      end
+    end
+    scope module: 'offers' do
+      resources :offers
     end
   end
 
