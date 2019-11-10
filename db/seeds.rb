@@ -6,47 +6,47 @@
 #   movies = Movie.create([ name: 'Star Wars' ,  name: 'Lord of the Rings' ])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-customers = User.create([{email: "c1@c.com",
-                        role: "customer",
-                        search_terms: "I like skateboards looking for a cool thing like that",
-                        keywords: "skateboards cool",
-                        password: "tentenfour"},
-                        {email: "c2@c.com",
-                        role: "customer",
-                        search_terms: "diamond rings and other wedding gifts",
-                        keywords: "rings diamond wedding",
-                        password: "tentenfour"},
-                        {email: "c3@c.com",
-                        role: "customer",
-                        search_terms: "fluffy pet toys",
-                        keywords: "fluffy pet toys",
-                        password: "tentenfour"}])
-customers.each {|t| t.attach_identicon}
-
-merchants = User.create([{email: "m1@m.com",
-                          role: "merchant",
-                          name: "merchant 1",
-                          password: "tentenfour"},
-                          {email: "m2@m.com",
-                          name: "merchant 2",
-                          role: "merchant",
-                          password: "tentenfour"},
-                          {email: "m3@m.com",
-                          role: "merchant",
-                          name: "merchant 3",
-                          password: "tentenfour"}])
-merchants.each {|t| t.attach_identicon}
-
-employees = User.create([{email: "e1@e.com",
-                          role: "employee",
-                          password: "tentenfour"},
-                          {email: "e2@e.com",
-                          role: "employee",
-                          password: "tentenfour"},
-                          {email: "e3@e.com",
-                          role: "employee",
-                          password: "tentenfour"}])
-employees.each {|t| t.attach_identicon}
+# customers = User.create([{email: "c1@c.com",
+#                         role: "customer",
+#                         search_terms: "I like skateboards looking for a cool thing like that",
+#                         keywords: "skateboards cool",
+#                         password: "tentenfour"},
+#                         {email: "c2@c.com",
+#                         role: "customer",
+#                         search_terms: "diamond rings and other wedding gifts",
+#                         keywords: "rings diamond wedding",
+#                         password: "tentenfour"},
+#                         {email: "c3@c.com",
+#                         role: "customer",
+#                         search_terms: "fluffy pet toys",
+#                         keywords: "fluffy pet toys",
+#                         password: "tentenfour"}])
+# customers.each {|t| t.attach_identicon}
+#
+# merchants = User.create([{email: "m1@m.com",
+#                           role: "merchant",
+#                           name: "merchant 1",
+#                           password: "tentenfour"},
+#                           {email: "m2@m.com",
+#                           name: "merchant 2",
+#                           role: "merchant",
+#                           password: "tentenfour"},
+#                           {email: "m3@m.com",
+#                           role: "merchant",
+#                           name: "merchant 3",
+#                           password: "tentenfour"}])
+# merchants.each {|t| t.attach_identicon}
+#
+# employees = User.create([{email: "e1@e.com",
+#                           role: "employee",
+#                           password: "tentenfour"},
+#                           {email: "e2@e.com",
+#                           role: "employee",
+#                           password: "tentenfour"},
+#                           {email: "e3@e.com",
+#                           role: "employee",
+#                           password: "tentenfour"}])
+# employees.each {|t| t.attach_identicon}
 
 admin = User.create([{email: "a1@a.com",
                       role: "admin",

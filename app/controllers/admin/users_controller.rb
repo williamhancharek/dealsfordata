@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
   before_action {ensure_role('admin')}
   before_action only: [:show, :edit, :update, :destroy] do
-    set_user("user", params[:id])
+    set_instance(instance:"user", id:params[:id],object: :User)
   end
 
   def show

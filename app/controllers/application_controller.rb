@@ -24,13 +24,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def set_user(instance,id)
-    instance_variable_set("@#{instance}",User.find(id))
+  def set_instance(instance:,id:, object:)
+    instance_variable_set("@#{instance}",Object.const_get(object).find(id))
   end
 
-  def set_offer(instance,id)
-    instance_variable_set("@#{instance}",Offer.find(id))
-  end
-  #TODO if I was legit I could combine set_user and set_offer into
-  #a single method and use some metaprogramming or some such
 end
