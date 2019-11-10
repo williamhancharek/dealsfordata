@@ -1,4 +1,4 @@
-class Customers::OffersController < ApplicationController
+class Customer::OffersController < ApplicationController
   before_action only: [:show, :edit, :update, :destroy, :index] do
     set_user("customer", params[:customer_id])
   end

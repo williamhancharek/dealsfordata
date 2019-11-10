@@ -1,6 +1,6 @@
-class Customers::CustomersController < ApplicationController
+class Customer::UsersController < ApplicationController
   before_action only: [:show, :edit, :update] do
-    set_user("customer",params[:id])
+    set_instance(instance:"customer",id:params[:id],object: :User)
   end
 
   def show
@@ -30,4 +30,6 @@ class Customers::CustomersController < ApplicationController
   def customer_params
     params.require(:user).permit(:keywords, :search_terms, :attributes)
   end
+
+
 end

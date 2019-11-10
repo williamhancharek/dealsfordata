@@ -16,22 +16,24 @@ Rails.application.routes.draw do
 
   scope module: 'admin', path: 'admin', as: 'admin' do
     resources :users
+    resources :home, only: [:show]
   end
 
   scope module: 'admin' do
     resources :admin, only: [:show]
   end
 
-  scope module: 'customers', as: 'customers', path: 'customers' do
-      resources :users, only: [:show, :edit, :update] do
-        resources :boxes, only: [:index]
-      end
+  scope module: 'customer', as: 'customer', path: 'customer' do
+    resources :home, only: [:show]
+    resources :offers, only: [:edit, :update, :show]
 
-      resources :boxes, only: [:show, :edit, :update, :create, :new, :destroy] do
-        resources :offers, only: [:index]
-        resources :completed_offers, only: [:index]
+    resources :users, only: [:show, :edit, :update] do
+      resources :boxes, only: [:index]
     end
-    resources :offers, only: [:edit, :update, :show] do
+
+    resources :boxes, only: [:show, :edit, :update, :create, :new, :destroy] do
+      resources :offers, only: [:index]
+      resources :completed_offers, only: [:index]
     end
   end
 

@@ -1,4 +1,4 @@
-class Customers::BoxesController < ApplicationController
+class Customer::BoxesController < ApplicationController
   before_action only: [:index] do
     {set_instance(instance:'customer', id:params[:user_id],object:User)}
   end

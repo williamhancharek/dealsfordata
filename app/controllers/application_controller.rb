@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
 
   def after_sign_in_path_for(resource)
-    send("#{resource.role}_path",current_user)
+    send("#{resource.role}_home_path",current_user)
   end
 
   def set_role
