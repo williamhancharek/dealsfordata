@@ -29,7 +29,7 @@ class Employees::OffersController < ApplicationController
         format.json {render :new, status: :createc, location: @user} #I don't know what this means
       else
         format.html {render :new}
-        format.json {render json: @blah.errors, status: :unprocessable_entity}
+        format.json {render json: @offer.errors, status: :unprocessable_entity}
       end
     end
 

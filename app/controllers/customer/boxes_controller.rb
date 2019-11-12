@@ -1,5 +1,5 @@
 class Customer::BoxesController < ApplicationController
-  before_action only: [:index] do
+  before_action only: [:index, :create] do
     set_instance(instance:'customer',
                         id:params[:user_id],
                     object: :User)
@@ -18,7 +18,17 @@ class Customer::BoxesController < ApplicationController
   end
 
   def create
-    
+    @box = @customer.boxes.build(box_params)
+    respond_to do |format|
+      if @box.save
+        format.html { redirect_back fallback_location: :new, notice: "box was successfully created"}
+        format.json {render :new, status: :createc, location: @user} #I don't know what this means
+      else
+        format.html {render :new}
+        format.json {render json: @box.errors, status: :unprocessable_entity}
+      end
+    end
+
   end
 
   def show
@@ -30,7 +40,8 @@ class Customer::BoxesController < ApplicationController
 
   private
 
-  def boxes_params
+  def box_params
+    params.require(:box).permit(:search_terms, :name, :keywords)
     #todo
   end
 

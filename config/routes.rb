@@ -28,10 +28,10 @@ Rails.application.routes.draw do
     resources :offers, only: [:edit, :update, :show]
 
     resources :users, only: [:show, :edit, :update] do
-      resources :boxes, only: [:index]
+      resources :boxes, only: [:index, :new, :create]
     end
 
-    resources :boxes, only: [:show, :edit, :update, :create, :new, :destroy] do
+    resources :boxes, only: [:show, :edit, :update, :destroy] do
       resources :offers, only: [:index]
       resources :completed_offers, only: [:index]
     end

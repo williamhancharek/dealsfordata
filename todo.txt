@@ -24,7 +24,8 @@ TODO: only allow plaid webhook requests from the following IP addresses:
 52.41.247.19
 52.88.82.239
 https://support.plaid.com/hc/en-us/articles/360008414233-Webhook-overview
-
+TODO: tag_controller = I can't individually remove tags until i make it into a list and I'm super like... not feeling that
+https://codepen.io/gregja/pen/LdYjmE
 TODO: take care of this error: A cookie associated with a cross-site resource at
 http://cdn.plaid.com/ was set without the `SameSite` attribute. A future release
 of Chrome will only deliver cookies with cross-site requests if they are set with

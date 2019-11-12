@@ -1,8 +1,19 @@
 customer new box file
 
-  <%=simple_form_for @box, url:customer_boxes_path do |f| %>
-  <%=f.input :search_terms %>
-  <%=f.input :name%>
-  <%=f.input :keywords%>
-  <%= f.button :submit, "submit", class:["btn-sm", "btn-w-m btn-primary"] %>
-  <%end%>
+<%=simple_form_for @box, url:customer_user_boxes_path do |f| %>
+<%=f.input :search_terms %>
+<%=f.input :name%>
+<div data-controller="tag">
+<%=f.input :keywords, as: :hidden, placeholder: "add one tag at a time", input_html: {'data-target': "tag.keyword" }%>
+  <input data-target="tag.name" type="text">
+
+  <button data-action="click->tag#add">
+    Add
+  </button>
+  <button data-action="click->tag#reset">
+    reset
+  </button>
+  <span data-target="tag.output"></span>
+</div>
+<%= f.button :submit, "submit", class:["btn-sm", "btn-w-m btn-primary"] %>
+<%end%>
