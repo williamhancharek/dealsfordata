@@ -3,9 +3,11 @@ class Employees::Offers::OffersController < ApplicationController
   def new
     @offer = Offer.new
     @boxes = Box.all
+    if !(params[:campaign_id].blank?)
+      @campaign = Campaign.find(params[:campaign_id])
+    end #TODO I am trying to make the "new" form automatically select the campaign I am coming from,
+    #if I am coming from the merchants --> campaigns --> new offer link - but it doesn't work..
     @campaigns = Campaign.all
-    @merchant_emails = User.where(role:"merchant").map {|t| [t.email, t.id]}
-    @customer_emails = User.where(role:"customer").map {|t| [t.email, t.id]}
   end
 
   def create #TODO stole this and I need to make sure it works

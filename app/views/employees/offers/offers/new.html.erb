@@ -8,7 +8,9 @@ employee new offer page
                                   ['coupon', ['purchase', 'ew', 'not now', 'is it worth?']],
                                   ['advertisement',['useful', 'not useful', 'spam', 'already seen']]]%>
 <%=f.input :image%>
-<%=f.input :box_id, label:"box", collection: @boxes%>
-<%=f.input :campaign_id, label:"campaign", collection: @campaigns%>
+<%=f.input :box_id, label:"box",
+                    collection: @boxes%>
+<%=f.input :campaign_id, label:"campaign",
+                         collection: @campaigns%>
 <%=f.button :submit%>
 <% end %>

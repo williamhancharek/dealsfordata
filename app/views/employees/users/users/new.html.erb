@@ -1,0 +1,13 @@
+employee new user path
+create new user
+<%=simple_form_for @user, url: employee_users_path do |f| %>
+  <%=f.input :email%>
+  <%=f.input :name%>
+  <%=f.input :password%>
+  <%=f.input :password_confirmation%>
+  <%=f.input :search_terms%>
+  <%=f.input :keywords%>
+  <%=f.input :modifiers%>
+  <%=f.input :role, collection: ["customer", "merchant"]%>
+  <%=f.button :submit, "submit", class:["btn-sm", "btn-w-m btn-primary"] %>
+<%end%>

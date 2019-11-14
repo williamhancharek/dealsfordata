@@ -1,0 +1,7 @@
+employee campaigns new path
+<p>Merchant: <%=@merchant.name%></p>
+
+<%=simple_form_for @campaign, url: employee_user_campaigns_path(@merchant) do |f| %>
+  <%=f.input :name%>
+  <%=f.button :submit, "submit", class:["btn-sm", "btn-w-m btn-primary"] %>
+<%end%>

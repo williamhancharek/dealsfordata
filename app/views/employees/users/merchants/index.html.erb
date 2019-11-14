@@ -1,0 +1,11 @@
+employee merchant index page
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Campaign list</th>
+  </tr>
+  <%=render partial: "merchant", collection: @merchants%>
+</table>
+
+<%=link_to "create new merchant", new_employee_user_path%>

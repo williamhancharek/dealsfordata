@@ -46,14 +46,16 @@ Rails.application.routes.draw do
 
   scope module: 'employees', path: 'employees', as: 'employee' do
     resources :home, only: [:show]
+
     scope module: 'users' do
-      resources :users do
-          resources :boxes, only: [:index]
-          resources :campaigns, only: [:index]
-          resources :merchants, only: [:index]
-          resources :customers, only: [:index]
-        end
+      resources :users, only: [:new, :create, :show] do
+        resources :campaigns, only: [:index, :new, :create]
+        resources :boxes, only: [:index]
+      end
+      resources :merchants, only: [:index]
+      resources :customers, only: [:index]
     end
+
     scope module: 'boxes' do
       resources :boxes, only: [:show, :edit, :update, :destroy, :index] do
         resources :offers, only: [:index]

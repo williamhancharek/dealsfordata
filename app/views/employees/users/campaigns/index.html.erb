@@ -1,0 +1,13 @@
+<p>employee merchant campaign index</p>
+<p>Merchant: <%=@merchant.name%></p>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>total offers</th>
+    <th>active offers</th>
+    <th>create offer</th>
+  </tr>
+  <%=render partial: "campaign", collection: @campaigns%>
+</table>
+
+<%=link_to "create new campaign", new_employee_user_campaign_path(@merchant)%>
