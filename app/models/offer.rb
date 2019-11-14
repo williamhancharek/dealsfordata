@@ -1,6 +1,6 @@
 class Offer < ApplicationRecord
   belongs_to :box
-  belongs_to :user
+  belongs_to :campaign
   has_one_attached :image
 
 

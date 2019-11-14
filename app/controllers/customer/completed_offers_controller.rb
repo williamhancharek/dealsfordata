@@ -4,6 +4,6 @@ class Customer::CompletedOffersController < ApplicationController
   end
 
   def index
-    @offers = current_user.get_old_offers
+    @offers = current_user.old_offers
   end
 end

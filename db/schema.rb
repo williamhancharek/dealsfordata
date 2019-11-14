@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_09_155443) do
+ActiveRecord::Schema.define(version: 2019_11_14_200058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -62,6 +62,13 @@ ActiveRecord::Schema.define(version: 2019_11_09_155443) do
     t.index ["user_id"], name: "index_boxes_on_user_id"
   end
 
+  create_table "campaigns", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_campaigns_on_user_id"
+  end
+
   create_table "items", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -81,11 +88,11 @@ ActiveRecord::Schema.define(version: 2019_11_09_155443) do
     t.string "options", array: true
     t.string "selected_option"
     t.bigint "box_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "campaign_id"
     t.index ["box_id"], name: "index_offers_on_box_id"
+    t.index ["campaign_id"], name: "index_offers_on_campaign_id"
     t.index ["options"], name: "index_offers_on_options", using: :gin
     t.index ["tags"], name: "index_offers_on_tags", using: :gin
-    t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -132,8 +139,9 @@ ActiveRecord::Schema.define(version: 2019_11_09_155443) do
   add_foreign_key "accounts", "items"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "boxes", "users"
+  add_foreign_key "campaigns", "users"
   add_foreign_key "items", "users"
   add_foreign_key "offers", "boxes"
-  add_foreign_key "offers", "users"
+  add_foreign_key "offers", "campaigns"
   add_foreign_key "transactions", "accounts"
 end

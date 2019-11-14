@@ -7,29 +7,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :boxes
-  has_many :offers
+  has_many :campaigns
 
   enum role: [:customer, :merchant, :employee, :admin]
   # validates_inclusion_of :keywords, :in => %r(a-zA-z)
 
 #CUSTOMER METHODS
-  def get_offers #I can probably make this a one-liner using some kind of build the method as I go thing... but fuck it
-    case self.role
-    when 'customer'
-      self.customer_offers.where("status = true")
-    when 'merchant'
-      self.merchant_offers.where("status = true")
-    end
-  end
-
-  def get_old_offers
-    case self.role
-    when 'customer'
-      self.customer_offers.where("status = false")
-    when 'merchant'
-      self.merchant_offers.where("status = false")
-    end
-  end
 
 
   def update_keywords(keywords)

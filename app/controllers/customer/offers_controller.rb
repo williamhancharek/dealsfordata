@@ -1,13 +1,15 @@
 class Customer::OffersController < ApplicationController
-  before_action only: [:show, :edit, :update, :destroy, :index] do
-    set_user("customer", params[:customer_id])
+  before_action only: [:index] do
+    set_instance(instance:"box",id: params[:box_id], object: :Box)
   end
   before_action only: [:show, :edit, :update, :destroy] do
-    set_offer("offer", params[:id])
+    set_instance(instance: "offer", id: params[:id], object: :Offer)
   end
 
+  before_action only: [:index, :show]
+
   def index
-    @offers = current_user.get_offers
+    @offers = @box.active_offers
   end
 
   def edit

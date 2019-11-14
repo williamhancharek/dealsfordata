@@ -9,7 +9,7 @@ class OffersController < ApplicationController
   end
 
   def index
-    @offers = current_user.get_offers
+    @offers = current_user.active_offers
   end
 
   def update

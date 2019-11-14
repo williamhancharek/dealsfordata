@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><%=box.name%></h5>
+    <p class='card-text'>Search terms:
+      <%=box.search_terms%></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Gender:<%=box.gender || "none" %></li>
+    <li class="list-group-item">Location:</li>
+    <li class="list-group-item">Keywords:<%=box.keywords%></li>
+  </ul>
+  <div class="card-body">
+    <%=link_to "edit", edit_customer_box_path(box.id)%> |
+    <%=link_to "offers", customer_box_offers_path(box)%>
+  </div>
+</div>

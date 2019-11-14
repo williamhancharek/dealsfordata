@@ -24,6 +24,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def ensure_owner(id)
+    box = Box.find(id)
+    binding.pry_remote
+
+  end
+
+
   def set_instance(instance:,id:, object:)
     instance_variable_set("@#{instance}",Object.const_get(object).find(id))
   end

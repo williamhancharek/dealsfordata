@@ -1,0 +1,43 @@
+<h1>customer edit box page</h1>
+
+
+  <%=simple_form_for @box, url: customer_box_path do |f|%>
+      <%=f.input :name,
+                wrapper_html: {class: "form-group row"},
+                label_html: {class: "col-sm-2 col-form-label"},
+                input_html: {class: "col-sm-10 form-control"}%>
+      <%=f.input :search_terms,
+                wrapper_html: {class: "form-group row"},
+                label_html: {class: "col-sm-2 col-form-label"},
+                input_html: {class: "col-sm-10 form-control"}%>
+      <%=f.input :keywords,
+                wrapper_html: {class: "form-group row"},
+                label_html: {class: "col-sm-2 col-form-label"},
+                input_html: {class: "col-sm-10 form-control"}%>
+      <%=f.input :gender,
+                collection: ['Male', 'Female'],
+                wrapper_html: {class: "form-group row"},
+                label_html: {class: "col-sm-2 col-form-label"},
+                input_html: {class: "col-sm-10 form-control"}%>
+      <div class="form-group row">
+        <div class="col-sm-2">
+      <%=f.label :address%>
+      </div>
+      <div class ="col-sm-10">
+        <%=@box.address%>
+        </div>
+      </div>
+      <%=f.input :street,
+                wrapper_html: {class: "form-group row"},
+                label_html: {class: "col-sm-2 col-form-label"},
+                input_html: {class: "col-sm-10 form-control"}%>
+      <%=f.input :city,
+                wrapper_html: {class: "form-group row"},
+                label_html: {class: "col-sm-2 col-form-label"},
+                input_html: {class: "col-sm-10 form-control"}%>
+      <%=f.input :state,
+                wrapper_html: {class: "form-group row"},
+                label_html: {class: "col-sm-2 col-form-label"},
+                input_html: {class: "col-sm-10 form-control"}%>
+      <%=f.button :submit%>
+    <%end%>
