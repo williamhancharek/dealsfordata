@@ -1,10 +1,12 @@
 class Employees::OffersController < ApplicationController
+  before_action {ensure_role("admin","employee")}
+
   before_action only: [:index] do
     set_instance(instance:"box",id: params[:box_id], object: :Box)
   end
 
   def index
-    @offers = @box.active_offers
+    @offers = @box.offers
   end
 
   def new
@@ -18,7 +20,7 @@ class Employees::OffersController < ApplicationController
     @offer.options = JSON.parse(offer_params[:options])
     @offer.tags = offer_params[:tags].split(' ')
     @offer.image.attach offer_params[:image]
-    
+
     respond_to do |format|
       if @offer.save
         format.html {redirect_back fallback_location: :new, notice: "offer was successfully created"}

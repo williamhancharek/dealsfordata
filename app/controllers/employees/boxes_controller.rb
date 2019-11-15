@@ -1,7 +1,7 @@
 class Employees::BoxesController < ApplicationController
+  before_action {ensure_role("admin","employee")}
 
   def index
-
     if params[:id].blank?
       @boxes = Box.all
     else
