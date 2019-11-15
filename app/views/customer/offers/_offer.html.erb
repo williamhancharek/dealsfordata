@@ -9,7 +9,7 @@
           <h5 class="card-title"><%=offer.title%></h5>
           <h5 class="card-subtitle text-muted"><%=offer.merchant_name%></h5>
           <p class='card-text'><%=offer.description%></p>
-          <%= simple_form_for(offer, url: customer_offer_path(@customer, offer)) do |f| %>
+          <%= simple_form_for(offer, url: customer_offer_path(offer)) do |f| %>
           <%=f.input :selected_option,
                       as: :radio_buttons,
                       collection: offer.options,

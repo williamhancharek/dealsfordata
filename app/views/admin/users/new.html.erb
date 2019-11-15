@@ -3,9 +3,6 @@ create new user
   <%=f.input :email%>
   <%=f.input :password%>
   <%=f.input :password_confirmation%>
-  <%=f.input :search_terms%>
-  <%=f.input :keywords%>
-  <%=f.input :modifiers%>
   <%=f.input :role, collection: ["customer", "merchant", "employee", "admin"]%>
 
   <%=f.button :submit, "submit", class:["btn-sm", "btn-w-m btn-primary"] %>

@@ -11,7 +11,7 @@ class Offer < ApplicationRecord
   end
 
   def merchant_name
-    self.merchant.name
+    self.campaign.user.name
   end
 
 

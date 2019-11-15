@@ -1,14 +1,12 @@
 
 <tr>
   <td><%=offer.status%></td>
-  <td><%=offer.created_at%></td>
   <td><%=offer.updated_at%></td>
   <td><%=offer.description%></td>
   <td><%=offer.tags%></td>
   <td><%=offer.options%></td>
   <td><%=offer.selected_option%></td>
-  <td><%=offer.customer.email%></td>
-  <td><%=offer.merchant.email%></td>
+  <td><%=offer.campaign.name%></td>
   <td><%=offer.image.attached? ? image_tag(offer.image) : nil%></td>
 
   </tr>

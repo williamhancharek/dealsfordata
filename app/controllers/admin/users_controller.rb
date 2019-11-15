@@ -34,6 +34,7 @@ class Admin::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.attach_identicon
     respond_to do |format|
       if @user.save
         format.html { redirect_back fallback_location: :index, notice: "User was successfully created"}

@@ -14,7 +14,10 @@ class Employees::OffersController < ApplicationController
   end
 
   def create
-    @offer = Offer.new
+    @offer = Offer.new(offer_params)
+    @offer.options = JSON.parse(offer_params[:options])
+    @offer.tags = offer_params[:tags].split(' ')
+    @offer.image.attach offer_params[:image]
     respond_to do |format|
       if @offer.save
         format.html {redirect_back fallback_location: :new, notice: "offer was successfully created"}

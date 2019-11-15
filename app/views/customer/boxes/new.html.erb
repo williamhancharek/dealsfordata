@@ -3,6 +3,11 @@ customer new box file
 <%=simple_form_for @box, url:customer_user_boxes_path do |f| %>
 <%=f.input :search_terms %>
 <%=f.input :name%>
+<%=f.input :gender, collection: ["male", "female"]%>
+<%=f.input :street%>
+<%=f.input :city%>
+<%=f.input :state%>
+<%=f.input :country%>
 <div data-controller="tag">
 <%=f.input :keywords, as: :hidden, placeholder: "add one tag at a time", input_html: {'data-target': "tag.keyword" }%>
   <input data-target="tag.name" type="text">

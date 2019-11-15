@@ -27,19 +27,4 @@
       </div>
     </div>
   </div>
-
-
-    <div class="col-sm-6">
-      <div class="card mb-3">
-        <div class="card-body">
-          <h5 class="card-title">Your Search Profile</h5>
-          <p class="card-text"></p>
-          <p>Your search terms:</p>
-          <p><%=current_user.search_terms%></p>
-          <p>keywords: <%=current_user.keywords%></p>
-          <p>modifiers: There shouldn't be anything here since this may be hidden from the user eventually <%=current_user.modifiers%></p>
-          <%= link_to "update search and keywords", edit_customer_user_path(current_user)%>
-        </div>
-      </div>
-    </div>
 </div>
