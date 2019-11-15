@@ -1,6 +1,8 @@
-class Employees::Users::MerchantsController < ApplicationController
+class Employees::MerchantsController < ApplicationController
 
   def index
-    @merchants = User.where(role:'merchant')
+    binding.pry_remote
+    @merchants = User.roles.where(role:"merchant")
   end
+
 end

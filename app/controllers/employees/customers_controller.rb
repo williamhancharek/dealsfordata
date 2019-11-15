@@ -1,4 +1,4 @@
-class Employees::Users::CustomersController < ApplicationController
+class Employees::CustomersController < ApplicationController
 
   def index
     @customers = User.where(role:"customer")

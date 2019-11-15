@@ -1,9 +1,6 @@
 <tr>
   <td><%=link_to "Profile",employee_user_path(customer)%></td>
   <td><%=customer.email%></td>
-  <td><%=customer.search_terms%></td>
-  <td><%=customer.keywords%></td>
-  <td><%=customer.modifiers%></td>
-  <td><%=link_to "Boxes", employee_user_boxes_path(customer) %></td>
+  <td><%=link_to "Boxes", employee_boxes_path(id: customer.id) %></td>
   <td>txn history TODO</td>
 </tr>

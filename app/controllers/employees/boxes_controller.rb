@@ -1,11 +1,22 @@
-class Employees::Boxes::BoxesController < ApplicationController
+class Employees::BoxesController < ApplicationController
 
   def index
-    @boxes = Box.all
 
+    if params[:id].blank?
+      @boxes = Box.all
+    else
+      @user = User.find(params[:id])
+      @boxes = @user.boxes
+    end
   end
 
   def show
+
+  end
+
+  private
+
+  def box_params
 
   end
 

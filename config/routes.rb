@@ -48,8 +48,7 @@ Rails.application.routes.draw do
     resources :home, only: [:show]
     resources :merchants, only: [:index]
     resources :customers, only: [:index]
-    resources :employees, only: [:show]
-    resources :offers, only: [:show, :edit, :update, :destroy]
+    resources :offers, only: [:show, :edit, :update, :destroy, :new, :create]
 
     resources :users, only: [:new, :create, :show] do
       resources :campaigns, only: [:index, :new, :create]
@@ -63,6 +62,7 @@ Rails.application.routes.draw do
       resources :offers, only: [:index]
     end
   end
+  resources :employees, only: [:show]
 
 
 end

@@ -1,4 +1,4 @@
-class Employees::Users::UsersController < ApplicationController
+class Employees::UsersController < ApplicationController
   # before_action only: [:show, :edit, :update, :destroy] do
   #   set_instance(instance:"user", id:params[:id],object: :User)
   # end
@@ -19,6 +19,11 @@ class Employees::Users::UsersController < ApplicationController
         format.json {render json: @campaign.errors, status: :unprocessable_entity}
       end
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
+
   end
 
   private

@@ -1,4 +1,4 @@
-class Employees::Users::CampaignsController < ApplicationController
+class Employees::CampaignsController < ApplicationController
   before_action only: [:index, :new, :create] do
     set_instance(instance:'merchant',
                         id:params[:user_id],

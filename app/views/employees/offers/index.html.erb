@@ -1,5 +1,5 @@
 <p>employee customer index offers page</p>
-<p>Offers for customer <%=@customer.email%></p>
+<p>Offers for Box: <%=@box.name%></p>
 <table>
   <tr>
     <th>status</th>
@@ -8,12 +8,12 @@
     <th>description</th>
     <th>tags</th>
     <th>options</th>
-    <th>selected_options</th>
+    <th>selected_option</th>
     <th>customer</th>
     <th>merchant</th>
     <th>image</th>
   </tr>
-  <%= render partial: "offer", collection: @customer_offers, as: :offer%>
+  <%= render partial: "offer", collection: @offers, as: :offer%>
 
 </table>
 
