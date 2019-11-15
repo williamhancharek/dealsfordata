@@ -1,5 +1,5 @@
 class Box < ApplicationRecord
-  belongs_to :user, dependent: :destroy #TODO do I need to add dependent, destroy?
+  belongs_to :user #TODO do I need to add dependent, destroy?
   has_many :offers
   geocoded_by :address
 

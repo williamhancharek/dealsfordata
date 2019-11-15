@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   scope module: 'customer', as: 'customer', path: 'customer' do
     resources :home, only: [:show]
     resources :offers, only: [:edit, :update, :show]
+    resources :completed_offers, only: [:update]
 
     resources :users, only: [:show, :edit, :update] do
       resources :boxes, only: [:index, :new, :create]

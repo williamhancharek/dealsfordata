@@ -6,8 +6,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :boxes
-  has_many :campaigns
+  has_many :boxes, dependent: :destroy
+  has_many :campaigns, dependent: :destroy
 
   enum role: [:customer, :merchant, :employee, :admin]
   # validates_inclusion_of :keywords, :in => %r(a-zA-z)

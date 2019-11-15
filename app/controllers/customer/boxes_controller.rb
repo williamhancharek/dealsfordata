@@ -1,8 +1,6 @@
 class Customer::BoxesController < ApplicationController
   before_action only: [:index, :create] do
-    set_instance(instance:'customer',
-                        id:params[:user_id],
-                    object: :User)
+    set_instance(instance:'customer',id:params[:user_id],object: :User)
   end
 
   before_action only: [:show, :edit, :update, :destroy] do
@@ -51,6 +49,14 @@ class Customer::BoxesController < ApplicationController
   end
 
   def edit
+  end
+
+  def destroy
+    @box.destroy
+    respond_to do |format|
+      format.html {redirect_to customer_user_boxes_path(current_user), notice: "box was successfully destroyed"}
+      format.json {head :no_content}
+    end
   end
 
 

@@ -5,9 +5,6 @@ create new user
   <%=f.input :name%>
   <%=f.input :password%>
   <%=f.input :password_confirmation%>
-  <%=f.input :search_terms%>
-  <%=f.input :keywords%>
-  <%=f.input :modifiers%>
   <%=f.input :role, collection: ["customer", "merchant"]%>
   <%=f.button :submit, "submit", class:["btn-sm", "btn-w-m btn-primary"] %>
 <%end%>

@@ -6,17 +6,16 @@ class Customer::OffersController < ApplicationController
     set_instance(instance: "offer", id: params[:id], object: :Offer)
   end
 
-  before_action only: [:index, :show]
-
   def index
     @offers = @box.active_offers
   end
 
   def edit
-
+    #offers don't need to be edited in their own page - right now it's in a partial
   end
 
   def update
+    binding.pry_remote
     respond_to do |format|
       if @offer.update(offer_params)
         flash[:success] = "successfully updated" #possibly delete this stupid message
@@ -35,7 +34,7 @@ class Customer::OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:selected_option)
+    params.require(:offer).permit(:selected_option, :options)
   end
 
 end
