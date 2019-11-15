@@ -15,8 +15,6 @@ class Employees::OffersController < ApplicationController
 
   def create
     @offer = Offer.new
-    binding.pry_remote
-
     respond_to do |format|
       if @offer.save
         format.html {redirect_back fallback_location: :new, notice: "offer was successfully created"}
@@ -37,7 +35,7 @@ class Employees::OffersController < ApplicationController
                                   :image,
                                   :box_id,
                                   :campaign_id,
-                                  options: [])
+                                  :options)
   end
 
 end
