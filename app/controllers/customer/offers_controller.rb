@@ -15,7 +15,6 @@ class Customer::OffersController < ApplicationController
   end
 
   def update
-    binding.pry_remote
     respond_to do |format|
       if @offer.update(offer_params)
         flash[:success] = "successfully updated" #possibly delete this stupid message

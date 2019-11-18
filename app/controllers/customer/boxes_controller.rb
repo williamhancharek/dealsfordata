@@ -31,7 +31,7 @@ class Customer::BoxesController < ApplicationController
 
   end
 
-  def create
+  def create #TODO start here - address is apparently not saved
     @box = @customer.boxes.build(box_params)
     respond_to do |format|
       if @box.save
@@ -59,11 +59,10 @@ class Customer::BoxesController < ApplicationController
     end
   end
 
-
   private
 
   def box_params
-    params.require(:box).permit(:search_terms, :name, :keywords, :street, :city, :state, :country)
+    params.require(:box).permit(:search_terms, :name, :keywords, :street, :city, :state, :country, :gender)
     #todo
   end
 

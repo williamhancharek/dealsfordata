@@ -26,8 +26,6 @@ class ApplicationController < ActionController::Base
 
   def ensure_owner(id)
     box = Box.find(id)
-    binding.pry_remote
-
   end
 
 
