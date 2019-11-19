@@ -3,6 +3,9 @@ class Box < ApplicationRecord
   has_many :offers
   geocoded_by :address
 
+  enum public: [:false, :true]
+
+
   def address
     [street, city, state, country].compact.join(', ')
   end
