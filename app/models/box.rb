@@ -3,6 +3,12 @@ class Box < ApplicationRecord
   has_many :offers
   geocoded_by :address
 
+  has_many :subscriber_relationships, foreign_key: :subscribing_id, class_name: 'Subscription'
+  has_many :subscribers, through: :subscriber_relationships, source: :subscriber
+
+  has_many :subscribing_relationships, foreign_key: :subscriber_id, class_name: 'Subscription'
+  has_many :subscribing, through:  :subscribing_relationships, source: :subscribing
+
   enum public: [:false, :true]
 
 
@@ -16,6 +22,14 @@ class Box < ApplicationRecord
 
   def old_offers
     self.offers.where("status = false")
+  end
+
+  def subscribe(box_id)
+    subscribing_relationships.create(subscribing_id: box_id)
+  end
+
+  def unsubscribe(box_id)
+    subscribing_relationships.find_by(subscribing_id: box_id).destroy
   end
 
 end
