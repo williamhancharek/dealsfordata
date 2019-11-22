@@ -10,12 +10,6 @@
     <li class="list-group-item">Keywords:<%=box.keywords%></li>
   </ul>
   <div class="card-body">
-    <%=link_to "delete", customer_box_path(box), method: :delete%>
-    |
-    <%=link_to "edit", edit_customer_box_path(box)%>
-    |
-    <%=link_to "offers", customer_box_offers_path(box)%>
-    |
-    <%=link_to "completed offers", customer_box_completed_offers_path(box)%>
+    <%= render partial: @box_links, locals: {box: box} %>
   </div>
 </div>

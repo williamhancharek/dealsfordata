@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_19_025356) do
+ActiveRecord::Schema.define(version: 2019_11_19_025536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -95,6 +95,16 @@ ActiveRecord::Schema.define(version: 2019_11_19_025356) do
     t.index ["campaign_id"], name: "index_offers_on_campaign_id"
     t.index ["options"], name: "index_offers_on_options", using: :gin
     t.index ["tags"], name: "index_offers_on_tags", using: :gin
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer "subscriber_id", null: false
+    t.integer "subscribing_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["subscriber_id"], name: "index_subscriptions_on_subscriber_id"
+    t.index ["subscribing_id", "subscriber_id"], name: "index_subscriptions_on_subscribing_id_and_subscriber_id", unique: true
+    t.index ["subscribing_id"], name: "index_subscriptions_on_subscribing_id"
   end
 
   create_table "transactions", force: :cascade do |t|

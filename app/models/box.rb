@@ -5,9 +5,11 @@ class Box < ApplicationRecord
 
   has_many :subscriber_relationships, foreign_key: :subscribing_id, class_name: 'Subscription'
   has_many :subscribers, through: :subscriber_relationships, source: :subscriber
+  #subscriber means the number of other boxes following the box
 
   has_many :subscribing_relationships, foreign_key: :subscriber_id, class_name: 'Subscription'
-  has_many :subscribing, through:  :subscribing_relationships, source: :subscribing
+  has_many :subscribing, through: :subscribing_relationships, source: :subscribing
+  #subscribing means the number of boxes the box is following
 
   enum public: [:false, :true]
 

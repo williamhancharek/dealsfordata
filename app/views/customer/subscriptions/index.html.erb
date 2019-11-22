@@ -1,0 +1,11 @@
+customer box subscriptions index Subscriptions for Box #<%=@box.id%>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>address</th>
+    <th>search terms</th>
+    <th>key words</th>
+  </tr>
+  <%=render partial: "box", collection: @subscriptions, as: :box%>
+</table>

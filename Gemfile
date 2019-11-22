@@ -28,7 +28,6 @@ gem 'plaid'
 gem 'geocoder'
 gem 'image_processing', '~> 1.2'
 gem 'country_select'
-#TODO set up identicons
 
 #TODO decide about the following gems:
 #gem 'rails_admin'

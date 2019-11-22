@@ -37,4 +37,5 @@ class Customer::OffersController < ApplicationController
   end
 
 end
-#TODO ending here - need to review navbar to make sure customer offers is navigating to the right controller
+#TODO ending here - need to review navbar to make sure customer offers is
+#navigating to the right controller

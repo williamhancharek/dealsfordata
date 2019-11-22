@@ -8,7 +8,17 @@ class Customer::BoxesController < ApplicationController
   end
 
   def index
-    @boxes = @customer.boxes
+    if params[:foreign_box] == "true"
+      @customer_box = Box.find(params[:box_id])
+      @boxes = Box.where("user_id != ?", @customer.id)
+      @box_links = "foreign_box_links"
+      @title = "foreign_box_index_title"
+    else
+      @boxes = @customer.boxes
+      @box_links = "customer_box_links"
+      @title = "customer_box_index_title"
+
+    end
   end
 
   def new
@@ -62,8 +72,7 @@ class Customer::BoxesController < ApplicationController
   private
 
   def box_params
-    params.require(:box).permit(:search_terms, :name, :keywords, :street, :city, :state, :country, :gender, :public)
-    #todo
+    params.require(:box).permit(:search_terms, :name, :keywords, :street, :city, :state, :country, :gender, :public, :foreign_box, :box_id)
   end
 
 end

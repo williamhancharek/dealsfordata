@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :home, only: [:show]
     resources :offers, only: [:edit, :update, :show]
     resources :completed_offers, only: [:update]
+    resources :subscriptions, only: [:edit, :update, :show, :edit, :destroy]
 
     resources :users, only: [:show, :edit, :update] do
       resources :boxes, only: [:index, :new, :create]
@@ -35,6 +36,7 @@ Rails.application.routes.draw do
     resources :boxes, only: [:show, :edit, :update, :destroy] do
       resources :offers, only: [:index]
       resources :completed_offers, only: [:index]
+      resources :subscriptions, only: [:index, :new, :create]
     end
   end
 
@@ -64,6 +66,5 @@ Rails.application.routes.draw do
     end
   end
   resources :employees, only: [:show]
-
 
 end
