@@ -1,4 +1,4 @@
-<div class="card">
+off<div class="card">
   <div class="card-body">
     <h5 class="card-title">Title: <%=box.name%></h5>
     <p class='card-text'>Search terms:
@@ -10,6 +10,6 @@
     <li class="list-group-item">Keywords:<%=box.keywords%></li>
   </ul>
   <div class="card-body">
-    <%= render partial: @box_links, locals: {box: box} %>
+    <%= render partial: @box_links, locals: {box: box, subscribed: @customer_box.subscribed?(box.id)} %>
   </div>
 </div>

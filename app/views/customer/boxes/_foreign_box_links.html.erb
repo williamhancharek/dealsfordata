@@ -1,4 +1,8 @@
-<%=link_to "follow", customer_box_subscriptions_path(box, subscriber_id: @customer_box.id), method: :post%>
+<%if (subscribed==true)%>
+  <%=link_to "unfollow", customer_subscription_path(Subscription.find_by(:subscribing_id => box.id, :subscriber_id => @customer_box.id)), method: :delete%>
+<%else%>
+  <%=link_to "follow", customer_box_subscriptions_path(box, subscriber_id: @customer_box.id), method: :post%>
+<%end%>
 |
 <%=link_to "see followers", customer_box_subscriptions_path(box)%>
 |
