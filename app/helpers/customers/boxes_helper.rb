@@ -1,2 +1,0 @@
-module Customers::BoxesHelper
-end

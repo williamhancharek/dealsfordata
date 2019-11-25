@@ -1,0 +1,3 @@
+module Customer::CompletedOffersHelper
+
+end

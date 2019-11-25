@@ -1,0 +1,19 @@
+<div class="col-sm-6">
+  <div class="card mb-3">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <%=offer.image.attached? ? image_tag(offer.image, class:"card-img") : nil %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%=offer.title%></h5>
+          <h5 class="card-subtitle text-muted"><%=offer.merchant_name%></h5>
+          <p class='card-text'><%=offer.description%></p>
+          <p class='card-text'>Offered Options:</p>
+          <p class='card-text'>Selected Option:
+            <%=offer.selected_option%></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -16,7 +16,12 @@ class Box < ApplicationRecord
 
 
   def address
-    [street, city, state, country].compact.join(', ')
+
+    if street.to_s.length == 0 && city.to_s.length == 0 && state.to_s.length == 0 && country.to_s.length == 0
+      return "unstated"
+    else
+      [street, city, state, country].compact.join(', ')
+    end
   end
 
   def active_offers

@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :set_role
 
-
   private
 
   def after_sign_in_path_for(resource)
@@ -27,7 +26,6 @@ class ApplicationController < ActionController::Base
   def ensure_owner(id)
     box = Box.find(id)
   end
-
 
   def set_instance(instance:,id:, object:)
     instance_variable_set("@#{instance}",Object.const_get(object).find(id))

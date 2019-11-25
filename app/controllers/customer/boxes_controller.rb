@@ -8,7 +8,6 @@ class Customer::BoxesController < ApplicationController
   end
 
   def index
-    binding.pry_remote
     if params[:foreign_box] == "true"
       @customer_box = Box.find(params[:box_id])
       @boxes = Box.where("user_id != ?", @customer.id)
@@ -18,7 +17,6 @@ class Customer::BoxesController < ApplicationController
       @boxes = @customer.boxes
       @box_links = "customer_box_links"
       @title = "customer_box_index_title"
-
     end
   end
 

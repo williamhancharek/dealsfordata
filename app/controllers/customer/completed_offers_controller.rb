@@ -9,6 +9,11 @@ class Customer::CompletedOffersController < ApplicationController
 
   def index
     @completed_offers = @box.old_offers
+    if @box.user == current_user
+      @completed_offer = "customer_completed_offer"
+    else
+      @completed_offer = "foreign_completed_offer"
+    end
   end
 
   def update
