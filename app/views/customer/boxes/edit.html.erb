@@ -2,10 +2,12 @@
 
   <%=simple_form_for(@box, method: :patch, url: customer_box_path) do |f|%>
       <%=f.input :name,
+                presence: true,
                 wrapper_html: {class: "form-group row"},
                 label_html: {class: "col-sm-2 col-form-label"},
                 input_html: {class: "col-sm-10 form-control"}%>
       <%=f.input :search_terms,
+                  presence: true,
                 wrapper_html: {class: "form-group row"},
                 label_html: {class: "col-sm-2 col-form-label"},
                 input_html: {class: "col-sm-10 form-control"}%>

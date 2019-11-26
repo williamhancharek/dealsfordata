@@ -17,7 +17,8 @@
                       as: :radio_buttons,
                       collection: offer.options,
                       wrapper_html: {class: ['i-checks']},
-                      item_wrapper_tag: :div%>
+                      item_wrapper_tag: :div,
+                      presence: true%>
             <%= f.button :submit, "change your mind", class:["btn-sm", "btn-w-m btn-primary"] %>
           <%end%>
         </div>

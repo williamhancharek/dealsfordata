@@ -17,11 +17,13 @@ class Customer::OffersController < ApplicationController
   def update
     respond_to do |format|
       if @offer.update(offer_params)
+        if !(@offer.public_selected_option.nil?)
+          PropagateOfferJob.perform_async(offer_id: @offer.id,box_id: @box.id)
         flash[:success] = "successfully updated" #possibly delete this stupid message
         format.html { redirect_back(fallback_location: :index)}
         format.json { render :index, status: :ok  }
       else
-        format.html { render :index}
+        format.html {redirect_back(fallback_location: :index, alert: "offer didn't update")}
         format.json {render json: @offer.errors, status: :unprocessable_entity}
       end
     end
@@ -39,7 +41,7 @@ class Customer::OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:selected_option, :options)
+    params.require(:offer).permit(:selected_option, :options, :public_selected_option, :commentary)
   end
 
 end

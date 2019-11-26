@@ -8,7 +8,12 @@ class Customer::SubscriptionsController < ApplicationController
   end
 
   def index
-    @subscriptions = @box.subscribers
+      case params[:format]
+      when "subscribers"
+        @subscriptions = @box.subscribers
+      when "subscriptions"
+          @subscriptions = @box.subscribing
+      end
   end
 
   def create

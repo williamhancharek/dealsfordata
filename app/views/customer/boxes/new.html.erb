@@ -1,8 +1,8 @@
 customer new box file
 
 <%=simple_form_for @box, url:customer_user_boxes_path do |f| %>
-<%=f.input :search_terms %>
-<%=f.input :name, label: "Name Your Box"%>
+<%=f.input :name, label: "Name Your Box", presence: true%>
+<%=f.input :search_terms, presence: true %>
 <%=f.input :gender, collection: ["male", "female"]%>
 <%=f.input :street%>
 <%=f.input :city%>

@@ -4,8 +4,8 @@
   <%=link_to "follow", customer_box_subscriptions_path(box, subscriber_id: subscriber.id), method: :post, remote: true%>
 <%end%>
 |
-<%=link_to "see followers", customer_box_subscriptions_path(box)%>
+<%=link_to "see subscribers", customer_box_subscriptions_path(box, "subscribers")%>
 |
-<%=link_to "see following", customer_box_subscriptions_path(box)%>
+<%=link_to "see subscriptions", customer_box_subscriptions_path(box, "subscribing")%>
 |
 <%=link_to "completed offers", customer_box_completed_offers_path(box)%>

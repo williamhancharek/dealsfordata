@@ -38,4 +38,5 @@ TODO: I don't know how to set up the procfile correctly - before I uploaded to h
 ./bin/webpack-dev-server.  However, I removed that from the procfile so it wouldn't fuck with the heroku start... so am I supposed
 to have two procfiles? or somethign?  I don't know
 TODO: when I try to run rails db:seed with foreman start going then it fails... I don't really understand why... but ignoring this issue for now
-TODO: A box can subscribe to itself.  This is wrong.  
+TODO: A box can subscribe to itself.  This is wrong.
+TODO: the employee offer create form has no javascript side protections - should incorpoate basics - tried to fix but it's not working - it still hits server first..

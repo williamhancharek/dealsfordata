@@ -18,6 +18,7 @@ class Employees::OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
     @offer.options = JSON.parse(offer_params[:options])
+    @offer.public_options = ['send', 'extra hot!']
     @offer.tags = offer_params[:tags].split(' ')
     @offer.image.attach offer_params[:image]
 
@@ -26,7 +27,7 @@ class Employees::OffersController < ApplicationController
         format.html {redirect_back fallback_location: :new, notice: "offer was successfully created"}
         format.json {render :new, status: :create, location: @user}
       else
-        format.html {render :new, notice: "offer was not created"}
+        format.html {redirect_back fallback_location: :index, alert: "offer was not created"}
         format.json {render json: @offer.errors, status: :unprocessable_entity}
       end
     end

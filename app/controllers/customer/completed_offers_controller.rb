@@ -23,7 +23,7 @@ class Customer::CompletedOffersController < ApplicationController
         format.html { redirect_back(fallback_location: :index)}
         format.json { render :index, status: :ok  }
       else
-        format.html { render :index}
+        format.html { redirect_back(fallback_location: :index)}
         format.json {render json: @offer.errors, status: :unprocessable_entity}
       end
     end

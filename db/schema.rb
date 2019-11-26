@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_19_025536) do
+ActiveRecord::Schema.define(version: 2019_11_26_170852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -91,6 +91,10 @@ ActiveRecord::Schema.define(version: 2019_11_19_025536) do
     t.string "selected_option"
     t.bigint "box_id", null: false
     t.bigint "campaign_id"
+    t.string "public_selected_option"
+    t.string "public_options", array: true
+    t.string "commentary"
+    t.bigint "referrer", array: true
     t.index ["box_id"], name: "index_offers_on_box_id"
     t.index ["campaign_id"], name: "index_offers_on_campaign_id"
     t.index ["options"], name: "index_offers_on_options", using: :gin

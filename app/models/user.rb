@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  validates :email, presence: true
   has_one_attached :identicon
   #TODO Before_save, check that a customer doesn't have offers, and check that a
   #merchant doesn't have boxes?

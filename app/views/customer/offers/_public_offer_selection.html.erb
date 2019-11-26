@@ -1,0 +1,7 @@
+<%=f.input :public_selected_option,
+            as: :radio_buttons,
+            collection: offer.public_options,
+            wrapper_html: {class: ['i-checks']},
+            item_wrapper_tag: :div,
+            presence: true%>
+<%=f.input :commentary%>
