@@ -1,4 +1,4 @@
-<%if (subscriber.subscribed?(box)==true)%>
+<%if (subscribed == true)%>
   <%=link_to "unfollow", customer_subscription_path(Subscription.find_by(:subscribing_id => box.id, :subscriber_id => subscriber.id)), method: :delete, remote: true%>
 <%else%>
   <%=link_to "follow", customer_box_subscriptions_path(box, subscriber_id: subscriber.id), method: :post, remote: true%>
