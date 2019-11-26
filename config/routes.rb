@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   scope module: 'customer', as: 'customer', path: 'customer' do
     resources :home, only: [:show]
-    resources :offers, only: [:edit, :update, :show]
+    resources :offers, only: [:edit, :update, :show, :edit, :create, :destroy]
     resources :completed_offers, only: [:update]
     resources :subscriptions, only: [:edit, :update, :show, :edit, :destroy]
 

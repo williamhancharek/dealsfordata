@@ -30,6 +30,12 @@ class Customer::OffersController < ApplicationController
   def show
   end
 
+  def create
+  end
+
+  def destroy
+  end
+
   private
 
   def offer_params

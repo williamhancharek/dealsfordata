@@ -12,7 +12,7 @@ class Box < ApplicationRecord
   has_many :subscribing, through: :subscribing_relationships, source: :subscribing
   #subscribing means the number of boxes the box is following
 
-  enum public: [:false, :true]
+  enum public: [:false, :true] #0 = false, which is private, 1 is true, which is public
 
 
   def address

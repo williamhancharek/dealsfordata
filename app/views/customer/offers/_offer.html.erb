@@ -10,9 +10,10 @@
           <h5 class="card-subtitle text-muted"><%=offer.merchant_name%></h5>
           <p class='card-text'><%=offer.description%></p>
           <%= simple_form_for(offer, url: customer_offer_path(offer), method: "patch") do |f| %>
-          <%=f.input :selected_option, as: :radio_buttons, collection: offer.options, wrapper_html: {class: ['i-checks']}, item_wrapper_tag: :div%>
-          <%= f.button :submit, "submit", class:["btn-sm", "btn-w-m btn-primary"] %>
-        <%end%>
+            <%=f.input :selected_option, as: :radio_buttons, collection: offer.options, wrapper_html: {class: ['i-checks']}, item_wrapper_tag: :div%>
+            <%= f.button :submit, "submit", class:["btn-sm", "btn-w-m btn-primary"] %>
+          <%end%>
+          <%= sendOffer(offer) %>
       </div>
     </div>
   </div>

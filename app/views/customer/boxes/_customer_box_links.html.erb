@@ -6,4 +6,4 @@
 |
 <%=link_to "completed offers", customer_box_completed_offers_path(box)%>
 |
-<%=link_to fa_icon("heart 2x",text:"follow other boxes"), customer_user_boxes_path(current_user, foreign_box: true, box_id: box.id)%>
+<%=link_to "follow other boxes", customer_user_boxes_path(current_user, foreign_box: true, box_id: box.id)%>

@@ -9,7 +9,7 @@
           <h5 class="card-title"><%=offer.title%></h5>
           <h5 class="card-subtitle text-muted"><%=offer.merchant_name%></h5>
           <p class='card-text'><%=offer.description%></p>
-          <p class='card-text'>Offered Options:</p>
+          <p class='card-text'>Offered Options:<%=offer.options.join(", ")%></p>
           <p class='card-text'>Selected Option:
             <%=offer.selected_option%></p>
         </div>
@@ -17,3 +17,5 @@
     </div>
   </div>
 </div>
+
+#TODO - map out the public/private part of boxes - when it's public then you can send offers to other boxes, and people can see your seleciton history
