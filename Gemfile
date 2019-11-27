@@ -16,11 +16,11 @@ gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 
+gem 'sidekiq'
 gem 'devise'
 gem 'cancancan'
 gem 'simple_form'
 gem 'omniauth-google-oauth2' #TODO
-gem 'sidekiq'
 gem 'aws-sdk-s3' #TODO - storing transaction info here
 gem 'ruby_identicon'
 gem 'font-awesome-rails'

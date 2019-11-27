@@ -18,7 +18,8 @@ class Customer::OffersController < ApplicationController
     respond_to do |format|
       if @offer.update(offer_params)
         if !(@offer.public_selected_option.nil?)
-          PropagateOfferJob.perform_async(offer_id: @offer.id,box_id: @box.id)
+          PropagateOfferWorker.perform_async(@offer.id, @offer.box.id)
+        end
         flash[:success] = "successfully updated" #possibly delete this stupid message
         format.html { redirect_back(fallback_location: :index)}
         format.json { render :index, status: :ok  }
@@ -45,5 +46,3 @@ class Customer::OffersController < ApplicationController
   end
 
 end
-#TODO ending here - need to review navbar to make sure customer offers is
-#navigating to the right controller

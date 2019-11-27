@@ -10,7 +10,7 @@ class Plaid::AccessTokenController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        TransactionsRequestJob.perform_later(days: 30,access_token: @item.access_token, user: current_user ) #TODO what should I pass in for the transaction job?
+        TransactionsRequestWorker.perform_async(days: 30,access_token: @item.access_token, user: current_user.id) #TODO what should I pass in for the transaction job?
         #format.js #OPTIMIZE - I want to use jquery to do a small database call so I don't have to do
         #a full refresh to get all the data regarding customer integrations
         format.html {redirect_to(customer_path(current_user))}

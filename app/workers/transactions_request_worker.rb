@@ -1,8 +1,8 @@
-class TransactionsRequestJob < ApplicationJob
-  queue_as :default
+class TransactionsRequestWorker
+  include Sidekiq::Worker
 
   def perform(days:, access_token:, user_id:)
-    user = User.find(user_id)
+    user = User.find(user_id) #TODO what did I need this user for?
     now = Date.today
     thirty_days_ago = (now - days)
     begin
