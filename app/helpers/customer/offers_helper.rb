@@ -6,6 +6,13 @@ module Customer::OffersHelper
     end
   end
 
+  def referralInfo(offer:)
+    if !(offer.original_offer_id.nil?)
+      box = Box.find(offer.referrer.last)
+      render partial: 'referral_info', locals: {offer:offer, box: box}
+    end
+  end
+
 end
 
 #TODO there's an issue with offers thing - it's where it says submit instead of the correct text
