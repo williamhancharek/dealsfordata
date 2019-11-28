@@ -1,9 +1,15 @@
 class Customer::OffersController < ApplicationController
-  before_action only: [:index] do
+  before_action only: [:index, :new] do
     set_instance(instance:"box",id: params[:box_id], object: :Box)
   end
   before_action only: [:show, :edit, :update, :destroy] do
     set_instance(instance: "offer", id: params[:id], object: :Offer)
+  end
+
+  def new
+    @offer = @box.offers.build
+    @offer.referrer = [@box.id]
+    @offer.campaign = Campaign.first
   end
 
   def index
@@ -34,6 +40,22 @@ class Customer::OffersController < ApplicationController
   end
 
   def create
+    @offer = Offer.new(offer_params)
+    @offer.options = JSON.parse(offer_params[:options])
+    @offer.public_options = ['send', 'extra hot!']
+    @offer.tags = offer_params[:tags].split(' ')
+    @offer.image.attach offer_params[:image]
+    binding.pry_remote
+
+    respond_to do |format|
+      if @offer.save
+        format.html {redirect_back fallback_location: :index, notice: "offer was successfully created"}
+        format.json {render :new, status: :create, location: @user}
+      else
+        format.html {redirect_back fallback_location: :index, alert: "offer was not created"}
+        format.json {render json: @offer.errors, status: :unprocessable_entity}
+      end
+    end
   end
 
   def destroy
@@ -42,7 +64,17 @@ class Customer::OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:selected_option, :options, :public_selected_option, :commentary)
+    params.require(:offer).permit(:selected_option,
+                                  :options,
+                                  :public_selected_option,
+                                  :commentary,
+                                  :title,
+                                  :description,
+                                  :tags,
+                                  :image,
+                                  :box_id,
+                                  :campaign_id,
+                                  :options)
   end
 
 end

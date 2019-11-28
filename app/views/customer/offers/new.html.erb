@@ -1,0 +1,16 @@
+customer new offer page
+
+<%= simple_form_for(@offer, method: :post, url: customer_offers_path) do |f| %>
+<%=f.input :title, presence: true%>
+<%=f.input :description, presence: true%>
+<%=f.input :tags%>
+<%=f.input :options, presence: true,
+                      required: true,
+                        collection: [['question', ['yes', 'no', 'no answer', 'spam']],
+                                  ['coupon', ['purchase', 'ew', 'not now', 'is it worth?']],
+                                  ['advertisement',['useful', 'not useful', 'spam', 'already seen']]]%>
+<%=f.input :campaign_id, as: :hidden%>
+<%=f.input :box_id, as: :hidden%>
+<%=f.input :image%>
+<%=f.button :submit%>
+<% end %>

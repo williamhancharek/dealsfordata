@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   scope module: 'customer', as: 'customer', path: 'customer' do
     resources :home, only: [:show]
-    resources :offers, only: [:edit, :update, :show, :edit, :create, :destroy]
+    resources :offers, only: [:edit, :update, :show, :create, :destroy]
     resources :completed_offers, only: [:update]
     resources :subscriptions, only: [:edit, :update, :show, :edit, :destroy]
 
@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     end
 
     resources :boxes, only: [:show, :edit, :update, :destroy] do
-      resources :offers, only: [:index]
+      resources :offers, only: [:index, :new]
       resources :completed_offers, only: [:index]
       resources :subscriptions, only: [:index, :new, :create]
     end
