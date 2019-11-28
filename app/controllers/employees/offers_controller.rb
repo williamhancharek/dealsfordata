@@ -1,7 +1,7 @@
 class Employees::OffersController < ApplicationController
   before_action {ensure_role("admin","employee")}
 
-  before_action only: [:index] do
+  before_action only: [:index, :new] do
     set_instance(instance:"box",id: params[:box_id], object: :Box)
   end
 
@@ -10,7 +10,7 @@ class Employees::OffersController < ApplicationController
   end
 
   def new
-    @offer = Offer.new
+    @offer = @box.offers.build
     @boxes = Box.all
     @campaigns = Campaign.all #TODO this is a shit filter
   end
