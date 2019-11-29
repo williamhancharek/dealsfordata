@@ -40,3 +40,6 @@ TODO: when I try to run rails db:seed with foreman start going then it fails... 
 TODO: A box can subscribe to itself.  This is wrong.
 TODO: what happens when a customer makes an offer for his own box - what campaign should be assigned?
 TODO: the employee offer create form has no javascript side protections - should incorpoate basics - tried to fix but it's not working - it still hits server first..
+TODO: I don't have SSL enabled - when I do I will probably have to mess around with the domain name thing on namecheap
+TODO: I don't have mailing enabled - when i do will probably have to fuss with the domain name shit again
+TODO: datafordeals.com, wishjar.ca, and wishjar.app are not forwarding correctly. Need to incorporate ssl.
