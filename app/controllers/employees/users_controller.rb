@@ -1,5 +1,5 @@
 class Employees::UsersController < ApplicationController
-  before_action {ensure_role("admin","employee")}
+  before_action {ensure_role("admin","employee", "moderator")}
 
   # before_action only: [:show, :edit, :update, :destroy] do
   #   set_instance(instance:"user", id:params[:id],object: :User)

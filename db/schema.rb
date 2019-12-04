@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_01_230924) do
+ActiveRecord::Schema.define(version: 2019_12_04_025434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 2019_12_01_230924) do
     t.bigint "referrer", array: true
     t.string "received_commentary"
     t.bigint "original_offer_id"
+    t.boolean "approved", default: false
     t.index ["box_id"], name: "index_offers_on_box_id"
     t.index ["campaign_id"], name: "index_offers_on_campaign_id"
     t.index ["options"], name: "index_offers_on_options", using: :gin
@@ -151,6 +152,7 @@ ActiveRecord::Schema.define(version: 2019_12_01_230924) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.integer "assigned_boxes", default: [], array: true
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

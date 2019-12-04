@@ -34,6 +34,14 @@ class Box < ApplicationRecord
     self.offers.where("status = false")
   end
 
+  def unapproved_offers
+    self.offers.where("approved = false")
+  end
+
+  def approved_offers
+    self.offers.where("approved = true")
+  endbox.
+
   def subscribe(box_id)
     subscribing_relationships.create(subscribing_id: box_id)
   end

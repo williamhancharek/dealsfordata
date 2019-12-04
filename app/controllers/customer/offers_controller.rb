@@ -45,8 +45,6 @@ class Customer::OffersController < ApplicationController
     @offer.public_options = ['send', 'extra hot!']
     @offer.tags = offer_params[:tags].split(' ')
     @offer.image.attach offer_params[:image]
-    binding.pry_remote
-
     respond_to do |format|
       if @offer.save
         format.html {redirect_back fallback_location: :index, notice: "offer was successfully created"}

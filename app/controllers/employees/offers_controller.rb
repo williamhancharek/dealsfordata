@@ -1,5 +1,5 @@
 class Employees::OffersController < ApplicationController
-  before_action {ensure_role("admin","employee")}
+  before_action {ensure_role("admin","employee", "moderator")}
 
   before_action only: [:index, :new] do
     set_instance(instance:"box",id: params[:box_id], object: :Box)

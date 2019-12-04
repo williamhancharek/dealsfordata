@@ -1,5 +1,5 @@
 class Employees::CampaignsController < ApplicationController
-  before_action {ensure_role("admin","employee")}
+  before_action {ensure_role("admin","employee", "moderator")}
 
   before_action only: [:index, :new, :create] do
     set_instance(instance:'merchant',

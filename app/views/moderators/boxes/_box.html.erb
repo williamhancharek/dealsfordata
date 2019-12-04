@@ -7,5 +7,9 @@
   <td><%=box.modifiers%></td>
   <td><%=box.updated_at%></td>
   <td><%=box.address%></td>
-  <td><%=link_to "offers", employee_box_offers_path(box)%></td>
+  <%if (box.approved_offers.count > 1)%>
+    <td><%=link_to "needs approval", employee_box_offers_path(box)%></td>
+  <%else%>
+    <td><%=link_to "offers", employee_box_offers_path(box)%></td>
+  <%end%>
 </tr>

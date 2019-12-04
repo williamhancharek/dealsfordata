@@ -67,4 +67,12 @@ Rails.application.routes.draw do
   end
   resources :employees, only: [:show]
 
+  scope module: 'moderators', path: 'moderators', as: 'moderator' do
+    resources :home, only: [:show]
+    resources :boxes, only: [:show, :index]
+    resources :employees, only: [:index, :edit, :update]
+  end
+  resources :moderators, only: [:show]
+
+
 end

@@ -11,8 +11,10 @@ class User < ApplicationRecord
   has_many :boxes, dependent: :destroy
   has_many :campaigns, dependent: :destroy
 
-  enum role: [:customer, :merchant, :employee, :admin]
+  enum role: [:customer, :merchant, :employee, :admin, :moderator]
   # validates_inclusion_of :keywords, :in => %r(a-zA-z)
+
+
 
 #CUSTOMER METHODS
 
@@ -24,8 +26,32 @@ class User < ApplicationRecord
 
 #MERCHANT METHODS
 
-#EMPLOYEE METHODS
 
+#EMPLOYEE METHODS
+  # def list_boxes
+  #   boxes = []
+  #   if !(self.assigned_boxes.nil?)
+  #     self.assigned_boxes.each do |t|
+  #       boxes << find_box(t).id
+  #     end
+  #   end
+  #   return boxes
+  # end
+
+  # def find_box(t)
+  #   Box.find(t)
+  # end
+  #
+  # def remove_box(t)
+  #   self.assigned_boxes.delete(t)
+  # end
+  #
+  # def add_boxes(t)
+  #   self.assigned_boxes ||= []
+  #   if t.match(/[0-9]/)
+  #     self.assigned_boxes.push(t)
+  #   end
+  # end
 
 #ADMIN METHODS
   def attach_identicon

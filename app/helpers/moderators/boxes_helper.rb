@@ -1,0 +1,2 @@
+module Moderators::BoxesHelper
+end

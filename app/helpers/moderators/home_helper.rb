@@ -1,0 +1,2 @@
+module Moderators::HomeHelper
+end
