@@ -37,7 +37,6 @@ class Admin::UsersController < ApplicationController
     @user.attach_identicon
     respond_to do |format|
       if @user.save
-        @user.confirm
         format.html { redirect_back fallback_location: :index, notice: "User was successfully created"}
         format.json {render :new, status: :createc, location: @user} #I don't know what this means
       else
