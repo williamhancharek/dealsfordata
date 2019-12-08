@@ -5,6 +5,9 @@ class Box < ApplicationRecord
   validates :name, presence: true
   validates :search_terms, presence: true
 
+  has_many :assignments
+  has_many :employees, through: :assignments, source: 'user'
+
   has_many :subscriber_relationships, foreign_key: :subscribing_id, class_name: 'Subscription'
   has_many :subscribers, through: :subscriber_relationships, source: :subscriber
   #subscriber means the number of other boxes following the box - aka how many
@@ -40,7 +43,7 @@ class Box < ApplicationRecord
 
   def approved_offers
     self.offers.where("approved = true")
-  endbox.
+  end
 
   def subscribe(box_id)
     subscribing_relationships.create(subscribing_id: box_id)
@@ -58,5 +61,11 @@ class Box < ApplicationRecord
   def public?
     self.public == "true" ? true : false
   end
+
+  def list_employee_ids
+    self.employees.map {|t| t.id}
+  end
+
+
 
 end

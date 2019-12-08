@@ -1,0 +1,13 @@
+Moderator Offer Index page for Box # <%=@box.id%>
+<p>unapproved offers</p>
+<table>
+  <tr>
+    <th>title</th>
+    <th>description</th>
+    <th>tags</th>
+    <th>options</th>
+    <th>approved</th>
+    <th>button</th>
+  </tr>
+  <%=render partial: "offer", collection: @active_offers, as: :offer%>
+</table>

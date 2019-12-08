@@ -40,7 +40,8 @@ Rails.application.routes.draw do
     end
   end
 
-  scope module: 'merchants', as: 'merchants', path: 'merchants' do
+  scope module: 'merchants', as: 'merchant', path: 'merchants' do
+    resources :home, only: [:show]
     resources :users, only: [:show, :edit, :update] do
       resources :offers, only: [:index]
     end
@@ -69,10 +70,17 @@ Rails.application.routes.draw do
 
   scope module: 'moderators', path: 'moderators', as: 'moderator' do
     resources :home, only: [:show]
-    resources :boxes, only: [:show, :index]
     resources :employees, only: [:index, :edit, :update]
-  end
-  resources :moderators, only: [:show]
+    resources :offers, only: [:update, :destroy, :show]
+    resources :assignments, only: [:create, :destroy]
 
+    resources :boxes, only: [:show, :index] do
+      resources :offers, only: [:index]
+    end
+  end
+
+  scope module: 'moderators' do
+    resources :moderators, only: [:show]
+  end
 
 end

@@ -11,6 +11,9 @@ class User < ApplicationRecord
   has_many :boxes, dependent: :destroy
   has_many :campaigns, dependent: :destroy
 
+  has_many :assignments
+  has_many :assigned_boxes, through: :assignments, source: 'box'
+
   enum role: [:customer, :merchant, :employee, :admin, :moderator]
   # validates_inclusion_of :keywords, :in => %r(a-zA-z)
 

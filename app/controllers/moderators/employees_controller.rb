@@ -12,7 +12,7 @@ class Moderators::EmployeesController < ApplicationController
 
   def update
     @employee = User.find(params[:id])
-    @employee.update(assigned_boxes: user_params[:assigned_boxes].split(" "))
+    @employee.update(employee_params)
     respond_to do |format|
       if @employee.save
         format.html {redirect_back(fallback_location: :edit, notice: "user was successfully updated")}
@@ -26,7 +26,7 @@ class Moderators::EmployeesController < ApplicationController
 
   private
 
-  def user_params
+  def employee_params
     params.require(:user).permit(:assigned_boxes)
   end
 

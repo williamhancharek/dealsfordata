@@ -2,7 +2,7 @@
   <td><%=employee.email%></td>
   <td>
     <%employee.assigned_boxes.each do |t|%>
-      <%=link_to "box #{t}",moderator_box_path(t)%>
+      <%=link_to "box #{t.id}",moderator_box_path(t)%>
     <%end%>
   </td>
   <td><%=link_to "edit",edit_moderator_employee_path(employee.id)%></td>

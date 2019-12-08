@@ -7,9 +7,20 @@
   <td><%=box.modifiers%></td>
   <td><%=box.updated_at%></td>
   <td><%=box.address%></td>
-  <%if (box.approved_offers.count > 1)%>
-    <td><%=link_to "needs approval", employee_box_offers_path(box)%></td>
-  <%else%>
-    <td><%=link_to "offers", employee_box_offers_path(box)%></td>
-  <%end%>
-</tr>
+  <%if (box.unapproved_offers.count > 1)%>
+    <td><%=link_to "needs approvals", moderator_box_offers_path(box)%></td>
+    <%elsif (box.active_offers.count == 0)%>
+      <td><%=link_to "needs offers", moderator_box_offers_path(box)%></td>
+    <%else%>
+      <td><%=link_to "offers", moderator_box_offers_path(box)%></td>
+    <%end%>
+    <td>
+      <ul><%box.assignments.each do |t|%>
+        <li><%=link_to "#{t.user.email}", moderator_assignment_path(t), method: :delete%></li>
+  <%end%></ul></td>
+    <td><%=simple_form_for(@assignment,url: moderator_assignments_path) do |f|%>
+      <%=f.input :user, collection: @employees%>
+      <%= f.hidden_field :box_id, value: box.id%>
+      <%=f.button :submit, "submit"%>
+    <%end%></td>
+  </tr>

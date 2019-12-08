@@ -5,7 +5,6 @@
 #
 #   movies = Movie.create([ name: 'Star Wars' ,  name: 'Lord of the Rings' ])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 customers = User.create([{email: "c1@c.com",
                         role: "customer",
                         password: "tentenfour"},
@@ -15,7 +14,10 @@ customers = User.create([{email: "c1@c.com",
                         {email: "c3@c.com",
                         role: "customer",
                         password: "tentenfour"}])
-customers.each {|t| t.attach_identicon}
+
+customers.each do |t|
+  t.boxes.build(search_terms: "search terms #{t.id}", name: "test search box #{t.id}")
+end
 
 merchants = User.create([{email: "m1@m.com",
                           role: "merchant",
@@ -29,7 +31,6 @@ merchants = User.create([{email: "m1@m.com",
                           role: "merchant",
                           name: "merchant 3",
                           password: "tentenfour"}])
-merchants.each {|t| t.attach_identicon}
 
 employees = User.create([{email: "e1@e.com",
                           role: "employee",
@@ -40,7 +41,6 @@ employees = User.create([{email: "e1@e.com",
                           {email: "e3@e.com",
                           role: "employee",
                           password: "tentenfour"}])
-employees.each {|t| t.attach_identicon}
 
 admin = User.create([{email: "a1@a.com",
                       role: "admin",
@@ -48,4 +48,27 @@ admin = User.create([{email: "a1@a.com",
                       {email: "a2@a.com",
                       role: "admin",
                       password: "tentenfour"}])
-admin.each {|t| t.attach_identicon}
+
+admin.each do |t|
+  t.attach_identicon
+  t.skip_confirmation!
+  t.save
+end
+
+employees.each do |t|
+  t.attach_identicon
+  t.skip_confirmation!
+  t.save
+end
+
+merchants.each do |t|
+  t.attach_identicon
+  t.skip_confirmation!
+  t.save
+end
+
+customers.each do |t|
+  t.attach_identicon
+  t.skip_confirmation!
+  t.save
+end

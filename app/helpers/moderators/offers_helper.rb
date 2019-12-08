@@ -1,0 +1,2 @@
+module Moderators::OffersHelper
+end

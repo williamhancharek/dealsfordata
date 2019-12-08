@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_04_025434) do
+ActiveRecord::Schema.define(version: 2019_12_08_162153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 2019_12_04_025434) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "assignments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "box_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["box_id"], name: "index_assignments_on_box_id"
+    t.index ["user_id", "box_id"], name: "index_assignments_on_user_id_and_box_id", unique: true
+    t.index ["user_id"], name: "index_assignments_on_user_id"
   end
 
   create_table "boxes", force: :cascade do |t|
@@ -152,7 +162,6 @@ ActiveRecord::Schema.define(version: 2019_12_04_025434) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
-    t.integer "assigned_boxes", default: [], array: true
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

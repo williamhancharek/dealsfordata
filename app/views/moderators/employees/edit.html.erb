@@ -1,9 +1,4 @@
 <ul>
   <li><%=@employee.email%></li>
   <li><%=@employee.assigned_boxes%></li>
-  </ul>
-
-<%=simple_form_for(@employee, method: :patch, url: moderator_employee_path) do |f| %>
-<%=f.text_field :assigned_boxes%>
-<%=f.submit%>
-<%end%>
+</ul>
