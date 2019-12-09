@@ -32,6 +32,10 @@ merchants = User.create([{email: "m1@m.com",
                           name: "merchant 3",
                           password: "tentenfour"}])
 
+merchants.each do |t|
+  t.campaigns.build(name: "campaign #{t}")
+end
+
 employees = User.create([{email: "e1@e.com",
                           role: "employee",
                           password: "tentenfour"},
