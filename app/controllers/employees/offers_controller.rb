@@ -25,7 +25,9 @@ class Employees::OffersController < ApplicationController
     respond_to do |format|
       if @offer.save
         if @offer.box.allow_email = true
-          OfferMailer.with(offer: @offer, user: @offer.box.user, box: @box).offer_email.deliver_later
+          OfferMailer.offer_email(offer_id: @offer.id,
+                            user_id: @offer.box.user.id, box_id:   @offer.box).deliver_later
+        end
         format.html {redirect_back fallback_location: :new, notice: "offer was successfully created"}
         format.json {render :new, status: :create, location: @user}
       else
