@@ -71,7 +71,7 @@ class Customer::BoxesController < ApplicationController
   private
 
   def box_params
-    params.require(:box).permit(:search_terms, :name, :keywords, :street, :city, :state, :country, :gender, :public, :foreign_box, :box_id)
+    params.require(:box).permit(:search_terms, :name, :keywords, :street, :city, :state, :country, :gender, :public, :foreign_box, :box_id, :allow_email)
   end
 
 end

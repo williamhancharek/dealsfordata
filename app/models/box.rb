@@ -4,6 +4,7 @@ class Box < ApplicationRecord
   geocoded_by :address
   validates :name, presence: true
   validates :search_terms, presence: true
+  store_accessor :settings, :allow_email
 
   has_many :assignments
   has_many :employees, through: :assignments, source: 'user'

@@ -14,7 +14,7 @@ class Customer::UsersController < ApplicationController
     respond_to do |format|
       if @customer.update(customer_params)
         flash[:success] = "successfully updated" #possibly delete this stupid message
-        format.html { redirect_back(fallback_location: customer_path)}
+        format.html { redirect_back(fallback_location: customer_home_path)}
         format.json { render :edit, status: :ok  }
       else
         flash[:warning] = "failed to update"
@@ -28,7 +28,7 @@ class Customer::UsersController < ApplicationController
   private
 
   def customer_params
-    params.require(:user).permit(:keywords, :search_terms, :attributes)
+    params.require(:user).permit(:keywords, :search_terms, :attributes, :allow_email)
   end
 
 

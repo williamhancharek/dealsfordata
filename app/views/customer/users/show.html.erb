@@ -9,8 +9,12 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5Cards class="card-title">Your Account Details</h5>
+            <h5 class="card-title">Your Account Details</h5>
             <p class='card-text'><%=link_to "Change password", edit_user_registration_path %></p>
+            <p class='card-text'><%=simple_form_for(current_user, url: customer_user_path) do |f|%>
+            <%=f.input :allow_email, as: :radio_buttons, collection: [true, false]%>
+          <%=f.button :submit%>
+        <%end%></p>
           </div>
         </div>
       </div>
