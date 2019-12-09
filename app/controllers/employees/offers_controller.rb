@@ -24,7 +24,6 @@ class Employees::OffersController < ApplicationController
 
     respond_to do |format|
       if @offer.save
-        binding.pry_remote
         if @offer.box.allow_email = true
           OfferMailer.offer_email(offer_id: @offer.id,
                             user_id: @offer.box.user.id, box_id:   @offer.box).deliver_later
