@@ -18,7 +18,7 @@ Rails.application.configure do
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
 
-  #TODO decide if this is necessary - not sure what this 
+  #TODO decide if this is necessary - not sure what this
   #master key is used for
 
   # Disable serving static files from the `/public` folder by default since
@@ -65,7 +65,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false #TODO change this later for production
 
-  config.action_mailer.default_url_options = {host: 'serene-everglades-06595.herokuapp.com'}
+  config.action_mailer.default_url_options = {host: 'www.dealsfordata.com'}
 
   config.action_mailer.delivery_method = :smtp
 
