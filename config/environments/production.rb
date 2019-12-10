@@ -65,7 +65,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false #TODO change this later for production
 
-  config.action_mailer.default_url_options = {host: 'www.dealsfordata.com'}
+  config.action_mailer.default_url_options = {host: 'http://www.dealsfordata.com'} #TODO change this when I enable HTTPS
 
   config.action_mailer.delivery_method = :smtp
 
