@@ -19,7 +19,7 @@ class Moderators::OffersController < ApplicationController
   def update
     respond_to do |format|
       if @offer.update(offer_params)
-        if @offer.approved == true && @offer.active == true
+        if @offer.approved == true && @offer.status == true
           if @offer.box.allow_email = true
             OfferMailer.with(offer_id: @offer.id).offer_email.deliver_later
           end
