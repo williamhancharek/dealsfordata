@@ -1,17 +1,45 @@
 customer new box file
 
 <%=simple_form_for @box, url:customer_user_boxes_path do |f| %>
-<%=f.input :name, label: "Name Your Box", presence: true%>
-<%=f.input :search_terms, presence: true %>
-<%=f.input :gender, collection: ["male", "female"]%>
-<%=f.input :street%>
-<%=f.input :city%>
-<%=f.input :state%>
-<%=f.input :country%>
+<%=f.input :name,
+            label: "Name Your Box",
+            presence: true,
+            wrapper_html: {class: "form-group row"},
+            label_html: {class: "col-sm-2 col-form-label"},
+            input_html: {class: "col-sm-10 form-control"}%>
+<%=f.input :search_terms,
+            presence: true,
+            wrapper_html: {class: "form-group row"},
+            label_html: {class: "col-sm-2 col-form-label"},
+            input_html: {class: "col-sm-10 form-control"} %>
+<%=f.input :gender,
+            collection: ["male", "female"],
+            wrapper_html: {class: "form-group row"},
+            label_html: {class: "col-sm-2 col-form-label"},
+            input_html: {class: "col-sm-10 form-control"}%>
+<%=f.input :street,
+          wrapper_html: {class: "form-group row"},
+          label_html: {class: "col-sm-2 col-form-label"},
+          input_html: {class: "col-sm-10 form-control"}%>
+<%=f.input :city,
+            wrapper_html: {class: "form-group row"},
+            label_html: {class: "col-sm-2 col-form-label"},
+            input_html: {class: "col-sm-10 form-control"}%>
+<%=f.input :state, wrapper_html: {class: "form-group row"}, label_html: {class: "col-sm-2 col-form-label"}, input_html: {class: "col-sm-10 form-control"}%>
+<%=f.input :country, wrapper_html: {class: "form-group row"}, label_html: {class: "col-sm-2 col-form-label"}, input_html: {class: "col-sm-10 form-control"}%>
+<%=f.input :public, collection: [["private", "false"], ["public","true"]], wrapper_html: {class: "form-group row"}, label_html: {class: "col-sm-2 col-form-label"}, input_html: {class: "col-sm-10 form-control"}%>
+<%=f.input :allow_email,
+            collection: [true, false],
+            wrapper_html: {class: "form-group row"},
+            label_html: {class: "col-sm-2 col-form-label"},
+            input_html: {class: "col-sm-10 form-control"}%>
 <div data-controller="tag">
-<%=f.input :keywords, as: :hidden, placeholder: "add one tag at a time", input_html: {'data-target': "tag.keyword" }%>
+  <%=f.input :keywords, as: :hidden,
+            
+              placeholder: "add one tag at a time",
+              label_html: {class: "col-sm-2 col-form-label"},
+              input_html: {'data-target': "tag.keyword", class: "col-sm-2 col-form-control" }%>
   <input data-target="tag.name" type="text">
-
   <button data-action="click->tag#add">
     Add Tag
   </button>

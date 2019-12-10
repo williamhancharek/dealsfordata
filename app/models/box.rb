@@ -21,12 +21,11 @@ class Box < ApplicationRecord
   enum public: [:false, :true] #0 = false, which is private, 1 is true, which is public
 
 
-  def address
-
-    if street.to_s.length == 0 && city.to_s.length == 0 && state.to_s.length == 0 && country.to_s.length == 0
+  def address #TODO - this is ugly and can honestly be improved... but no time to think it thru
+    if [street, city, state, country].reject(&:empty?).empty?
       return "unstated"
     else
-      [street, city, state, country].compact.join(', ')
+      [street, city, state, country].reject(&:empty?).join(', ')
     end
   end
 
