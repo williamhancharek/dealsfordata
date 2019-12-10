@@ -12,7 +12,7 @@ class Employees::OffersController < ApplicationController
   def new
     @offer = @box.offers.build
     @boxes = Box.all
-    @campaigns = Campaign.all #TODO this is a shit filter
+    @campaign_name = Campaign.all.map {|t| [t.name, t.id]} #TODO this is a shit filter
   end
 
   def create
@@ -25,7 +25,7 @@ class Employees::OffersController < ApplicationController
     respond_to do |format|
       if @offer.save
         if @offer.box.allow_email = true
-          OfferMailer.offer_email(offer_id: @offer.id, user_id: @offer.box.user.id, box_id: @offer.box.id).deliver_later
+          OfferMailer.with(offer_id: @offer.id).offer_email.deliver_now #TODO change this to deliver_later
         end
         format.html {redirect_back fallback_location: :new, notice: "offer was successfully created"}
         format.json {render :new, status: :create, location: @user}
