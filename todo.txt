@@ -45,3 +45,4 @@ TODO: I don't have mailing enabled - when i do will probably have to fuss with t
 TODO: datafordeals.com, wishjar.ca, and wishjar.app are not forwarding correctly. Need to incorporate ssl.
 TODO: add indexes for user.settings since it uses jsonb - I don't know what this means but I think it's something I should do when this gets bigger
 TODO: create the offers@dealsfordata.com email"
+TODO: Mike perham suggests using upstart with sidekiq to manage availability - I don't understand this and I should understand it https://github.com/mperham/sidekiq/wiki/Monitoring
