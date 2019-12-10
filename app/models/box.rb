@@ -46,6 +46,14 @@ class Box < ApplicationRecord
     self.offers.where("approved = true")
   end
 
+  def approved_active_offers
+    self.offers.where("approved = true and status = true")
+  end
+
+  def approved_active_offer
+    self.offers.take("approved = true and status = true")
+  end
+
   def subscribe(box_id)
     subscribing_relationships.create(subscribing_id: box_id)
   end

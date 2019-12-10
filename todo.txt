@@ -1,3 +1,4 @@
+TODO:create offers@dealsfordata.com
 TODO:Make it so the customers don't see which customer number they are. it should just say /customers/welcome or something
 TODO: need to implement cancancan authorizations.. for now it seems it's just authentication
 TODO: run reek on my files

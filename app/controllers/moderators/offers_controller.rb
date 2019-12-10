@@ -9,7 +9,7 @@ class Moderators::OffersController < ApplicationController
   end
 
   def index
-    @active_offers = @box.active_offers
+    @active_offers = @box.unapproved_offers
   end
 
   def show
@@ -19,6 +19,11 @@ class Moderators::OffersController < ApplicationController
   def update
     respond_to do |format|
       if @offer.update(offer_params)
+        if @offer.approved == true && @offer.active == true
+          if @offer.box.allow_email = true
+            OfferMailer.with(offer_id: @offer.id).offer_email.deliver_later
+          end
+        end
         flash[:success] = "successfully updated" #possibly delete this stupid message
         format.html { redirect_back(fallback_location: :index)}
         format.json {render :index, status: :ok} #TODO fix this

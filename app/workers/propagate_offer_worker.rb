@@ -4,7 +4,6 @@ class PropagateOfferWorker
   def perform(offer_id, box_id)
     #TODO I should refactor this later so it's more scalable - make it so this
     #method creates a bunch of smaller methods that create the offers
-    puts "hello"
 
     box = Box.find(box_id) #this is the box that is sending its subscribers the message
     offer = Offer.find(offer_id)
@@ -24,6 +23,7 @@ class PropagateOfferWorker
         new_offer.received_commentary ||= offer.commentary
         new_offer.original_offer_id ||= offer.id
         new_offer.save
+        #TODO add email send for people down stream
       end
     end
   end

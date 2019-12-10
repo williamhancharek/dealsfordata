@@ -13,7 +13,7 @@ class Customer::OffersController < ApplicationController
   end
 
   def index
-    @offers = @box.active_offers
+    @offers = @box.approved_active_offers
   end
 
   def edit
@@ -21,6 +21,7 @@ class Customer::OffersController < ApplicationController
   end
 
   def update
+    binding.pry_remote
     respond_to do |format|
       if @offer.update(offer_params)
         if !(@offer.public_selected_option.nil?)
