@@ -48,3 +48,4 @@ TODO: add indexes for user.settings since it uses jsonb - I don't know what this
 TODO: create the offers@dealsfordata.com email"
 TODO: Mike perham suggests using upstart with sidekiq to manage availability - I don't understand this and I should understand it https://github.com/mperham/sidekiq/wiki/Monitoring
 TODO: the "email confirmation required - leo didn't see it"
+TODO: there's no automatic log out after some time - need to add thru devise
