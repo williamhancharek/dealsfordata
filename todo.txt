@@ -49,3 +49,4 @@ TODO: create the offers@dealsfordata.com email"
 TODO: Mike perham suggests using upstart with sidekiq to manage availability - I don't understand this and I should understand it https://github.com/mperham/sidekiq/wiki/Monitoring
 TODO: the "email confirmation required - leo didn't see it"
 TODO: there's no automatic log out after some time - need to add thru devise
+TODO: using image_variant, if a pic is not variable the entire website crashes - need a catch try for that

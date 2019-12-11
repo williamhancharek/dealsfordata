@@ -1,6 +1,15 @@
 <tr>
   <td><%=offer.title%></td>
-  <td><%=offer.image.attached? ? image_tag(offer.image.variant(resize_to_limit: [100,100]), class:"card-img") : nil %></td>
+
+  <td>
+    <%if offer.image.attached?%>
+      <%if offer.image.variable?%>
+        <%=image_tag(offer.image.variant(resize_to_limit: [300,300]), class:"card-img")%>
+      <%else%>
+        <p>image attached but can't be shown</p>
+      <%end%>
+    <%end%>
+  </td>
   <td><%=offer.description%></td>
   <td><%=offer.tags%></td>
   <td><%=offer.options%></td>
@@ -8,7 +17,8 @@
   <td><%= simple_form_for(offer, url: moderator_offer_path(offer)) do |f| %>
     <%=f.input :approved, as: :radio_buttons, label: ""%>
     <%=f.submit%>
-    <%end%></td>
-    <td><%=link_to "offer show page", moderator_offer_path(offer)%></td>
+  <%end%>
+</td>
+<td><%=link_to "offer show page", moderator_offer_path(offer)%></td>
 <td><%=link_to "delete the offer", moderator_offer_path(offer), method: :delete%>
 </tr>

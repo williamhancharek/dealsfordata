@@ -2,25 +2,30 @@
   <div class="card mb-3">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <%=offer.image.attached? ? image_tag(offer.image.variant(resize_to_limit: [300,300]), class:"card-img") : nil %>
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">Offer Title: <%=offer.title%></h5>
-          <h5 class="card-subtitle text-muted">Merchant name: <%=offer.merchant_name%></h5>
-          <p class='card-text'>Description: <%=offer.description%></p>
-          <%= referralInfo(offer: offer)%>
-          <%= simple_form_for(offer, url: customer_offer_path(offer), method: "patch") do |f| %>
-            <%=f.input :selected_option, as: :radio_buttons,
-                        collection: offer.options,
-                        wrapper_html: {class: ['i-checks']},
-                        item_wrapper_tag: :div,
-                        presence: true%>
+        <%if offer.image.attached?%>
+          <%if offer.image.variable?%>
+            <%=image_tag(offer.image.variant(resize_to_limit: [300,300]), class:"card-img")%>
+          <%else%>
+            <p>image attached but can't be shown</p>
+          <%end%>
+        <%end%>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Offer Title:
+              <%=offer.title%></h5>
+            <h5 class="card-subtitle text-muted">Merchant name:
+              <%=offer.merchant_name%></h5>
+            <p class='card-text'>Description:
+              <%=offer.description%></p>
+            <%= referralInfo(offer: offer)%>
+            <%= simple_form_for(offer, url: customer_offer_path(offer), method: "patch") do |f| %>
+            <%=f.input :selected_option, as: :radio_buttons, collection: offer.options, wrapper_html: {class: ['i-checks']}, item_wrapper_tag: :div, presence: true%>
             <%= sendOffer(offer: offer, f: f) %>
             <%= f.button :submit, "select", class:["btn-sm", "btn-w-m btn-primary"] %>
           <%end%>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>
