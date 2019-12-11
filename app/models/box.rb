@@ -22,7 +22,7 @@ class Box < ApplicationRecord
 
 
   def address #TODO - this is ugly and can honestly be improved... but no time to think it thru
-    if [street, city, state, country].reject(&:empty?).empty?
+    if [street, city, state, country].reject(&:blank?).empty?
       return "unstated"
     else
       [street, city, state, country].reject(&:empty?).join(', ')
