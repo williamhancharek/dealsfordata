@@ -2,7 +2,7 @@
   <div class="card mb-3">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <%=offer.image.attached? ? image_tag(offer.image, class:"card-img") : nil %>
+        <%=offer.image.attached? ? image_tag(offer.image.variant(resize_to_limit: [300,300]), class:"card-img") : nil %>
       </div>
       <div class="col-md-8">
         <div class="card-body">
