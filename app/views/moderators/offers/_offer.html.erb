@@ -1,6 +1,6 @@
 <tr>
   <td><%=offer.title%></td>
-  <td><%=image_tag offer.image%></td>
+  <td><%=offer.image.attached? ? image_tag(offer.image, class:"card-img") : nil %></td>
   <td><%=offer.description%></td>
   <td><%=offer.tags%></td>
   <td><%=offer.options%></td>
