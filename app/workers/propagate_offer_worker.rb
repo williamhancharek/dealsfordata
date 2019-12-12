@@ -1,16 +1,15 @@
 class PropagateOfferWorker
   include Sidekiq::Worker
 
-  def perform(offer_id, box_id)
+  def perform(offer_id)
     #TODO I should refactor this later so it's more scalable - make it so this
     #method creates a bunch of smaller methods that create the offers
-
-    box = Box.find(box_id) #this is the box that is sending its subscribers the message
     offer = Offer.find(offer_id)
+    box = offer.box.id #this is the box that is sending its subscribers the message
 
     box.subscribers.each do |sub|
       new_offer = sub.offers.find_or_create_by(original_offer_id: offer_id)
-      if (new_offer.referrer.nil? || new_offer.referrer.include?(box.id))
+      if (new_offer.referrer.nil? || !(new_offer.referrer.include?(box.id))) #THIS ENSURE WE DON'T HAVE CIRCULAR REFERRALS
         new_offer.referrer ||= []
         new_offer.referrer.push(box.id)
         new_offer.description ||= offer.description
@@ -23,8 +22,6 @@ class PropagateOfferWorker
         new_offer.received_commentary ||= offer.commentary
         new_offer.original_offer_id ||= offer.id
         new_offer.save
-        OfferMailer.with(offer_id: @offer.id).offer_email.deliver_later
-
         ReferralMailer.with(offer_id: new_offer.id).referral_email.deliver_later
       end
     end

@@ -19,11 +19,7 @@ class Moderators::OffersController < ApplicationController
   def update
     respond_to do |format|
       if @offer.update(offer_params)
-        if @offer.approved == true && @offer.status == true
-          if @offer.box.allow_email = true
-            OfferMailer.with(offer_id: @offer.id).offer_email.deliver_later
-          end
-        end
+        ApproveOfferWorker.perform_async(@offer.id)
         flash[:success] = "successfully updated" #possibly delete this stupid message
         format.html { redirect_back(fallback_location: :index)}
         format.json {render :index, status: :ok} #TODO fix this

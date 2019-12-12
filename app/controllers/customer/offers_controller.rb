@@ -24,7 +24,7 @@ class Customer::OffersController < ApplicationController
     respond_to do |format|
       if @offer.update(offer_params)
         if !(@offer.public_selected_option.nil?)
-          PropagateOfferWorker.perform_async(@offer.id, @offer.box.id)
+          PropagateOfferWorker.perform_async(@offer.id)
         end
         flash[:success] = "successfully updated" #possibly delete this stupid message
         format.html { redirect_back(fallback_location: :index)}
