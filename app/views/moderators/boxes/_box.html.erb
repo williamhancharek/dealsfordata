@@ -7,7 +7,7 @@
   <td><%=box.modifiers%></td>
   <td><%=box.updated_at%></td>
   <td><%=box.address%></td>
-  <%if (box.unapproved_offers.count > 1)%>
+  <%if (box.unapproved_offers.count > 0)%>
     <td><%=link_to "needs approvals", moderator_box_offers_path(box)%></td>
     <%elsif (box.active_offers.count == 0)%>
       <td><%=link_to "needs offers", moderator_box_offers_path(box)%></td>

@@ -21,7 +21,6 @@ class Customer::OffersController < ApplicationController
   end
 
   def update
-    binding.pry_remote
     respond_to do |format|
       if @offer.update(offer_params)
         if !(@offer.public_selected_option.nil?)
