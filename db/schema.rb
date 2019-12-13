@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_13_011847) do
+ActiveRecord::Schema.define(version: 2019_12_13_045305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -95,7 +95,6 @@ ActiveRecord::Schema.define(version: 2019_12_13_011847) do
   create_table "offers", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "status", default: true
     t.text "description"
     t.string "title"
     t.string "tags", array: true
@@ -110,11 +109,11 @@ ActiveRecord::Schema.define(version: 2019_12_13_011847) do
     t.string "received_commentary"
     t.bigint "original_offer_id"
     t.boolean "approved", default: false
-    t.jsonb "state", default: {}, null: false
+    t.jsonb "status", default: {}, null: false
     t.index ["box_id"], name: "index_offers_on_box_id"
     t.index ["campaign_id"], name: "index_offers_on_campaign_id"
     t.index ["options"], name: "index_offers_on_options", using: :gin
-    t.index ["state"], name: "index_offers_on_state", using: :gin
+    t.index ["status"], name: "index_offers_on_status", using: :gin
     t.index ["tags"], name: "index_offers_on_tags", using: :gin
   end
 
