@@ -9,7 +9,6 @@ class PropagateOfferWorker
     if @offer.approved == true && @offer.status == true && @offer.box.allow_email == true
         #TODO to make this idempotent I need a switch to flip to know that the email was sent
         OfferMailer.with(offer_id: @offer.id).offer_email.deliver_later
-      end
     end
   end
 end
