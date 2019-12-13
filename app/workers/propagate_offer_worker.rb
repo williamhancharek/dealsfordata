@@ -22,7 +22,7 @@ class PropagateOfferWorker
         new_offer.received_commentary ||= offer.commentary
         new_offer.original_offer_id ||= offer.id
         new_offer.save
-        ReferralMailer.with(offer_id: new_offer.id).referral_email.deliver_later
+        OfferMailer.with(offer_id: new_offer.id).referral_email.deliver_later
       end
     end
   end

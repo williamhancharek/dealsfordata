@@ -7,6 +7,7 @@ class Offer < ApplicationRecord
   validates :options, presence: true
   validates :description, presence: true
   validate :old_offers_must_have_selection
+  store_accessor :status, :allow_email
 
   def update(offer_params)
     super

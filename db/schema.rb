@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_09_181213) do
+ActiveRecord::Schema.define(version: 2019_12_13_011847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -110,9 +110,11 @@ ActiveRecord::Schema.define(version: 2019_12_09_181213) do
     t.string "received_commentary"
     t.bigint "original_offer_id"
     t.boolean "approved", default: false
+    t.jsonb "state", default: {}, null: false
     t.index ["box_id"], name: "index_offers_on_box_id"
     t.index ["campaign_id"], name: "index_offers_on_campaign_id"
     t.index ["options"], name: "index_offers_on_options", using: :gin
+    t.index ["state"], name: "index_offers_on_state", using: :gin
     t.index ["tags"], name: "index_offers_on_tags", using: :gin
   end
 
