@@ -1,4 +1,4 @@
-class PropagateOfferWorker
+class ApproveOfferWorker
   include Sidekiq::Worker
 
   def perform(offer_id)
