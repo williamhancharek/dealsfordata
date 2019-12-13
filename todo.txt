@@ -50,3 +50,8 @@ TODO: Mike perham suggests using upstart with sidekiq to manage availability - I
 TODO: the "email confirmation required - leo didn't see it"
 TODO: there's no automatic log out after some time - need to add thru devise
 TODO: using image_variant, if a pic is not variable the entire website crashes - made a catch try for that but it's in views - it should be in the controller and just the correct fucking view should be passed in
+
+TODO: categorize types of advertisements -- blog posts vs products - confusion on money signs etc
+
+TODO: prices need to be more prominent - use money icon, blog icon, video icon to differentiate products
+TODO: the links are not clickable
