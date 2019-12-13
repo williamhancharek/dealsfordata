@@ -29,12 +29,12 @@ class Box < ApplicationRecord
     end
   end
 
-  def active_offers
-    self.offers.where("status = true")
+  def active_offers #TODO pick up from here
+    self.offers.where("status ->>'active' = 'true'")
   end
 
   def old_offers
-    self.offers.where("status = false")
+    self.offers.where("status ->>'active' = 'false'")
   end
 
   def unapproved_offers
@@ -46,11 +46,11 @@ class Box < ApplicationRecord
   end
 
   def approved_active_offers
-    self.offers.where("approved = true and status = true")
+    self.offers.where("approved = true and status ->> 'active' = 'true'")
   end
 
   def approved_active_offer
-    self.offers.take("approved = true and status = true")
+    self.offers.take("approved = true and status ->> 'active' = 'true'")
   end
 
   def subscribe(box_id)
@@ -73,7 +73,5 @@ class Box < ApplicationRecord
   def list_employee_ids
     self.employees.map {|t| t.id}
   end
-
-
 
 end

@@ -38,7 +38,7 @@ class Admin::UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         format.html { redirect_back fallback_location: :index, notice: "User was successfully created"}
-        format.json {render :new, status: :createc, location: @user} #I don't know what this means
+        format.json {render :new, status: :create, location: @user} #I don't know what this means
       else
         format.html {render :new}
         format.json {render json: @blah.errors, status: :unprocessable_entity}
