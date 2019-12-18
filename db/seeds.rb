@@ -33,7 +33,7 @@ merchants = User.create([{email: "m1@m.com",
                           password: "tentenfour"}])
 
 merchants.each do |t|
-  t.campaigns.build(name: "campaign #{t}")
+  t.campaigns.build(name: "campaign: #{t.name}")
 end
 
 employees = User.create([{email: "e1@e.com",

@@ -1,9 +1,13 @@
 <div class="container-sm mx-auto">
   <div class="card">
-    <%if offer.image.attached? && offer.image.variable?%>
-      <%=image_tag(offer.image.variant(resize_to_limit: [400,400]), class:"card-img-top, img-thumbnail")%>
+    <%if offer.image.attached?%>
+      <%if offer.image.variable?%>
+        <%=image_tag(offer.image.variant(resize_to_limit: [400,400]), class:"rounded mx-auto d-block card-img-top")%>
+      <%else%>
+        <p>image attached but can't be shown</p>
+      <%end%>
     <%else%>
-      <p>image attached but can't be shown</p>
+      <p> no image attached</p>
     <%end%>
     <div class="card-body">
       <h3 class="card-title"><%=offer.title%></h3>

@@ -18,7 +18,7 @@ class Employees::OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
     @offer.options = JSON.parse(offer_params[:options])
-    @offer.public_options = ['send', 'extra hot!']
+    @offer.public_options = ['send']
     @offer.tags = offer_params[:tags].split(' ')
     @offer.image.attach offer_params[:image]
 

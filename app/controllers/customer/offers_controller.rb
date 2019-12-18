@@ -44,7 +44,7 @@ class Customer::OffersController < ApplicationController
     #TODO currently any offer made by a customer is auto assigned campaign id 1
     @offer = Offer.new(offer_params)
     @offer.options = JSON.parse(offer_params[:options])
-    @offer.public_options = ['send', 'extra hot!']
+    @offer.public_options = ['send']
     @offer.tags = offer_params[:tags].split(' ')
     @offer.status["active"] = true
     @offer.status["email_sent"] = true
