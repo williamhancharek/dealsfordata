@@ -10,4 +10,12 @@ module Customer::BoxesHelper
     end
   end
 
+  def createWelcomeMessage(box_count:, welcome_phrase:)
+    if box_count == 0
+      render partial: 'customer_welcome_message', locals: {welcome_phrase: welcome_phrase}
+    else
+      render partial: 'customer_welcome_back_message', locals: {welcome_phrase: welcome_phrase, box_count: box_count}
+    end
+  end
+
 end

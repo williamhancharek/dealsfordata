@@ -13,6 +13,13 @@ module Customer::OffersHelper
     end
   end
 
+  def ShowApprovedOffer(offer:)
+    if offer.nil?
+    else
+      render partial: 'offer', locals: {offer:offer}
+    end
+  end
+
 end
 
 #TODO there's an issue with offers thing - it's where it says submit instead of the correct text

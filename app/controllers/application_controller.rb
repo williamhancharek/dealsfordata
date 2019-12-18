@@ -5,7 +5,12 @@ class ApplicationController < ActionController::Base
   private
 
   def after_sign_in_path_for(resource)
-    send("#{resource.role}_home_path",current_user)
+    case current_user.role
+    when "customer"
+      send("customer_user_boxes_path", current_user)
+    else
+      send("#{resource.role}_home_path",current_user)
+    end
   end
 
   def set_role

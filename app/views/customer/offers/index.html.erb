@@ -1,6 +1,6 @@
 <%=link_to "make your own offer", new_customer_box_offer_path(@box)%>
 
 <div class="row">
-<%= render partial: 'offer', collection: @offers, as: :offer%>
-
+<%= ShowApprovedOffer(offer: @offer)%>
 </div>
+<p><%=@approved_count%> offers lined up</p>

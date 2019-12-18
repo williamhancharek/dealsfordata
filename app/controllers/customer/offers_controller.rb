@@ -13,7 +13,8 @@ class Customer::OffersController < ApplicationController
   end
 
   def index
-    @offers = @box.approved_active_offers
+    @offer = @box.approved_active_offer
+    @approved_count = @box.approved_active_offers.count
   end
 
   def edit
@@ -40,10 +41,14 @@ class Customer::OffersController < ApplicationController
   end
 
   def create
+    #TODO currently any offer made by a customer is auto assigned campaign id 1
     @offer = Offer.new(offer_params)
     @offer.options = JSON.parse(offer_params[:options])
     @offer.public_options = ['send', 'extra hot!']
     @offer.tags = offer_params[:tags].split(' ')
+    @offer.status["active"] = true
+    @offer.status["email_sent"] = true
+    @offer.approved = true
     @offer.image.attach offer_params[:image]
     respond_to do |format|
       if @offer.save

@@ -1,6 +1,6 @@
 class Box < ApplicationRecord
   belongs_to :user #TODO do I need to add dependent, destroy?
-  has_many :offers
+  has_many :offers, dependent: :destroy
   geocoded_by :address
   validates :name, presence: true
   validates :search_terms, presence: true
@@ -50,7 +50,7 @@ class Box < ApplicationRecord
   end
 
   def approved_active_offer
-    self.offers.take("approved = true and status ->> 'active' = 'true'")
+    self.offers.where("approved = true and status ->> 'active' = 'true'").take
   end
 
   def subscribe(box_id)

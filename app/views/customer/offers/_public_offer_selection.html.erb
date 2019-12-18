@@ -1,7 +1,8 @@
-<%=f.input :public_selected_option,
-            as: :radio_buttons,
+      <div class="form-group">
+        <%=f.input :public_selected_option,
+            as: :check_boxes,
             collection: offer.public_options,
-            wrapper_html: {class: ['i-checks']},
-            item_wrapper_tag: :div,
+            wrapper_html: {class: ['i-checks, form-check-inline']},
             presence: true%>
 <%=f.input :commentary%>
+</div>

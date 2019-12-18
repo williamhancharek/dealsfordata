@@ -1,7 +1,7 @@
 class Customer::HomeController < ApplicationController
 
-  def show
+  def show #TODO not using this right now
 
   end
-  
+
 end

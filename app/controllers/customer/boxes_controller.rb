@@ -10,11 +10,25 @@ class Customer::BoxesController < ApplicationController
   def index
     if params[:foreign_box] == "true"
       @customer_box = Box.find(params[:box_id])
-      @boxes = Box.where("user_id != ?", @customer.id)
+
+      if params[:subscribers] == "true"
+        @boxes = @customer_box.subscribers
+      elsif params[:subscribers] == "false"
+        @boxes = Box.where("user_id != ?", @customer.id)
+      end
+
       @box_links = "foreign_box_links"
       @title = "foreign_box_index_title"
+
     else
       @boxes = @customer.boxes
+      if @boxes.empty?
+        @box_count = 0
+        @welcome_phrase = "To get started, create a box and write down what you're browsing for"
+      else
+        @box_count = @boxes.count
+        @welcome_phrase = "Welcome back, #{current_user.name}!"
+      end
       @box_links = "customer_box_links"
       @title = "customer_box_index_title"
     end
