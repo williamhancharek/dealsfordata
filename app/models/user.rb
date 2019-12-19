@@ -57,6 +57,14 @@ class User < ApplicationRecord
   #   end
   # end
 
+  def assigned?(id)
+    #TODO this function should return true or false whether a customer is assigned to this employee
+  end
+
+  def assigned_customers
+    self.assigned_boxes.map {|t| t.user}
+  end
+
 #ADMIN METHODS
   def attach_identicon
     RubyIdenticon.create_and_save("#{self.email}",

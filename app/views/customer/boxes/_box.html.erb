@@ -4,11 +4,6 @@
     <p class='card-text'>Search terms:
       <%=box.search_terms%></p>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Gender:<%=box.gender || "none" %></li>
-    <li class="list-group-item">Location:<%=box.address%></li>
-    <li class="list-group-item">Keywords:<%=box.keywords%></li>
-  </ul>
   <div class="card-body">
     <%= addBoxLinks(box: box, subscriber: @customer_box) %>
   </div>

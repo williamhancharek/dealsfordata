@@ -2,7 +2,6 @@
         <%=f.input :public_selected_option,
             as: :check_boxes,
             collection: offer.public_options,
-            wrapper_html: {class: ['i-checks, form-check-inline']},
-            presence: true%>
+            wrapper_html: {class: ['i-checks, form-check-inline']}%>
 <%=f.input :commentary%>
 </div>

@@ -46,8 +46,8 @@ class Customer::OffersController < ApplicationController
     @offer.options = JSON.parse(offer_params[:options])
     @offer.public_options = ['send']
     @offer.tags = offer_params[:tags].split(' ')
-    @offer.status["active"] = true
-    @offer.status["email_sent"] = true
+    @offer.active = true
+    @offer.email_sent = true
     @offer.approved = true
     @offer.image.attach offer_params[:image]
     respond_to do |format|
@@ -69,7 +69,6 @@ class Customer::OffersController < ApplicationController
   def offer_params
     params.require(:offer).permit(:selected_option,
                                   :options,
-                                  :public_selected_option,
                                   :commentary,
                                   :title,
                                   :description,
@@ -77,7 +76,8 @@ class Customer::OffersController < ApplicationController
                                   :image,
                                   :box_id,
                                   :campaign_id,
-                                  :options)
+                                  :options,
+                                  :public_selected_option=>[])
   end
 
 end

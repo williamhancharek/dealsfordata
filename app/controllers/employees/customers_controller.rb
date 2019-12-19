@@ -3,6 +3,6 @@ class Employees::CustomersController < ApplicationController
 
 
   def index
-    @customers = User.where(role:"customer")
+    @customers = current_user.assigned_customers
   end
 end
