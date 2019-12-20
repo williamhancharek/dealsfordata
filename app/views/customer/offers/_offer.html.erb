@@ -24,6 +24,8 @@
                   wrapper_html: {class:"form-check-inline"}%>
       </div>
       <%= sendOffer(offer: offer, f: f) %>
+      <%=f.input :commentary,
+                  label: "feedback"%>
       <%= f.button :submit, "select", class:["btn-sm", "btn-w-m btn-primary"] %>
     <%end%>
   </div>

@@ -18,7 +18,6 @@ class Moderators::OffersController < ApplicationController
   def update
     respond_to do |format|
       if @offer.update(offer_params)
-        OfferMailer.with(offer_id: @offer.id).offer_email.deliver_later
         ApproveOfferWorker.perform_async(@offer.id)
         flash[:success] = "successfully updated" #possibly delete this stupid message
         format.html { redirect_back(fallback_location: :index)}
