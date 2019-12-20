@@ -16,7 +16,6 @@ class Offer < ApplicationRecord
   def update(offer_params)
     super
     handle_public_selected_option(offer_params)
-    binding.pry_remote
 
     self.selected_option.nil? ? self.active = true : self.active = false
     self.save
