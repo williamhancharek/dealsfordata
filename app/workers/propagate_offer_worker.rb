@@ -30,7 +30,7 @@ class PropagateOfferWorker
         new_offer.active ||= "true"
         new_offer.save!
         if sub.allow_email == "true"
-          OfferMailer.referral_email(offer_id: new_offer.id).deliver_now
+          OfferMailer.with(offer_id: new_offer.id).referral_email.deliver_later
         end
       end
     end
