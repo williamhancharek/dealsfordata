@@ -13,7 +13,6 @@ class Moderators::OffersController < ApplicationController
   end
 
   def show
-
   end
 
   def update
