@@ -1,4 +1,4 @@
-<%=render partial: @title%>
+<%=createWelcomeMessage(box_count: @box_count, foreign_box: @foreign_box)%>
 
 <div class="card-columns">
   <%=render partial: 'box', collection: @boxes%>
@@ -6,7 +6,7 @@
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Create Box
+  Create new box
 </button>
 
 <!-- Modal -->
@@ -43,7 +43,6 @@
                     label: "make box public"%>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <%= f.button :submit, "submit", class:["btn-w-m btn-primary"]%>
         <%end%>
       </div>

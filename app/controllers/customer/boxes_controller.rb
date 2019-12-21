@@ -9,35 +9,49 @@ class Customer::BoxesController < ApplicationController
 
   def index
     @box = Box.new
-    if params[:foreign_box] == "true"
+    case params[:foreign_box]
+    when "true"
       @customer_box = Box.find(params[:box_id])
+      @box_links = "foreign_box_links"
+      @foreign_box = true
 
-      if params[:subscribers] == "true"
+      case params[:subscribers]
+      when "true"
         @boxes = @customer_box.subscribers
-      elsif params[:subscribers] == "false"
+      when "false"
         @boxes = Box.where("user_id != ?", @customer.id)
       end
-
-      @box_links = "foreign_box_links"
-      @title = "foreign_box_index_title"
-
     else
+      @foreign_box = false
       @boxes = @customer.boxes
-      if @boxes.empty?
-        @box_count = 0
-        @welcome_phrase = "To get started, create a box and write down what you're browsing for"
-      else
-        @box_count = @boxes.count
-        @welcome_phrase = "Welcome back, #{current_user.name}!"
-      end
+      @box_count = @boxes.count
       @box_links = "customer_box_links"
-      @title = "customer_box_index_title"
     end
   end
 
-  def new
-    @box = Box.new
-  end
+    # if params[:foreign_box] == "true"
+    #   @customer_box = Box.find(params[:box_id])
+    #   @box_links = "foreign_box_links"
+    #   @title = "foreign_box_index_title"
+    #
+    #   if params[:subscribers] == "true"
+    #     @boxes = @customer_box.subscribers
+    #   elsif params[:subscribers] == "false"
+    #     @boxes = Box.where("user_id != ?", @customer.id)
+    #   end
+    # else
+    #   @boxes = @customer.boxes
+    #   if @boxes.empty?
+    #     @box_count = 0
+    #     @welcome_phrase = "To get started, create a box and write down what you're browsing for"
+    #   else
+    #     @box_count = @boxes.count
+    #     @welcome_phrase = "Welcome back, #{current_user.name}"
+    #   end
+    #   @box_links = "customer_box_links"
+    #   @title = "customer_box_index_title"
+    # end
+  # end
 
   def edit
   end

@@ -6,5 +6,51 @@
   </div>
   <div class="card-body">
     <%= addBoxLinks(box: box, subscriber: @customer_box) %>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      available offers
+    </button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      saved offers
+    </button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">New Box</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%=simple_form_for @box, url:customer_user_boxes_path do |f| %>
+            <%=f.input :name,
+                        label: "Name",
+                        presence: true,
+                        wrapper_html: {class: "form-group row"},
+                        label_html: {class: "col-sm-3 col-form-label"},
+                        input_html: {class: "col-sm-9 form-control"}%>
+            <%=f.input :search_terms,
+                        presence: true,
+                        wrapper_html: {class: "form-group row"},
+                        label_html: {class: "col-sm-3 col-form-label"},
+                        input_html: {class: "col-sm-9 form-control"} %>
+            <%=f.input :allow_email,
+                        as: :boolean,
+                        checked_value: true,
+                        unchecked_value: false%>
+            <%=f.input :public,
+                        as: :boolean,
+                        checked_value: "true",
+                        unchecked_value: 'false',
+                        label: "make box public"%>
+          </div>
+          <div class="modal-footer">
+            <%= f.button :submit, "submit", class:["btn-w-m btn-primary"]%>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
