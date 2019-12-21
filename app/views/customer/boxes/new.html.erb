@@ -1,4 +1,4 @@
-customer new box file
+customer new box file #depecrated
 
 <%=simple_form_for @box, url:customer_user_boxes_path do |f| %>
 <%=f.input :name,
@@ -12,21 +12,14 @@ customer new box file
             wrapper_html: {class: "form-group row"},
             label_html: {class: "col-sm-2 col-form-label"},
             input_html: {class: "col-sm-10 form-control"} %>
-<%=f.input :street,
-          wrapper_html: {class: "form-group row"},
-          label_html: {class: "col-sm-2 col-form-label"},
-          input_html: {class: "col-sm-10 form-control"}%>
-<%=f.input :city,
-            wrapper_html: {class: "form-group row"},
-            label_html: {class: "col-sm-2 col-form-label"},
-            input_html: {class: "col-sm-10 form-control"}%>
-<%=f.input :state, wrapper_html: {class: "form-group row"}, label_html: {class: "col-sm-2 col-form-label"}, input_html: {class: "col-sm-10 form-control"}%>
-<%=f.input :country, wrapper_html: {class: "form-group row"}, label_html: {class: "col-sm-2 col-form-label"}, input_html: {class: "col-sm-10 form-control"}%>
-<%=f.input :public, collection: [["private", "false"], ["public","true"]], wrapper_html: {class: "form-group row"}, label_html: {class: "col-sm-2 col-form-label"}, input_html: {class: "col-sm-10 form-control"}%>
 <%=f.input :allow_email,
-            collection: [true, false],
-            wrapper_html: {class: "form-group row"},
-            label_html: {class: "col-sm-2 col-form-label"},
-            input_html: {class: "col-sm-10 form-control"}%>
-<%= f.button :submit, "submit", class:["btn-sm", "btn-w-m btn-primary"] %>
+            as: :boolean,
+            checked_value: true,
+            unchecked_value: false%>
+<%=f.input :public,
+            as: :boolean,
+            checked_value: "true",
+            unchecked_value: 'false',
+            label: "make box public"%>
+<%= f.button :submit, "submit", class:["btn-sm", "btn-w-m btn-primary"]%>
 <%end%>

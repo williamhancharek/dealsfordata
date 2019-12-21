@@ -8,6 +8,7 @@ class Customer::BoxesController < ApplicationController
   end
 
   def index
+    @box = Box.new
     if params[:foreign_box] == "true"
       @customer_box = Box.find(params[:box_id])
 
@@ -54,7 +55,7 @@ class Customer::BoxesController < ApplicationController
 
   end
 
-  def create #TODO start here - address is apparently not saved
+  def create #TODO I am not incorporating address for the time being
     @box = @customer.boxes.build(box_params)
     respond_to do |format|
       if @box.save
