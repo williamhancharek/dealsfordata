@@ -7,6 +7,15 @@ class Customer::BoxesController < ApplicationController
     set_instance(instance:'box',id:params[:id],object: :Box)
   end
 
+  before_action only: [:show, :edit, :update, :destroy] do #TODO this hsould be replaced with cancancan
+    ensure_box_owner(params[:id])
+  end
+
+  before_action only: [:index, :create] do #TODO this hsould be replaced with cancancan
+    ensure_user(params[:user_id])
+  end
+
+
   def index
     @box = Box.new
 
@@ -61,6 +70,7 @@ class Customer::BoxesController < ApplicationController
   end
 
   def show
+
   end
 
   def edit

@@ -58,3 +58,5 @@ TODO: the links are not clickable
 TODO: when you edit a customer box, then go to the boxes index, you can't make a new box without refreshing the page --> somethign todo with how it's redirected in the controller after the update is called.
 TODO: the customer edit page is fucking ugly
 TODO: limit search items
+TODO: the font weight for the titles should be heavier but I don't know how...
+TODO: obfuscate ids

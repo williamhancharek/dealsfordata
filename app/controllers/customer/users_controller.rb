@@ -14,7 +14,7 @@ class Customer::UsersController < ApplicationController
     respond_to do |format|
       if @customer.update(customer_params)
         flash[:success] = "successfully updated" #possibly delete this stupid message
-        format.html { redirect_back(fallback_location: customer_home_path)}
+        format.html { redirect_back(fallback_location: customer_user_path)}
         format.json { render :edit, status: :ok  }
       else
         flash[:warning] = "failed to update"

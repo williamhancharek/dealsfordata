@@ -21,15 +21,36 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def ensure_role(*roles)
+  def ensure_role(*roles) #TODO I should use cancancan
     if !(roles.include?(current_user.role))
       flash[:warning] = "not allowed access"
       redirect_to root_path
     end
   end
 
-  def ensure_owner(id)
+  def ensure_box_owner(id) #TODO - I tihnk this is my shitty workaround for not using cancancan properly
+    #This should probably be switched over to using CANCANCAN properly
     box = Box.find(id)
+    if box.user != current_user
+      flash[:warning] = "not allowed access"
+      redirect_to root_path
+    end
+  end
+
+  def ensure_offer_owner(id) #TODO switch to cancancan
+    offer = Offer.find(id)
+    if offer.box.user != current_user
+      flash[:warning] = "not allowed access"
+      redirect_to root_path
+    end
+  end
+
+  def ensure_user(id) #should replace with cancancan
+    user = User.find(id)
+    if user != current_user
+      flash[:warning] = "not allowed access"
+      redirect_to root_path
+    end
   end
 
   def set_instance(instance:,id:, object:)

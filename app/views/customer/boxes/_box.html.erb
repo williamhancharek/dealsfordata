@@ -1,19 +1,17 @@
 <div class="card" style="border-width: 9px; border-style: solid;
   border-color:#<%=box.background%>">
   <div class="card-body">
-    <h5 class="card-title">Title:
-      <%=box.name%></h5>
+    <h3 class="card-title">
+      <%=box.name%></h3>
     <p class='card-text'>Search terms:
       <%=box.search_terms%></p>
   </div>
   <div class="card-body">
     <%= addBoxLinks(box: box, subscriber: @customer_box) %>
+
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#availableOffersModal">
       available offers
-    </button>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-      saved offers
     </button>
     <div class="modal fade" id="availableOffersModal" tabindex="-1" role="dialog" aria-labelledby="availableOffersModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -28,5 +26,6 @@
         </div>
       </div>
     </div>
+
   </div>
 </div>

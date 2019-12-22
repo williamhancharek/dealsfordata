@@ -9,3 +9,5 @@
 <%=link_to "follow other boxes", customer_user_boxes_path(current_user, foreign_box: true, box_id: box.id, subscribers: false)%>
 |
 <%=link_to "see subscribers", customer_user_boxes_path(current_user, foreign_box: true, box_id: box.id, subscribers: true)%>
+|
+<%=link_to "show box", customer_box_path(id: box.id)%>
