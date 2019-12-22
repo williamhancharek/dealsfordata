@@ -1,16 +1,24 @@
-<%=createWelcomeMessage(box_count: @box_count, foreign_box: @foreign_box)%>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Home</li>
+  </ol>
+</nav>
 
+<%=createWelcomeMessage(box_count: @box_count, foreign_box: @foreign_box)%>
 <div class="card-columns">
   <%=render partial: 'box', collection: @boxes%>
 </div>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<%if @box_count <3%>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newBoxModal">
   Create new box
 </button>
+<%end%>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<%=simple_form_for @box, url:customer_user_boxes_path do |f| %>
+<div class="modal fade" id="newBoxModal" tabindex="-1" role="dialog" aria-labelledby="newBoxModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -20,7 +28,6 @@
         </button>
       </div>
       <div class="modal-body">
-        <%=simple_form_for @box, url:customer_user_boxes_path do |f| %>
         <%=f.input :name,
                     label: "Name",
                     presence: true,
@@ -34,18 +41,21 @@
                     input_html: {class: "col-sm-9 form-control"} %>
         <%=f.input :allow_email,
                     as: :boolean,
-                    checked_value: true,
-                    unchecked_value: false%>
+                    checked_value: "true",
+                    unchecked_value: "false"%>
         <%=f.input :public,
                     as: :boolean,
                     checked_value: "true",
                     unchecked_value: 'false',
                     label: "make box public"%>
+        <%=f.input :background,
+                    as: :radio_buttons,
+                    collection: [["beige","f0f4c3"],["pink","fff8e1"],["grey","f5f5f5"]]%>
       </div>
       <div class="modal-footer">
         <%= f.button :submit, "submit", class:["btn-w-m btn-primary"]%>
-        <%end%>
       </div>
     </div>
   </div>
 </div>
+<%end%>

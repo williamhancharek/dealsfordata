@@ -1,0 +1,3 @@
+class IframelyController < ApplicationController
+  
+end

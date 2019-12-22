@@ -9,6 +9,7 @@ class Customer::BoxesController < ApplicationController
 
   def index
     @box = Box.new
+
     case params[:foreign_box]
     when "true"
       @customer_box = Box.find(params[:box_id])
@@ -29,40 +30,16 @@ class Customer::BoxesController < ApplicationController
     end
   end
 
-    # if params[:foreign_box] == "true"
-    #   @customer_box = Box.find(params[:box_id])
-    #   @box_links = "foreign_box_links"
-    #   @title = "foreign_box_index_title"
-    #
-    #   if params[:subscribers] == "true"
-    #     @boxes = @customer_box.subscribers
-    #   elsif params[:subscribers] == "false"
-    #     @boxes = Box.where("user_id != ?", @customer.id)
-    #   end
-    # else
-    #   @boxes = @customer.boxes
-    #   if @boxes.empty?
-    #     @box_count = 0
-    #     @welcome_phrase = "To get started, create a box and write down what you're browsing for"
-    #   else
-    #     @box_count = @boxes.count
-    #     @welcome_phrase = "Welcome back, #{current_user.name}"
-    #   end
-    #   @box_links = "customer_box_links"
-    #   @title = "customer_box_index_title"
-    # end
-  # end
-
   def edit
   end
 
   def update
     respond_to do |format|
       if @box.update(box_params)
-        format.html { redirect_back fallback_location: :edit, notice: "box was successfully updated"}
+        format.html { redirect_back fallback_location: :index}
         format.json {render :new, status: :create, location: @user} #I don't know what this means
       else
-        format.html {render :edit}
+        format.html {render :index}
         format.json {render json: @box.errors, status: :unprocessable_entity}
       end
     end
@@ -100,7 +77,7 @@ class Customer::BoxesController < ApplicationController
   private
 
   def box_params
-    params.require(:box).permit(:search_terms, :name, :keywords, :street, :city, :state, :country, :gender, :public, :foreign_box, :box_id, :allow_email)
+    params.require(:box).permit(:search_terms, :name, :keywords, :street, :city, :state, :country, :gender, :public, :foreign_box, :box_id, :allow_email, :background)
   end
 
 end

@@ -1,3 +1,11 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page"><%=link_to "Home", customer_user_boxes_path(current_user)%></li>
+        <li class="breadcrumb-item active" aria-current="page">Profile</li>
+  </ol>
+</nav>
+
+
 <h1>customer show page</h1>
 
 <div class="row">
@@ -17,17 +25,6 @@
         <%end%></p>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-6">
-    <div class="card mb-3">
-      <div class="card-body">
-        <h5 class="card-title">Attached cards</h5>
-        <p>You have  TODO FIX THIS cards attached</p>
-        <p class="card-text"></p>
-        <p><%=render 'partials/plaid_link'%></p>
       </div>
     </div>
   </div>
