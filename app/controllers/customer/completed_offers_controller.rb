@@ -7,7 +7,7 @@ class Customer::CompletedOffersController < ApplicationController
 
   before_action only: [:update] do
     set_instance(instance:"offer", id:params[:id], object: :Offer)
-  end
+  end #this will create a possible problem
 
   def index
     @completed_offers = @box.old_offers

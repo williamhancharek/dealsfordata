@@ -55,24 +55,24 @@ admin = User.create([{email: "a1@a.com",
 
 admin.each do |t|
   t.attach_identicon
-  t.skip_confirmation!
+  t.confirm
   t.save
 end
 
 employees.each do |t|
   t.attach_identicon
-  t.skip_confirmation!
+  t.confirm
   t.save
 end
 
 merchants.each do |t|
   t.attach_identicon
-  t.skip_confirmation!
+  t.confirm
   t.save
 end
 
 customers.each do |t|
   t.attach_identicon
-  t.skip_confirmation!
+  t.confirm
   t.save
 end

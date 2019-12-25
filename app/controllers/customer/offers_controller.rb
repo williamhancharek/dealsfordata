@@ -4,9 +4,6 @@ class Customer::OffersController < ApplicationController
   before_action only: [:index, :new] do
     set_instance(instance:"box",id: params[:box_id], object: :Box)
   end
-  before_action only: [:show, :edit, :update, :destroy] do
-    set_instance(instance: "offer", id: params[:id], object: :Offer)
-  end
 
   def new
     @offer = @box.offers.build

@@ -5,15 +5,6 @@ class Customer::BoxesController < ApplicationController
     set_instance(instance:'customer',id:params[:user_id],object: :User)
   end
 
-  before_action only: [:show, :edit, :update, :destroy] do #TODO this hsould be replaced with cancancan
-    ensure_box_owner(params[:id]) #todo this is obsolete with cancancan
-  end
-
-  before_action only: [:index, :create] do #TODO this hsould be replaced with cancancan
-    ensure_user(params[:user_id])
-  end
-
-
   def index
     @box = Box.new
 

@@ -8,11 +8,12 @@ class Ability #TODO when this becomes bigger I should refactor into separate fil
     user ||= User.new # guest user (not logged in)
 
     if user.customer?
+      can :read, User, id: user.id
+      can :read, User, role: "customer"
       can :update, User, id: user.id
       can :update, Offer, box: {user: {id: user.id}}
       can :create, Box #TODO is this the correct permission?
       can :manage, Box, id: user.id
-
     end
 
     if user.employee?
