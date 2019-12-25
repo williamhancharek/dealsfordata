@@ -1,14 +1,12 @@
 class Customer::BoxesController < ApplicationController
+  load_and_authorize_resource
+
   before_action only: [:index, :create] do
     set_instance(instance:'customer',id:params[:user_id],object: :User)
   end
 
-  before_action only: [:show, :edit, :update, :destroy] do
-    set_instance(instance:'box',id:params[:id],object: :Box)
-  end
-
   before_action only: [:show, :edit, :update, :destroy] do #TODO this hsould be replaced with cancancan
-    ensure_box_owner(params[:id])
+    ensure_box_owner(params[:id]) #todo this is obsolete with cancancan
   end
 
   before_action only: [:index, :create] do #TODO this hsould be replaced with cancancan
@@ -44,6 +42,7 @@ class Customer::BoxesController < ApplicationController
 
   def update
     respond_to do |format|
+      binding.pry_remote
       if @box.update(box_params)
         format.html { redirect_back fallback_location: :index}
         format.json {render :new, status: :create, location: @user} #I don't know what this means

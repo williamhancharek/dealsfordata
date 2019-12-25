@@ -1,4 +1,6 @@
 class OffersController < ApplicationController
+  load_and_authorize_resource
+
   before_action only: [:show, :edit, :update, :destroy] do
     set_user('offer', params[:id])
   end

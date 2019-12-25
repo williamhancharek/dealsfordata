@@ -1,4 +1,5 @@
 class Employees::UsersController < ApplicationController
+  load_and_authorize_resource
   before_action {ensure_role("admin","employee", "moderator")}
 
   # before_action only: [:show, :edit, :update, :destroy] do

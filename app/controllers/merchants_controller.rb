@@ -1,4 +1,5 @@
 class MerchantsController < ApplicationController
+  load_and_authorize_resource
 
   def show
   end
@@ -10,5 +11,5 @@ class MerchantsController < ApplicationController
   def update
 
   end
-  
+
 end

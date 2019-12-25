@@ -1,4 +1,5 @@
 class Moderators::BoxesController < ApplicationController
+  load_and_authorize_resource
   before_action {ensure_role("admin","moderator")}
   before_action only: [:show] do
     set_instance(instance:'box',id:params[:id],object: :Box)

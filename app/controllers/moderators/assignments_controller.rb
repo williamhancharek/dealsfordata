@@ -1,4 +1,5 @@
 class Moderators::AssignmentsController < ApplicationController
+  load_and_authorize_resource
   before_action {ensure_role("admin","moderator")}
   before_action only: [:destroy] do
     set_instance(instance:'assignment',

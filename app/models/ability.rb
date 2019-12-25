@@ -1,14 +1,18 @@
 # frozen_string_literal: true
 
-class Ability
+class Ability #TODO when this becomes bigger I should refactor into separate files
   include CanCan::Ability
 
   def initialize(user)
     # Define abilities for the passed in user here. For example:
     user ||= User.new # guest user (not logged in)
 
-    if user.admin?
-      can :manage, :all
+    if user.customer?
+      can :update, User, id: user.id
+      can :update, Offer, box: {user: {id: user.id}}
+      can :create, Box #TODO is this the correct permission?
+      can :manage, Box, id: user.id
+
     end
 
     if user.employee?
@@ -16,19 +20,28 @@ class Ability
       can :manage, User
     end #TODO this is bad because I only want employees to be able to create new merchants, which are users
          #but this allows them to create anything... but whatever let's move on
+
     if user.merchant?
       can :read, Offer, id: offer.merchant_id
     end
 
-    if user.customer?
-      can :update, User, id: user.id
-      can :update, Offer, box: {user: {id: user.id}}
-      can :crud, Box, user: {id:user.id} #TODO is this the correct permission?
+    if user.admin?
+      can :manage, :all
     end
        #   #TODO there is an issue here - I want the user to be able to update the
        #   #offer's selection, but they should not be able to update the offer's contents - they can't re-write the description
        #   #so this means selectively only allowing updating certain properties of the object... otherwise I have to split the
        #   #object in two - this is for another day... when we get more real
+  end
+
+  private
+
+  def user_abilities
+
+  end
+
+  def admin_abilities
+
   end
     #     can :read, :all
     #   end

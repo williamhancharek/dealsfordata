@@ -1,4 +1,5 @@
 class Customer::SubscriptionsController < ApplicationController
+  load_and_authorize_resource
   before_action only: [:index] do
     set_instance(instance:"box",id: params[:box_id], object: :Box)
   end
