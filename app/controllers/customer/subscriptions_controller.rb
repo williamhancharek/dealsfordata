@@ -1,27 +1,19 @@
 class Customer::SubscriptionsController < ApplicationController
   load_and_authorize_resource
+
   before_action only: [:index] do
     set_instance(instance:"box",id: params[:box_id], object: :Box)
   end
 
-  before_action only: [:destroy] do
-    set_instance(instance:"sub",id: params[:id], object: :Subscription)
-  end
-
   def index
-      case params[:format]
-      when "subscribers"
-        @subscriptions = @box.subscribers
-      when "subscriptions"
-          @subscriptions = @box.subscribing
-      end
+    @subscriptions = @box.subscribing
   end
 
   def create
-    @sub = Subscription.new({subscriber: Box.find(params[:subscriber_id]), subscribing: Box.find(params[:box_id])})
+    @subscription.update(subscription_params)
     respond_to do |format|
-      if @sub.save
-        format.html { redirect_back fallback_location: customer_user_boxes_url(current_user)}
+      if @subscription.save
+        format.html { redirect_back fallback_location: customer_boxes_url}
         format.json {render :new, status: :create, location: @user} #I don't know what this means
       else
         format.html {render :new}
@@ -31,9 +23,9 @@ class Customer::SubscriptionsController < ApplicationController
   end
 
   def destroy
-    @sub.destroy
+    @subscription.destroy
     respond_to do |format|
-      format.html {redirect_back fallback_location: customer_user_boxes_url(current_user)}
+      format.html {redirect_back fallback_location: customer_boxes_url}
       format.json {head :no_content}
     end
   end
@@ -42,7 +34,7 @@ class Customer::SubscriptionsController < ApplicationController
 
   def subscription_params #TODO - this doesn't have "require" because the create link doesn't have the subscription thing.. I think
     #it's because I'm passing extra variables
-    params.permit(:box_id, :subscriber_id)
+    params.permit(:subscribing_id, :subscriber_id)
   end
 
 end

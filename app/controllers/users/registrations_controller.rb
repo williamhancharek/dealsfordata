@@ -12,6 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
    def create
      super
+     @user.role = "customer"
      @user.attach_identicon
      # RubyIdenticon.create_and_save(
      #                "#{@user.email}",

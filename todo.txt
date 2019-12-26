@@ -60,3 +60,8 @@ TODO: the customer edit page is fucking ugly
 TODO: limit search items
 TODO: the font weight for the titles should be heavier but I don't know how...
 TODO: obfuscate ids
+TODO: test to see that you cannot make subscriptions to private add_boxes
+TODO: test to see that you cannot visit another customer's page and make subscriptions on their behalf
+TODO: test to see that you cannot visit another customer's page and destroy subscriptions on their behalf
+TODO: test that you cannot create and destroy subscriptions to private boxes, by typing it into the url - do it without visiting the page
+TODO: test that you cannot create and destroy subscriptions to boxes that you are a third party to, by typing it into the url - do it without visiting the page

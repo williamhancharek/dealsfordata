@@ -1,10 +1,6 @@
 class Customer::UsersController < ApplicationController
   load_and_authorize_resource
 
-  before_action only: [:show, :edit, :update] do
-    set_instance(instance:"customer",id:params[:id],object: :User)
-  end
-
   def show
 
   end
@@ -14,7 +10,7 @@ class Customer::UsersController < ApplicationController
 
   def update
     respond_to do |format|
-      if @customer.update(customer_params)
+      if @user.update(user_params)
         flash[:success] = "successfully updated" #possibly delete this stupid message
         format.html { redirect_back(fallback_location: customer_user_path)}
         format.json { render :edit, status: :ok  }
@@ -29,8 +25,8 @@ class Customer::UsersController < ApplicationController
 
   private
 
-  def customer_params
-    params.require(:user).permit(:keywords, :search_terms, :attributes, :allow_email)
+  def user_params
+    params.require(:user).permit(:search_terms, :allow_email, :name)
   end
 
 

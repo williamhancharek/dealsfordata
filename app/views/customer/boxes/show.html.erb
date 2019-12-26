@@ -1,6 +1,6 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item" aria-current="page"><%=link_to "Home", customer_user_boxes_path(current_user)%></li>
+    <li class="breadcrumb-item" aria-current="page"><%=link_to "Home", customer_boxes_path%></li>
         <li class="breadcrumb-item active" aria-current="page"><%=@box.name%></li>
   </ol>
 </nav>
@@ -10,3 +10,13 @@
 
 <%=link_to "delete box", customer_box_path, method: :delete, data: {confirm: "Are you sure?"}%>
 <%=link_to "edit", edit_customer_box_path(@box)%>
+<%=link_to "offers", customer_box_offers_path(@box)%>
+|
+<%=link_to "completed offers", customer_box_completed_offers_path(@box)%>
+|
+<%=link_to "follow other boxes", customer_box_foreign_boxes_path(box_id: @box.id)%>
+|
+<%=link_to "subscriptions to other boxes", customer_box_subscriptions_path(box_id: @box.id)%>
+|
+<%=link_to "see subscribers", customer_box_subscribers_path(box_id: @box.id)%>
+|

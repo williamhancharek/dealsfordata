@@ -2,12 +2,10 @@
   <ol class="breadcrumb">
     <li class="breadcrumb-item" aria-current="page"><%=link_to "Home", customer_boxes_path%></li>
     <li class="breadcrumb-item" aria-current="page"><%=link_to @box.name, customer_box_path(@box)%></li>
-    <li class="breadcrumb-item active" aria-current="page">completed offers</li>
+    <li class="breadcrumb-item active" aria-current="page">follow other boxes</li>
   </ol>
 </nav>
 
-customer completed offers - make this into table format for easier viewing
-
-<div class="row">
-  <%= render partial: @completed_offer, collection: @completed_offers, as: :offer%>
+<div class="card-columns">
+  <%=render partial: 'box', collection: @foreign_boxes%>
 </div>

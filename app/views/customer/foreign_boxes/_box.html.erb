@@ -7,9 +7,18 @@
       <%=box.search_terms%></p>
   </div>
   <div class="card-body">
+    <%if (@box.subscribed?(box) == true)%>
+      <%=link_to "unfollow", customer_subscription_path(Subscription.find_by(:subscribing_id => box.id, :subscriber_id => @box.id)), method: :delete%>
+    <%else%>
+      <%=link_to "follow", customer_subscriptions_path(subscribing_id: box, subscriber_id: @box.id), method: :post%>
+    <%end%>
+    |
+    <%=link_to "see subscribers", customer_box_subscriptions_path(box, "subscribers")%>
+    |
+    <%=link_to "see subscriptions", customer_box_subscriptions_path(box, "subscribing")%>
+    |
+    <%=link_to "completed offers", customer_box_completed_offers_path(box)%>
 
-
-    <%=link_to "show box", customer_box_path(id: box.id)%>
 
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#availableOffersModal">

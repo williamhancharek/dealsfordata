@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_19_183542) do
+ActiveRecord::Schema.define(version: 2019_12_26_113559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -160,7 +160,7 @@ ActiveRecord::Schema.define(version: 2019_12_19_183542) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
-    t.integer "role", default: 0
+    t.integer "role"
     t.string "name"
     t.string "confirmation_token"
     t.datetime "confirmed_at"

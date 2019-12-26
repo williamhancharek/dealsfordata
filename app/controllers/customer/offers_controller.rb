@@ -40,7 +40,7 @@ class Customer::OffersController < ApplicationController
   end
 
   def create
-    #TODO currently any offer made by a customer is auto assigned campaign id 1
+    #TODO this has to be made so that after creating the offer, the person automatically has it listed in completed offers and it's sent
     @offer = Offer.new(offer_params)
     @offer.options = JSON.parse(offer_params[:options])
     @offer.public_options = ['send']
@@ -48,6 +48,7 @@ class Customer::OffersController < ApplicationController
     @offer.active = true
     @offer.email_sent = true
     @offer.approved = true
+    @offer.campaign = Campaign.first
     @offer.image.attach offer_params[:image]
     respond_to do |format|
       if @offer.save

@@ -5,34 +5,59 @@ class Ability #TODO when this becomes bigger I should refactor into separate fil
 
   def initialize(user)
     # Define abilities for the passed in user here. For example:
+
+    #NOTE show update edit destroy create index new
+
     user ||= User.new # guest user (not logged in)
+
+    #The visitor should be able to see public boxes, and view those public boxes' offer history
 
     if user.customer?
       can :read, User, id: user.id
-      can :read, User, role: "customer"
+      # can :read, User, role: "customer"
       can :update, User, id: user.id
+    #   #destroying user is thru devise and it seems that the permission is not needed here
+    #
+      can :create, Offer
+      can :read, Offer, box: {user: {id:user.id}}
       can :update, Offer, box: {user: {id: user.id}}
+    #
       can :create, Box #TODO is this the correct permission?
-      can :manage, Box, id: user.id
+      can :manage, Box, user: {id:user.id}
+      # can :index, Box, public: 1 #should I switch to hash?
+      can :show, Box, public: 1
+      can :index, Box, public: 1 #TODO I haven't tested this particular ability yet
+
+      # can :index, Box, subscribing: {user: {id:user.id}}
+      # can :show, Box, subscribing: {user: {id:user.id}}
+
+
+      can :create, Subscription, subscriber: {user: {id: user.id}}, subscribing: {public: 1}
+      can :destroy, Subscription, subscribing: {user: {id: user.id}}
+      can :destroy, Subscription, subscriber: {user: {id: user.id}}
+
+      can :index, Subscription, subscribing: {user: {id:user.id}}
+    #
+    #   can :index, Box, {subscriber_relationships: {subscriber_id:user.id}}
+    #   can :show, Box, {subscriber_relationships: {subscriber_id:user.id}}
     end
 
     if user.employee?
       can :manage, Offer
-      can :manage, User
-    end #TODO this is bad because I only want employees to be able to create new merchants, which are users
-         #but this allows them to create anything... but whatever let's move on
+    end
 
     if user.merchant?
+      can :read, User, id: user.id
       can :read, Offer, id: offer.merchant_id
     end
 
     if user.admin?
       can :manage, :all
     end
-       #   #TODO there is an issue here - I want the user to be able to update the
-       #   #offer's selection, but they should not be able to update the offer's contents - they can't re-write the description
-       #   #so this means selectively only allowing updating certain properties of the object... otherwise I have to split the
-       #   #object in two - this is for another day... when we get more real
+         #TODO there is an issue here - I want the user to be able to update the
+         #offer's selection, but they should not be able to update the offer's contents - they can't re-write the description
+         #so this means selectively only allowing updating certain properties of the object... otherwise I have to split the
+         #object in two - this is for another day... when we get more real
   end
 
   private
