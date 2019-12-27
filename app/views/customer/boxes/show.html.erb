@@ -18,5 +18,6 @@
 |
 <%=link_to "subscriptions to other boxes", customer_box_subscriptions_path(box_id: @box.id)%>
 |
+<%if @box.public?%>
 <%=link_to "see subscribers", customer_box_subscribers_path(box_id: @box.id)%>
-|
+<%end%>

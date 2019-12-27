@@ -15,7 +15,7 @@
         <%=offer.merchant_name%></p>
       <p class='card-text'><%=offer.description%></p>
       <%= referralInfo(offer: offer)%>
-      <%= simple_form_for(offer, url: customer_offer_path(offer)) do |f| %>
+      <%= simple_form_for(offer, url: customer_offer_path(offer.id)) do |f| %>
       <div class = "form-group">
         <%=f.input :selected_option,
                   as: :radio_buttons,

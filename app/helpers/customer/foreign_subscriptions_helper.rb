@@ -1,0 +1,2 @@
+module Customer::ForeignSubscriptionsHelper
+end

@@ -1,0 +1,2 @@
+module Customer::ForeignCompletedOffersHelper
+end

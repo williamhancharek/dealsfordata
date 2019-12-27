@@ -5,6 +5,10 @@ class Customer::SubscriptionsController < ApplicationController
     set_instance(instance:"box",id: params[:box_id], object: :Box)
   end
 
+  before_action only: [:index] do
+    ensure_box_owner(box_id: params[:box_id])
+  end
+
   def index
     @subscriptions = @box.subscribing
   end

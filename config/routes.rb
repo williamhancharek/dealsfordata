@@ -33,14 +33,16 @@ Rails.application.routes.draw do
     #resources :home, only: [:show] #DEPECRATED
     resources :offers, only: [:edit, :update, :show, :create, :destroy]
     resources :completed_offers, only: [:update]
-    resources :subscriptions, only: [:create, :edit, :update, :show, :edit, :destroy]
+    resources :subscriptions, only: [:create, :edit, :update, :show, :destroy]
     resources :users, only: [:show, :edit, :update]
 
     resources :boxes, only: [:show, :edit, :update, :destroy, :index, :create] do
       resources :foreign_boxes, only: [:index]
+      resources :foreign_subscriptions, only: [:index]
+      resources :foreign_completed_offers, only: [:index]
       resources :offers, only: [:index, :new]
       resources :completed_offers, only: [:index]
-      resources :subscriptions, only: [:index, :new]
+      resources :subscriptions, only: [:index]
       resources :subscribers, only: [:index] #TODO map out
     end
   end
