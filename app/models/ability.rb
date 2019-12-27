@@ -35,7 +35,6 @@ class Ability #TODO when this becomes bigger I should refactor into separate fil
       can :create, Subscription, subscriber: {user: {id: user.id}}, subscribing: {public: 1}
       can :destroy, Subscription, subscribing: {user: {id: user.id}}
       can :destroy, Subscription, subscriber: {user: {id: user.id}}
-
       can :index, Subscription, subscribing: {user: {id:user.id}}
     #
     #   can :index, Box, {subscriber_relationships: {subscriber_id:user.id}}
