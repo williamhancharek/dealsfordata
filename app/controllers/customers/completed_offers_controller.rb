@@ -7,15 +7,10 @@ class Customers::CompletedOffersController < ApplicationController
 
   before_action only: [:update] do
     set_instance(instance:"offer", id:params[:id], object: :Offer)
-  end #this will create a possible problem
+  end #TODO this will create a possible problem REMINDER - when I look at this again tell myself why this might create a problem??
 
   def index
     @completed_offers = @box.old_offers
-    # if @box.user == current_user
-    #   @completed_offer = "customer_completed_offer"
-    # else
-      @completed_offer = "foreign_completed_offer"
-    # end
   end
 
   def update
