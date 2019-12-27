@@ -6,4 +6,5 @@ class Employees::CustomersController < ApplicationController
   def index
     @customers = current_user.assigned_customers
   end
+
 end

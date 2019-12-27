@@ -1,5 +1,6 @@
 class Admin::UsersController < ApplicationController
   load_and_authorize_resource
+  before_action {ensure_role("admin")}
 
   def show
   end

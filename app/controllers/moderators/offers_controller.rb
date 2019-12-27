@@ -1,6 +1,7 @@
 class Moderators::OffersController < ApplicationController
   load_and_authorize_resource
   before_action {ensure_role("admin","moderator")}
+
   before_action only: [:update, :destroy, :show] do
     set_instance(instance:'offer',id:params[:id],object: :Offer)
   end

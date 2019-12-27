@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     when 'employee'
       send("employee_path",current_user)
     when 'moderator'
-      send("moderator_home_path",current_user)
+      send("moderator_path",current_user)
     end
   end
 

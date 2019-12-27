@@ -85,8 +85,6 @@ Rails.application.routes.draw do
     end
   end
 
-  scope module: 'moderators' do
-    resources :moderators, only: [:show]
-  end
+  resources :moderators, only: [:show]
 
 end

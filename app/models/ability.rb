@@ -36,10 +36,20 @@ class Ability #TODO when this becomes bigger I should refactor into separate fil
     end
 
     if user.employee?
-      can :manage, User
+      can :manage, User, role: "customer"
       can :manage, User, role: "merchant"
+      can [:show, :index, :update, :edit], User, id:user.id
 
       can [:show, :index, :edit, :update], Box
+      can :manage, Offer
+    end
+
+    if user.moderator?
+      can :manage, User, role: 'customer'
+      can :manage, User, role: 'merchant'
+      can :manage, User, role: 'employee'
+
+      can :manage, Box
       can :manage, Offer
     end
 
