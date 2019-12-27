@@ -56,7 +56,6 @@ Rails.application.routes.draw do
   end
 
   scope module: 'employees', path: 'employees', as: 'employee' do
-    resources :home, only: [:show]
     resources :merchants, only: [:index]
     resources :customers, only: [:index]
     resources :offers, only: [:show, :edit, :update, :destroy, :new, :create]

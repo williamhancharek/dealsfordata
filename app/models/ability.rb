@@ -14,6 +14,7 @@ class Ability #TODO when this becomes bigger I should refactor into separate fil
 
     if user.customer?
       can :read, User, id: user.id
+      can :read, User, role: "customer"
       # can :read, User, role: "customer"
       can :update, User, id: user.id
     #   #destroying user is thru devise and it seems that the permission is not needed here
@@ -28,20 +29,17 @@ class Ability #TODO when this becomes bigger I should refactor into separate fil
       can :show, Box, public: 1
       can :index, Box, public: 1 #TODO I haven't tested this particular ability yet
 
-      # can :index, Box, subscribing: {user: {id:user.id}}
-      # can :show, Box, subscribing: {user: {id:user.id}}
-
-
       can :create, Subscription, subscriber: {user: {id: user.id}}, subscribing: {public: 1}
       can :destroy, Subscription, subscribing: {user: {id: user.id}}
       can :destroy, Subscription, subscriber: {user: {id: user.id}}
       can :index, Subscription, subscribing: {user: {id:user.id}}
-    #
-    #   can :index, Box, {subscriber_relationships: {subscriber_id:user.id}}
-    #   can :show, Box, {subscriber_relationships: {subscriber_id:user.id}}
     end
 
     if user.employee?
+      can :manage, User
+      can :manage, User, role: "merchant"
+
+      can [:show, :index, :edit, :update], Box
       can :manage, Offer
     end
 

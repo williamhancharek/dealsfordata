@@ -1,3 +1,4 @@
+<%offer = box.approved_active_offer%>
 <div class="card" style="border-width: 9px; border-style: solid;
   border-color:#<%=box.background%>">
   <div class="card-body">
@@ -10,24 +11,6 @@
 
 
     <%=link_to "show box", customer_box_path(id: box.id)%>
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#availableOffersModal">
-      available offers
-    </button>
-    <div class="modal fade" id="availableOffersModal" tabindex="-1" role="dialog" aria-labelledby="availableOffersModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="availableOffersModalLabel">Offers</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body"></div>
-        </div>
-      </div>
-    </div>
 
   </div>
 </div>
