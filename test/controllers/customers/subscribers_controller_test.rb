@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Customer::ForeignBoxesControllerTest < ActionDispatch::IntegrationTest
+class Customers::SubscribersControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

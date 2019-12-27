@@ -1,6 +1,33 @@
 {
   "MiniTest": {
     "coverage": {
+      "/home/hanchaw/code/dealsfordata/test/controllers/admin/admin_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/admin/home_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/admin/users_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
       "/home/hanchaw/code/dealsfordata/test/controllers/admin_controller_test.rb": [
         1,
         null,
@@ -10,7 +37,160 @@
         null,
         null
       ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/customers/boxes_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/customers/completed_offers_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/customers/customers_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/customers/foreign_boxes_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/customers/foreign_completed_offers_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/customers/foreign_subscriptions_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/customers/offers_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/customers/subscribers_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/customers/subscriptions_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/customers/users_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
       "/home/hanchaw/code/dealsfordata/test/controllers/customers_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/employees/boxes_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/employees/campaigns_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/employees/customers_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/employees/home_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/employees/merchants_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/employees/offers_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/employees/users_controller_test.rb": [
         1,
         null,
         1,
@@ -46,7 +226,106 @@
         null,
         null
       ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/iframely_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/merchants/home_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/merchants/merchants_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/merchants/offers_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
       "/home/hanchaw/code/dealsfordata/test/controllers/merchants_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/moderator/home_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/moderators/assignments_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/moderators/boxes_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/moderators/employees_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/moderators/home_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/moderators/offers_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/moderators_controller_test.rb": [
         1,
         null,
         1,
@@ -64,6 +343,33 @@
         null,
         null
       ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/plaid/access_token_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/plaid/transactions_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/subscriptions_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
       "/home/hanchaw/code/dealsfordata/test/controllers/users_controller_test.rb": [
         1,
         null,
@@ -73,7 +379,106 @@
         null,
         null
       ],
+      "/home/hanchaw/code/dealsfordata/test/controllers/webhooks/plaid_webhook_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/mailers/offer_mailer_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/mailers/referral_mailer_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/models/account_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/models/assignment_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/models/box_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/models/campaign_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/models/employees_box_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/models/item_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
       "/home/hanchaw/code/dealsfordata/test/models/offer_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/models/subscription_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hanchaw/code/dealsfordata/test/models/transaction_test.rb": [
         1,
         null,
         1,
@@ -92,6 +497,6 @@
         null
       ]
     },
-    "timestamp": 1569087189
+    "timestamp": 1577418788
   }
 }
