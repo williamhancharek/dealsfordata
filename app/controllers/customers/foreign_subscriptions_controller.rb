@@ -6,6 +6,13 @@ class Customers::ForeignSubscriptionsController < ApplicationController
   end
 
   def index
+    !(params[:originating_box_id].empty?) ? @originating_box = Box.find(params[:originating_box_id]) : nil
+    @subscriptions = @box.subscribing
+  end
+
+  private
+
+  def foreign_subscriptions_params
 
   end
 

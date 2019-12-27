@@ -13,7 +13,7 @@
       <%=link_to "follow", customer_subscriptions_path(subscribing_id: box, subscriber_id: @box.id), method: :post, remote: :true%>
     <%end%>
     |
-    <%=link_to "see subscriptions", customer_box_subscriptions_path(box_id: box.id)%>
+    <%=link_to "see subscriptions", customer_box_foreign_subscriptions_path(box_id: box.id, originating_box_id: @box.id)%>
     |
     <%=link_to "completed offers", customer_box_completed_offers_path(box)%>
   </div>

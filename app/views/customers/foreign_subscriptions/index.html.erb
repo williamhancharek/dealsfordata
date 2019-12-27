@@ -1,0 +1,20 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page"><%=link_to "Home", customer_boxes_path%></li>
+    <li class="breadcrumb-item" aria-current="page"><%=link_to @originating_box.name, customer_box_path(id:@originating_box.id)%></li>
+    <li class="breadcrumb-item" aria-current="page"><%=link_to "follow other boxes", customer_box_foreign_boxes_path(box_id:@originating_box.id)%></li>
+    <li class="breadcrumb-item active" aria-current="page">subscriptions for <%=@box.name%></li>
+  </ol>
+</nav>
+
+customer box subscriptions index Subscriptions for Box #<%=@box.id%>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>address</th>
+    <th>search terms</th>
+    <th>key words</th>
+  </tr>
+  <%=render partial: "box", collection: @subscriptions, as: :box%>
+</table>
