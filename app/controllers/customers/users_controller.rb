@@ -1,4 +1,4 @@
-class Customer::UsersController < ApplicationController
+class Customers::UsersController < ApplicationController
   load_and_authorize_resource
 
   def show

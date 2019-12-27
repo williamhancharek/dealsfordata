@@ -1,4 +1,4 @@
-class Customer::ForeignSubscriptionsController < ApplicationController
+class Customers::ForeignSubscriptionsController < ApplicationController
   load_and_authorize_resource :class => "Subscription"
 
   before_action only: [:index] do

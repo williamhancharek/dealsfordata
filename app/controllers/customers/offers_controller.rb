@@ -1,4 +1,4 @@
-class Customer::OffersController < ApplicationController
+class Customers::OffersController < ApplicationController
   load_and_authorize_resource
 
   before_action only: [:index, :new] do

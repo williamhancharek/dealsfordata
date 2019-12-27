@@ -1,4 +1,4 @@
-class Customer::SubscriptionsController < ApplicationController
+class Customers::SubscriptionsController < ApplicationController
   load_and_authorize_resource
 
   before_action only: [:index] do

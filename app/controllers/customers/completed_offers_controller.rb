@@ -1,4 +1,4 @@
-class Customer::CompletedOffersController < ApplicationController
+class Customers::CompletedOffersController < ApplicationController
   load_and_authorize_resource :class => "Offer"
 
   before_action only: [:index] do

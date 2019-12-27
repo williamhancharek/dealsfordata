@@ -1,4 +1,4 @@
-class Customer::SubscribersController < ApplicationController
+class Customers::SubscribersController < ApplicationController
   load_and_authorize_resource :class => "Box"
   before_action only: [:index] do
     set_instance(instance:"box",id: params[:box_id], object: :Box)

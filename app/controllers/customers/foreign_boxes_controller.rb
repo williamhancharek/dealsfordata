@@ -1,4 +1,4 @@
-class Customer::ForeignBoxesController < ApplicationController
+class Customers::ForeignBoxesController < ApplicationController
   load_and_authorize_resource :class => "Box"
 
   before_action only: [:index] do

@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     resources :admin, only: [:show]
   end
 
-  scope module: 'customer', as: 'customer', path: 'customer' do
+  scope module: 'customers', as: 'customer', path: 'customers' do
     #resources :home, only: [:show] #DEPECRATED
     resources :offers, only: [:edit, :update, :show, :create, :destroy]
     resources :completed_offers, only: [:update]
