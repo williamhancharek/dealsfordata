@@ -65,3 +65,5 @@ TODO: test to see that you cannot visit another customer's page and make subscri
 TODO: test to see that you cannot visit another customer's page and destroy subscriptions on their behalf
 TODO: test that you cannot create and destroy subscriptions to private boxes, by typing it into the url - do it without visiting the page
 TODO: test that you cannot create and destroy subscriptions to boxes that you are a third party to, by typing it into the url - do it without visiting the page
+TODO: I'm tired of trying to do cancancan so just reverting to my old shitty way for now... I should rethink it later.
+TODO: turning off campaigns for now by setting it to default 1

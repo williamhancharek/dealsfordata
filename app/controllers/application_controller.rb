@@ -35,4 +35,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def ensure_role(*roles) #TODO I should use cancancan... or should I?
+    if !(roles.include?(current_user.role))
+      flash[:warning] = "not allowed access"
+      redirect_to root_path
+    end
+  end
+
 end

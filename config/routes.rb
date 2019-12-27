@@ -59,6 +59,7 @@ Rails.application.routes.draw do
     resources :merchants, only: [:index]
     resources :customers, only: [:index]
     resources :offers, only: [:show, :edit, :update, :destroy, :new, :create]
+    resources :iframes, only: [:new, :create]
 
     resources :users, only: [:new, :create, :show] do
       resources :campaigns, only: [:index, :new, :create]

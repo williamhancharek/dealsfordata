@@ -22,6 +22,7 @@ class Employees::OffersController < ApplicationController
     @offer.public_options = ['send']
     @offer.tags = offer_params[:tags].split(' ')
     @offer.image.attach offer_params[:image]
+    @offer.campaign = Campaign.first #TODO this is setting defualt campaign.. take it out when I actually need to have campaigns
 
     respond_to do |format|
       if @offer.save

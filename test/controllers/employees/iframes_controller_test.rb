@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class IframelyControllerTest < ActionDispatch::IntegrationTest
+class Employees::IframesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

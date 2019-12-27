@@ -12,7 +12,7 @@ employee new offer page
 <%=f.input :image%>
 <%=f.input :box_id, label:"box",
                     collection: @boxes%>
-<%=f.input :campaign_id, label:"campaign",
+<%f.input :campaign_id, label:"campaign",
                          collection: @campaign_name%>
 <%=f.button :submit%>
 <% end %>

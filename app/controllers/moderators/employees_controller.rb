@@ -1,9 +1,9 @@
 class Moderators::EmployeesController < ApplicationController
-  load_and_authorize_resource :class => "User"
+  # load_and_authorize_resource :class => "User"
   before_action {ensure_role("admin","moderator")}
 
   def index
-    # @employees = User.where(role:"employee")
+    @employees = User.where(role:"employee")
   end
 
   def edit

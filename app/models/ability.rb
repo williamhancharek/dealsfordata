@@ -48,6 +48,8 @@ class Ability #TODO when this becomes bigger I should refactor into separate fil
       can :manage, User, role: 'customer'
       can :manage, User, role: 'merchant'
       can :manage, User, role: 'employee'
+      can [:show, :index, :update, :edit], User, id: user.id
+      can :manage, Assignment
 
       can :manage, Box
       can :manage, Offer
