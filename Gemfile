@@ -30,6 +30,7 @@ gem 'image_processing', '~> 1.2'
 gem 'country_select'
 gem 'sendgrid-ruby'
 gem "mini_magick"
+gem "httparty", "~> 0.17.3"
 #TODO decide about the following gems:
 #gem 'rails_admin'
 

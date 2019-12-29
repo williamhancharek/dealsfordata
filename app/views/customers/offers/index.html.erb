@@ -1,8 +1,10 @@
-<%=link_to "make your own offer", new_customer_box_offer_path(@box)%>
-
+<% if @box.public?%>
+  <%=link_to "make your own offer", new_customer_box_offer_path(@box)%>
+<%end%>
 <div class="row">
-<%= ShowApprovedOffer(offer: @offer)%>
+  <%= ShowApprovedOffer(offer: @offer)%>
 </div>
 <div class="container-sm mx-auto">
-  <%=@approved_count%> offers lined up
+  <%=@approved_count%>
+  offers lined up
 </div>
