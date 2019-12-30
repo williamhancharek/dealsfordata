@@ -35,6 +35,9 @@ class Offer < ApplicationRecord
     end
   end
 
-    
+  def grab_image(image_url)
+    downloaded_image = open(image_url)
+    self.image.attach(io: downloaded_image  , filename: "image.jpg")
+  end
 
 end

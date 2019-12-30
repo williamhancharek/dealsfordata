@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
   </head>
   <body>
-    <h1>New offer:  <%= @offer.title%> for Box <%=@box.name%></h1>
-    <p>Offer Description: <%= @offer.description%>
-    </p>
+    <h1>New offer: <%= @offer.title%> for Box <%=@box.name%></h1>
+    <p><%=@offer.html.html_safe%></p>
+    <%if (@offer.retail_price.present? && @offer.current_price.present?)%>
+      <p>Original Price: <%=@offer.retail_price%>, discounted to <%=@offer.current_price%></p>
+    <%end%>
 
-    <p>This offer was referred to you by the box named: <%=@referrer.name%> </p>
+    <%if @referrer.present?%>
+      <p>This offer was referred to you by the box named: <%=@referrer.name%></p>
+      <%if @offer.received_commentary.present?%>
+        <p>with the following comment: <%=@offer.received_commentary%></p>
+      <%end%>
+    <%end%>
 
-    <p>
-      To check it out, just follow this link:
-      <%= @url %>.
-    </p>
+    <p> To check it out, just follow this link: <%= @url %>. </p>
     <p>Happy curating!</p>
   </body>
 </html>

@@ -1,10 +1,20 @@
-You have a new offer titled: <%= @offer.title %> for Box <%=@box.name%>
+You have a new offer titled: <%= @offer.title %>
+for Box <%=@box.name%>
 ===============================================
+Description:
+<%=@offer.description%>
+<%if (@offer.retail_price.present? && @offer.current_price.present?)%>
+  Original Price:
+  <%=@offer.retail_price%>, discounted to
+  <%=@offer.current_price%>
+<%end%>
 
-Description: <%=@offer.description%>
+<%if @referrer.present?%>
+  This offer was referred to you by the box named:
+  <%=@referrer.name%>
+<%end%>
 
-This offer was referred to you by the box named: <%=@referrer.name%> 
-
-To login to the site, just follow this link: <%= @url %>.
+To login to the site, just follow this link:
+<%= @url %>.
 
 Have a happy day!

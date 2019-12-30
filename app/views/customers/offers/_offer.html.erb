@@ -1,16 +1,7 @@
 <div class="container-sm mx-auto">
   <div class="card">
-    <%if offer.image.attached?%>
-      <%if offer.image.variable?%>
-        <%=image_tag(offer.image.variant(resize_to_limit: [400,400]), class:"rounded mx-auto d-block card-img-top")%>
-      <%else%>
-        <p>image attached but can't be shown</p>
-      <%end%>
-    <%else%>
-      <p> no image attached</p>
-    <%end%>
     <div class="card-body">
-      <p class='card-text'><%=offer.description%></p>
+      <%=offer.html.html_safe%>
       <%= referralInfo(offer: offer)%>
       <%= simple_form_for(offer, url: customer_offer_path(offer.id)) do |f| %>
       <div class = "form-group">
