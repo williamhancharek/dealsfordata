@@ -50,6 +50,8 @@ class Customers::OffersController < ApplicationController
     @offer.approved = true
     @offer.campaign = Campaign.first
     @offer.image.attach offer_params[:image]
+    binding.pry_remote
+
     respond_to do |format|
       if @offer.save
         format.html {redirect_back fallback_location: :index, notice: "offer was successfully created"}
@@ -77,6 +79,7 @@ class Customers::OffersController < ApplicationController
                                   :box_id,
                                   :campaign_id,
                                   :options,
+                                  :link,
                                   :public_selected_option=>[])
   end
 

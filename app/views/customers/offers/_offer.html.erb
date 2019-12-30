@@ -10,9 +10,6 @@
       <p> no image attached</p>
     <%end%>
     <div class="card-body">
-      <h3 class="card-title"><%=offer.title%></h3>
-      <p class="card-subtitle text-muted">Offered by:
-        <%=offer.merchant_name%></p>
       <p class='card-text'><%=offer.description%></p>
       <%= referralInfo(offer: offer)%>
       <%= simple_form_for(offer, url: customer_offer_path(offer.id)) do |f| %>
@@ -25,7 +22,7 @@
       </div>
       <%= sendOffer(offer: offer, f: f) %>
       <%=f.input :commentary,
-                  label: "feedback"%>
+                  label: "your commentary"%>
       <%= f.button :submit, "select", class:["btn-sm", "btn-w-m btn-primary"] %>
     <%end%>
   </div>

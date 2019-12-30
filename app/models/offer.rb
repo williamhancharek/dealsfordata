@@ -2,14 +2,11 @@ class Offer < ApplicationRecord
   belongs_to :box
   belongs_to :campaign
   has_one_attached :image
-  validates :description, presence: true
-  validates :title, presence: true
   validates :options, presence: true
-  validates :description, presence: true
   validate :old_offers_must_have_selection
   store_accessor :status, :email_sent, :active, :type #TODO I haven't used type yet
 
-  #type is video, purchase, or blog
+  #type should be video?, purchase, or blog post or should it just be purchase and info
   #email_sent is true, or false
   #active is true, or false
 
