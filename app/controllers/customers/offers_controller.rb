@@ -23,7 +23,7 @@ class Customers::OffersController < ApplicationController
   def update
     respond_to do |format|
       if @offer.update(offer_params)
-        if !(@offer.public_selected_option.nil?)
+        if @offer.public_selected_option.present?
           PropagateOfferWorker.perform_async(@offer.id)
         end
         flash[:success] = "successfully updated" #possibly delete this stupid message
@@ -50,6 +50,10 @@ class Customers::OffersController < ApplicationController
     @offer.approved = true
     @offer.campaign = Campaign.first
     @offer.image.attach offer_params[:image]
+
+    if offer_params[:link].present?
+
+
     binding.pry_remote
 
     respond_to do |format|

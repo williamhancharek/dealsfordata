@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light navbar-expand-lg justify-content-center">
   <%= link_to fa_icon("adn 2x",text:"logo"), "", class:"navbar-brand"%>
-  <%if !(current_user.nil?) #TODO feels janky%>
+  <%if current_user.present? #TODO feels janky%>
   <%=render "partials/navbars/#{current_user.role}"%>
   <%else%>
   <%=render "partials/navbars/logged_out"%>

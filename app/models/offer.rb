@@ -35,4 +35,6 @@ class Offer < ApplicationRecord
     end
   end
 
+    
+
 end
