@@ -1,14 +1,13 @@
 employee new offer page
 
 <%= simple_form_for(@offer, method: :post, url: employee_offers_path) do |f| %>
-<%=f.input :title, presence: true%>
-<%=f.input :description, presence: true%>
+<%=f.input :link%>
 <%=f.input :tags%>
+<%=f.input :commentary%>
 <%=f.input :options, presence: true,
                       required: true,
                         collection: [['question', ['yes', 'no', 'no answer', 'spam']],
-                                  ['coupon', ['purchase', 'ew', 'not now', 'is it worth?']],
-                                  ['advertisement',['useful', 'not useful', 'spam', 'already seen']]]%>
+                                  ['advertisement',['useful', 'not useful', 'spam', 'need info']]]%>
 <%=f.input :image%>
 <%=f.input :box_id, label:"box",
                     collection: @boxes%>

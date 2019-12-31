@@ -40,4 +40,11 @@ class Offer < ApplicationRecord
     self.image.attach(io: downloaded_image  , filename: "image.jpg")
   end
 
+  def setup_iframe(link)
+    response = Iframe.new(link)
+    self.description = response.description
+    self.html = response.html
+    self.grab_image(response.thumbnail_url)
+  end
+
 end

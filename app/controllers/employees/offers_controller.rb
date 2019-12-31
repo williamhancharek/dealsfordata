@@ -22,7 +22,9 @@ class Employees::OffersController < ApplicationController
     @offer.public_options = ['send']
     @offer.tags = offer_params[:tags].split(' ')
     @offer.image.attach offer_params[:image]
-    @offer.campaign = Campaign.first #TODO this is setting defualt campaign.. take it out when I actually need to have campaigns
+    @offer.campaign = Campaign.first #TODO this is setting default campaign.. take it out when I actually need to have campaigns
+
+    @offer.setup_iframe(offer_params[:link]) if offer_params[:link].present?
 
     respond_to do |format|
       if @offer.save
@@ -47,6 +49,8 @@ class Employees::OffersController < ApplicationController
                                   :image,
                                   :box_id,
                                   :campaign_id,
+                                  :link,
+                                  :commentary,
                                   :options)
   end
 

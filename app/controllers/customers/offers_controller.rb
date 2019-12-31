@@ -23,9 +23,7 @@ class Customers::OffersController < ApplicationController
   def update
     respond_to do |format|
       if @offer.update(offer_params)
-        if @offer.public_selected_option.present?
-          PropagateOfferWorker.perform_async(@offer.id)
-        end
+        PropagateOfferWorker.perform_async(@offer.id) if @offer.public_selected_option.present?
         flash[:success] = "successfully updated" #possibly delete this stupid message
         format.html { redirect_back(fallback_location: :index)}
         format.json { render :index, status: :ok  }
@@ -53,12 +51,7 @@ class Customers::OffersController < ApplicationController
     #TODO I no longer provide option to attach image to make things simpler
     #@offer.image.attach offer_params[:image]
 
-    if offer_params[:link].present?
-      response = Iframe.new(offer_params[:link])
-      @offer.description = response.description
-      @offer.html = response.html
-      @offer.grab_image(response.thumbnail_url)
-    end
+    @offer.setup_iframe(offer_params[:link]) if offer_params[:link].present?
 
     respond_to do |format|
       if @offer.save

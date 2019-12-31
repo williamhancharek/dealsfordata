@@ -1,7 +1,7 @@
 <div class="container-sm mx-auto">
   <div class="card">
     <div class="card-body">
-      <%=offer.html.html_safe%>
+      <%=offer.html.html_safe if offer.html.present?%>
       <%= referralInfo(offer: offer)%>
       <%= simple_form_for(offer, url: customer_offer_path(offer.id)) do |f| %>
       <div class = "form-group">
