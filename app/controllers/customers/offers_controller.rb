@@ -23,7 +23,9 @@ class Customers::OffersController < ApplicationController
   def update
     respond_to do |format|
       if @offer.update(offer_params)
-        PropagateOfferWorker.perform_async(@offer.id) if @offer.public_selected_option.present?
+        if @offer.selected_option = "useful" && @offer.box.public == "true"
+          PropagateOfferWorker.perform_async(@offer.id)
+        end
         flash[:success] = "successfully updated" #possibly delete this stupid message
         format.html { redirect_back(fallback_location: :index)}
         format.json { render :index, status: :ok  }

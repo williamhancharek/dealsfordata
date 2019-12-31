@@ -1,6 +1,6 @@
 module Customer::OffersHelper
 
-  def sendOffer(offer:, f:)
+  def sendOffer(offer:, f:) #TODO no longer needed since all offers that are public autoforward answer
     if offer.box.public?
       render partial: "public_offer_selection", locals: {f: f, offer: offer}
     end

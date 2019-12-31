@@ -1,8 +1,9 @@
       <div class="form-group">
         <%=f.input :public_selected_option,
-            label: "send to your followers?",
-            as: :check_boxes,
-            collection: offer.public_options,
+            as: :hidden,
+            value: "send",
             wrapper_html: {class: ['i-checks, form-check-inline']}%>
 
 </div>
+
+#TODO no longer needed since all boxes that are public automatically send offer if they find it useful
