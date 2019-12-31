@@ -1,19 +1,16 @@
 <tr>
-  <td><%=offer.approved%></td>
-  <td><%=offer.status%></td>
-  <td><%=offer.updated_at%></td>
-  <td><%=offer.description%></td>
-  <td><%=offer.tags%></td>
-  <td><%=offer.options%></td>
+  <td><%=offer.active%></td>
   <td><%=offer.selected_option%></td>
-  <td><%=offer.campaign.name%></td>
+  <td><%=offer.retail_price%></td>
+  <td><%=offer.current_price%></td>
+  <td><%=truncate(offer.description, length: 100)%></td>
   <td>
-    <%if offer.image.attached?%>
-      <%if offer.image.variable?%>
-        <%=image_tag(offer.image.variant(resize_to_limit: [300,300]), class:"card-img")%>
-      <%else%>
-        <p>image attached but can't be shown</p>
-      <%end%>
-    <%end%>
-  </td>
+  <%if offer.image.attached?%>
+  <%if offer.image.variable?%>
+  <%=image_tag(offer.image.variant(resize_to_limit: [100,100]), class:"card-img")%>
+  <%else%>
+  <p>image attached but can't be shown</p>
+  <%end%>
+  <%end%></td>
+  <td><%=offer.received_commentary%></td>
 </tr>

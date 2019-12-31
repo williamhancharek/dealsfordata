@@ -1,19 +1,55 @@
 <p>employee customer index offers page</p>
-<p>Offers for Box: <%=@box.name%></p>
+<p>Offers for Box:
+  <%=@box.name%></p>
 <table>
   <tr>
-    <th>approved</th>
-    <th>status</th>
-    <th>last updated</th>
+    <th>active</th>
+    <th>option</th>
+    <th>retail</th>
+    <th>current</th>
     <th>description</th>
-    <th>tags</th>
-    <th>options</th>
-    <th>selected option</th>
-    <th>merchant</th>
     <th>image</th>
+    <th>comments</th>
   </tr>
   <%= render partial: "offer", collection: @offers, as: :offer%>
 
 </table>
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newBoxModal">
+  Create new offer
+</button>
+
+<!-- Modal -->
+<%=simple_form_for(@offer, url:employee_offers_path, method: :post) do |f| %>
+<div class="modal fade" id="newBoxModal" tabindex="-1" role="dialog" aria-labelledby="newBoxModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Offer</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%=f.input :link%>
+        <%=f.input :tags%>
+        <%=f.input :commentary%>
+        <%=f.input :box_id, as: :hidden%>
+        <%=f.input :options, presence: true,
+                              required: true,
+                                collection: [['question', ['yes', 'no', 'no answer', 'spam']],
+                                          ['advertisement',['useful', 'not useful', 'spam', 'need info']]]%>
+        <%f.input :campaign_id, label:"campaign",
+                                 collection: @campaign_name%>
+      </div>
+      <div class="modal-footer">
+        <%= f.button :submit, "submit", class:["btn-w-m btn-primary"]%>
+      </div>
+    </div>
+  </div>
+</div>
+<%end%>
+
 
 <%=link_to "new offer", new_employee_offer_path(box_id: @box.id)%>

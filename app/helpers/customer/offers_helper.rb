@@ -14,10 +14,7 @@ module Customer::OffersHelper
   end
 
   def ShowApprovedOffer(offer:)
-    if offer.nil?
-    else
-      render partial: 'offer', locals: {offer:offer}
-    end
+      render partial: 'offer', locals: {offer:offer} if offer.present?
   end
 
 end

@@ -23,7 +23,7 @@ class PropagateOfferWorker
         new_offer.public_options ||= offer.public_options
         new_offer.box_id ||=sub.id
         new_offer.campaign_id ||= offer.campaign.id
-        new_offer.received_commentary ||= offer.commentary
+        new_offer.commentary ||= offer.received_commentary
         new_offer.original_offer_id ||= offer.id
         new_offer.approved ||= offer.approved
         new_offer.link ||= offer.link

@@ -2,6 +2,12 @@
   <div class="card">
     <div class="card-body">
       <%=offer.html.html_safe if offer.html.present?%>
+      <%if offer.retail_price.present?%>
+        <p><%=offer.retail_price%> <%="discounted to #{offer.current_price}" if offer.current_price.present?%></p>
+      <%end%>
+      <%if offer.commentary.present?%>
+        <p>commentary: <%=offer.commentary%></p>
+      <%end%>
       <%= referralInfo(offer: offer)%>
       <%= simple_form_for(offer, url: customer_offer_path(offer.id)) do |f| %>
       <div class = "form-group">
@@ -12,7 +18,7 @@
                   wrapper_html: {class:"form-check-inline"}%>
       </div>
       <%= sendOffer(offer: offer, f: f) %>
-      <%=f.input :commentary,
+      <%=f.input :received_commentary,
                   label: "your commentary"%>
       <%= f.button :submit, "select", class:["btn-sm", "btn-w-m btn-primary"] %>
     <%end%>

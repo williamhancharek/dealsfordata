@@ -8,6 +8,7 @@ class Employees::OffersController < ApplicationController
 
   def index
     @offers = @box.offers
+    @offer = @box.offers.build
   end
 
   def new

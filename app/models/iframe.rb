@@ -40,4 +40,8 @@ class Iframe
     self.oembed["html"]
   end
 
+  def code
+    self.oembed.code
+  end
+
 end

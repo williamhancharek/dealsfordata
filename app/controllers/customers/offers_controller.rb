@@ -40,10 +40,14 @@ class Customers::OffersController < ApplicationController
   def create
     #TODO this has to be made so that after creating the offer, the person automatically has it listed in completed offers and it's sent
     @offer = Offer.new(offer_params)
-    @offer.options = JSON.parse(offer_params[:options])
+    @offer.options = ['useful', 'not useful', 'spam', 'need info']
+    @offer.selected_option = 'useful'
+    #TODO I am removing all options for customer sent things - just ads for now. no coupons or questions
+    #@offer.options = JSON.parse(offer_params[:options])
     @offer.public_options = ['send']
-    @offer.tags = offer_params[:tags].split(' ') #TODO taking out tags as well since users won't be tagging anything most probably
-    @offer.active = true
+    @offer.public_selected_option = 'send'
+    @offer.tags = offer_params[:tags].split(' ') #TODO taking out tags from view as well since users won't be tagging anything most probably
+    @offer.active = false
     @offer.email_sent = true
     @offer.approved = true
     @offer.campaign = Campaign.first #TODO I'm not using campaign right now so I'm just setting it to a default
@@ -55,6 +59,8 @@ class Customers::OffersController < ApplicationController
 
     respond_to do |format|
       if @offer.save
+        PropagateOfferWorker.perform_async(@offer.id) if @offer.public_selected_option.present?
+
         format.html {redirect_back fallback_location: :index, notice: "offer was successfully created"}
         format.json {render :new, status: :create, location: @user}
       else
@@ -74,6 +80,7 @@ class Customers::OffersController < ApplicationController
                                   :options,
                                   :commentary,
                                   :title,
+                                  :received_commentary,
                                   :description,
                                   :tags,
                                   :image,

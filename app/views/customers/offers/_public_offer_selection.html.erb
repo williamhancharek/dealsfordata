@@ -1,5 +1,6 @@
       <div class="form-group">
         <%=f.input :public_selected_option,
+            label: "send to your followers?",
             as: :check_boxes,
             collection: offer.public_options,
             wrapper_html: {class: ['i-checks, form-check-inline']}%>

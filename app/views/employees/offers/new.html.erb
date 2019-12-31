@@ -9,8 +9,7 @@ employee new offer page
                         collection: [['question', ['yes', 'no', 'no answer', 'spam']],
                                   ['advertisement',['useful', 'not useful', 'spam', 'need info']]]%>
 <%=f.input :image%>
-<%=f.input :box_id, label:"box",
-                    collection: @boxes%>
+<%=f.input :box_id, as: :hidden%>
 <%f.input :campaign_id, label:"campaign",
                          collection: @campaign_name%>
 <%=f.button :submit%>
