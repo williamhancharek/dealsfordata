@@ -1,0 +1,10 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <%passive.each do |t|%>
+    <%=render partial: "partials/passive_crumb", locals: {link: t}%>
+    <%end%>
+    <%if active.present?%>
+      <li class="breadcrumb-item active small" aria-current="page"><%=active%></li>
+    <%end%>
+  </ol>
+</nav>

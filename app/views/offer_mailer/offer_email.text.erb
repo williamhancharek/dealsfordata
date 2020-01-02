@@ -1,10 +1,9 @@
 New offer for Box <%=@box.name%>
 ===============================================
-Offer title: <%=@offer.title.present? ? @offer.title : "not available"%>
-Description: <%=@offer.description.present? ? @offer.description.present : "not available"%>
-Commentary:<%=@offer.received_commentary.present? ? @offer.received_commentary : "none given"%>
-<%if (@offer.retail_price.present? && @offer.current_price.present?)%>
-<%=@offer.current_price.present? ? "currently #{@offer.current_price}" : nil%> <%=@offer.retail_price.present? ? "discounted from #{@offer.retail_price}" : nil%>
+Offer title: <%=@offer.title if @offer.title.present?%>
+Description: <%=@offer.description if @offer.description.present?%>
+Commentary:<%=@offer.received_commentary if @offer.received_commentary.present?%>
+<%="currently #{@offer.current_price}" if @offer.current_price.present?%> <%="discounted from #{@offer.retail_price}" if @offer.retail_price.present?%>
 
 To login to the site, just follow this link: <%= @url %>.
 

@@ -6,7 +6,7 @@ class Customers::ForeignSubscriptionsController < ApplicationController
   end
 
   def index
-    !(params[:originating_box_id].empty?) ? @originating_box = Box.find(params[:originating_box_id]) : nil
+    @originating_box = Box.find(params[:originating_box_id]) if params[:originating_box_id].present?
     @subscriptions = @box.subscribing
   end
 

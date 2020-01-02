@@ -3,6 +3,7 @@
     <li class="breadcrumb-item active small" aria-current="page">Home</li>
   </ol>
 </nav>
+<%=render partial: "partials/crumb", locals: {active: "Home",passive: []}%>
 
 <%=createWelcomeMessage(box_count: @box_count, foreign_box: @foreign_box)%>
 <div class="card-columns">

@@ -8,7 +8,7 @@
     <p><%=image_tag(@offer.image.variant(resize_to_limit: [200,200]))%></p>
     <p style="font-weight:bold;"><%=@offer.title%></p>
     <p><%=@offer.description%></p>
-    <%=@offer.current_price.present? ? "currently #{@offer.current_price}" : nil%> <%=@offer.retail_price.present? ? "discounted from #{@offer.retail_price}" : nil%>
+    <%="currently #{@offer.current_price}" if @offer.current_price.present?%> <%="discounted from #{@offer.retail_price}" if @offer.retail_price.present?%>
     <%if @offer.received_commentary.present?%>
       <p>commentary: <%=@offer.received_commentary%></p>
     <%end%>
