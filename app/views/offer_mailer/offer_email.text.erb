@@ -1,12 +1,10 @@
-You have a new offer titled: <%= @offer.title %> for Box <%=@box.name%>
+New offer for Box <%=@box.name%>
 ===============================================
-
-Description: <%=@offer.description%>
-<%if @offer.received_commentary.present?%>
-<%=@offer.received_commentary%>
-<%end%>
+Offer title: <%=@offer.title.present? ? @offer.title : "not available"%>
+Description: <%=@offer.description.present? ? @offer.description.present : "not available"%>
+Commentary:<%=@offer.received_commentary.present? ? @offer.received_commentary : "none given"%>
 <%if (@offer.retail_price.present? && @offer.current_price.present?)%>
-Original Price: <%=@offer.retail_price%>, discounted to <%=@offer.current_price%><%end%>
+<%=@offer.current_price.present? ? "currently #{@offer.current_price}" : nil%> <%=@offer.retail_price.present? ? "discounted from #{@offer.retail_price}" : nil%>
 
 To login to the site, just follow this link: <%= @url %>.
 
