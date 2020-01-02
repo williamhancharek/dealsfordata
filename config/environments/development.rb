@@ -38,7 +38,9 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 5000}
 
-  config.action_mailer.preview_path = "#{Rails.root}/lib/mailer_previews"
+  config.action_mailer.show_previews = true
+  # config.action_mailer.preview_path = "#{Rails.root}/lib/mailer_previews"
+  # config.action_mailer.preview_path = "#{Rails.root}/test/mailers/previews"
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

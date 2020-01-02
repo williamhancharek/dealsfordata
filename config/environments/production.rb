@@ -79,6 +79,8 @@ Rails.application.configure do
   password: ENV["SENDGRID_PASSWORD"]
   }
 
+  config.action_mailer.show_previews = true
+  config.action_mailer.preview_path = "#{Rails.root}/test/mailers/previews"
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
