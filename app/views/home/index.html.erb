@@ -5,8 +5,10 @@ external root page
     <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
   </div>
 </div>
+
+
 <%@boxes.each_slice(3) do |t|%>
-<div class="card-columns">
+<div class="row row-cols-1 row-cols-md-3">
       <%=render partial: 'box', collection: t%>
 </div>
 <%end%>

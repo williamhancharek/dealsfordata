@@ -1,19 +1,22 @@
-<div class="accordion" id="accordion<%=box.id%>">
-  <div class="card h-100" style="border-width: 9px; border-style: solid; border-color:#<%=box.background%>">
-    <div class="card-header" id="headingOne">
+<div class="col mb-4">
+  <div class="accordion" id="accordion<%=box.id%>">
+    <div class="card h-100" style="border-width: 9px; border-style: solid; border-color:#<%=box.background%>">
+      <div class="card-header" id="headingOne">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%=box.id%>" aria-expanded="true" aria-controls="collapseOne">
           <%=box.name%>
         </button>
-    </div>
-    <div class="card-body">
-      <p class='card-text'>Search terms: <%=box.search_terms%></p>
-    </div>
-    <div id="collapse<%=box.id%>" class="collapse" aria-labelledby="headingOne" data-parent="#accordion<%=box.id%>">
+      </div>
       <div class="card-body">
-        Latest Offers approved by this box
-        <table>
-        <%=render partial: "offer", collection: box.offers.select{|t| t.image.present?}%>
-      </table>
+        <p class='card-text'>Search terms:
+          <%=box.search_terms%></p>
+      </div>
+      <div id="collapse<%=box.id%>" class="collapse" aria-labelledby="headingOne" data-parent="#accordion<%=box.id%>">
+        <div class="card-body">
+          Latest Offers approved by this box
+          <table>
+            <%=render partial: "offer", collection: box.offers.select{|t| t.image.present?}%>
+          </table>
+        </div>
       </div>
     </div>
   </div>

@@ -1,4 +1,7 @@
 <tr>
-  <td><%=image_tag(offer.image.variant(resize: "100x100")) if offer.image.present?%></td>
-  <td>1 2 3 4 5 6 7 8 9 10<%=offer.title.truncate(10) if offer.title.present?%></td>
+  <%if offer.link.present?%>
+    <td><%=link_to(image_tag(offer.image.variant(resize: "100x100")),offer.link) if offer.image.present?%></td>
+    <td><%=link_to(offer.title,offer.link) if offer.title.present?%></td>
+    <td><%=offer.current_price if offer.current_price.present?%></td>
+  <%end%>
 </tr>
