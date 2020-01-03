@@ -1,8 +1,39 @@
 <%=render partial: "partials/crumb", locals: {active: @box.name, passive: [link_to("Home", customer_boxes_path)]}%>
 
-<%=@box.user.email%>
+<h5>Box Name: <%=@box.name%></h5>
+<div class="row">
+  <div class="col-2">
+<ul class="nav flex-column nav-pills nav-stacked">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Offers</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Archived</a>
+  </li>
+  <%if @box.public?%>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Followers</a>
+  </li>
+  <%else%>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Followers</a>
+  </li>
+  <%end%>
 
-<%=link_to "delete box", customer_box_path, method: :delete, data: {confirm: "Are you sure?"}%>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Following</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Settings</a>
+  </li>
+
+</ul>
+</div>
+<div class="col-10">
+
+  </div>
+</div>
+
 <%=link_to "edit", edit_customer_box_path(@box)%>
 <%=link_to "offers", customer_box_offers_path(@box)%>
 |
