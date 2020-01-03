@@ -1,3 +1,5 @@
+<%=render partial: "partials/crumb", locals: {active: "Subscribers", passive: [link_to("Home", customer_boxes_path), link_to(@box.name, customer_box_path(@box))]}%>
+
 customer box subscribers index Subscriptions for Box #<%=@box.id%>
 <table>
   <tr>

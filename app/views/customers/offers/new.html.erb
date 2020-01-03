@@ -1,4 +1,6 @@
-customer new offer page
+<%=render partial: "partials/crumb", locals: {active: "Offers", passive: [link_to("Home", customer_boxes_path), link_to(@box.name, customer_box_path(@box))]}%>
+
+customer new offer page (not used)
 
 <%= simple_form_for(@offer, method: :post, url: customer_offers_path) do |f| %>
 <%=f.input :link%>

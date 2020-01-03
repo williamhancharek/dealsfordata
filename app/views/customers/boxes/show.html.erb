@@ -1,10 +1,4 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item small" aria-current="page"><%=link_to "Home", customer_boxes_path%></li>
-        <li class="breadcrumb-item active small" aria-current="page"><%=@box.name%></li>
-  </ol>
-</nav>
-
+<%=render partial: "partials/crumb", locals: {active: @box.name, passive: [link_to("Home", customer_boxes_path)]}%>
 
 <%=@box.user.email%>
 

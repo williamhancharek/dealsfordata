@@ -1,10 +1,6 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item small" aria-current="page"><%=link_to "Home", customer_boxes_path%></li>
-    <li class="breadcrumb-item small" aria-current="page"><%=link_to @box.name, customer_box_path(@box)%></li>
-    <li class="breadcrumb-item active small" aria-current="page">offers</li>
-  </ol>
-</nav>
+<%=render partial: "partials/crumb", locals: {active: "Offers", passive: [link_to("Home", customer_boxes_path), link_to(@box.name, customer_box_path(@box))]}%>
+
+
 <% if @box.public?%>
   <%=link_to "make your own offer", new_customer_box_offer_path(@box)%>
 <%end%>

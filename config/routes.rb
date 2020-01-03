@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   }
 
   root to: "home#index"
+  
   namespace :plaid do
     resources :access_token, only: [:create]
   end

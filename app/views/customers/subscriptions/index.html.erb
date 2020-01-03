@@ -1,10 +1,4 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item small" aria-current="page"><%=link_to "Home", customer_boxes_path%></li>
-    <li class="breadcrumb-item active small" aria-current="page"><%=link_to @box.name, customer_box_path(id:@box.id)%></li>
-    <li class="breadcrumb-item active small" aria-current="page">subscriptions</li>
-  </ol>
-</nav>
+<%=render partial: "partials/crumb", locals: {active: "Subscriptions", passive: [link_to("Home", customer_boxes_path), link_to(@box.name, customer_box_path(@box))]}%>
 
 customer box subscriptions index Subscriptions for Box #<%=@box.id%>
 <table>
