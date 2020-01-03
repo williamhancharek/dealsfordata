@@ -1,11 +1,7 @@
 <%=render partial: "partials/crumb", locals: {active: "Offers", passive: [link_to("Home", customer_boxes_path), link_to(@box.name, customer_box_path(@box))]}%>
 
-
-<% if @box.public?%>
-  <%=link_to "make your own offer", new_customer_box_offer_path(@box)%>
-<%end%>
 <div class="row">
-<%=render partial: "partials/box_tabs", locals: {box: @box, active: "archived"}%>
+<%=render partial: "partials/box_tabs", locals: {box: @box, active: "offer"}%>
     <div class='col-1'></div>
     <div class='col-6'>
       <h2 class="text-center font-weight-bold">Offers available for you</h2>

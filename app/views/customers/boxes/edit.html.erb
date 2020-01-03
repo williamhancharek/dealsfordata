@@ -1,6 +1,5 @@
 <%=render partial: "partials/crumb", locals: {active: "edit", passive: [link_to("home", customer_boxes_path), link_to("#{@box.name}", customer_box_path(@box.id))]}%>
 
-<h5>Box Name:<%=@box.name%></h5>
 <div class="row">
   <%=render partial: "partials/box_tabs", locals: {box: @box, active: "settings"}%>
   <div class="col-10">
