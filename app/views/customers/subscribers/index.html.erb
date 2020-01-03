@@ -1,20 +1,28 @@
 <%=render partial: "partials/crumb", locals: {active: "Subscribers", passive: [link_to("Home", customer_boxes_path), link_to(@box.name, customer_box_path(@box))]}%>
 
 <div class="row">
-<%=render partial: "partials/box_tabs", locals: {box: @box, active: "follower"}%>
+  <%=render partial: "partials/box_tabs", locals: {box: @box, active: "follower"}%>
+  <%if @box.subscribers.empty?%>
+    <div class='col-1'></div>
+    <div class='col-6'>
+      <%if @box.public?%>
+        <p class="text-center font-weight-bold"><%=link_to "send offer to your followers", new_customer_box_offer_path(@box)%></p>
+      <%end%>
+      <h2 class="text-center font-weight-bold">you have no subscribers</h2>
+    </div>
+    <div class="col-3"></div>
+  <%else%>
+    <div class="col-10">
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>address</th>
+          <th>search terms</th>
+          <th>key words</th>
+        </tr>
+        <%=render partial: "box", collection: @subscribers, as: :box%>
+      </table>
+    </div>
+  <%end%>
 </div>
-
-<% if @box.public?%>
-  <%=link_to "send offer to your followers", new_customer_box_offer_path(@box)%>
-<%end%>
-customer box subscribers index Subscriptions for Box #<%=@box.id%>
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>address</th>
-    <th>search terms</th>
-    <th>key words</th>
-  </tr>
-  <%=render partial: "box", collection: @subscriptions, as: :box%>
-</table>

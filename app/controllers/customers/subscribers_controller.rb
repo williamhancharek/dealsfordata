@@ -9,7 +9,7 @@ class Customers::SubscribersController < ApplicationController
   end
 
   def index
-    @subscriptions = @box.subscribers
+    @subscribers = @box.subscribers
   end
 
 end
