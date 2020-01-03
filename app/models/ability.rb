@@ -9,7 +9,8 @@ class Ability #TODO when this becomes bigger I should refactor into separate fil
     #NOTE show update edit destroy create index new
 
     user ||= User.new # guest user (not logged in)
-
+    can :read, Box, public: "true"
+    can :create, Offer
     #The visitor should be able to see public boxes, and view those public boxes' offer history
 
     if user.customer?

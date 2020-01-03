@@ -4,8 +4,14 @@ class Iframe
 
   default_params api_key: ENV['IFRAMELY_API']
 
-  def initialize(url)
+  def initialize(url, **splat) #TODO iframely says I should URL-encode these urls... am I doing that?
     @options = {query: {url: url}}
+    @options[:query] = @options[:query].merge(splat)
+  end
+
+  def oembed_small
+    @options[:query]["&iframe"]="card-small"
+    self.class.get("/api/oembed", @options)
   end
 
   def oembed
@@ -38,6 +44,10 @@ class Iframe
 
   def html
     self.oembed["html"]
+  end
+
+  def html_small
+    self.oembed_small["html"]
   end
 
   def code
