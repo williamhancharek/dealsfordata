@@ -4,9 +4,9 @@
 <% if @box.public?%>
   <%=link_to "make your own offer", new_customer_box_offer_path(@box)%>
 <%end%>
-<div class="container">
-  <div class="row">
-    <div class='col'></div>
+<div class="row">
+<%=render partial: "partials/box_tabs", locals: {box: @box, active: "archived"}%>
+    <div class='col-1'></div>
     <div class='col-6'>
       <h2 class="text-center font-weight-bold">Offers available for you</h2>
       <p class="text-center font-weight-light">Based on your feedback and comments, our algorithm will learn your preferences and send you more relevant offers.</p>
@@ -17,29 +17,14 @@
         Offer 1 of <%=@approved_count%>
       <%end%>
     </p>
-    </div>
-    <div class='col'></div>
-  </div>
-  <div class="row">
-    <div class='col'></div>
-    <div class='col-6'>
-      <%= ShowApprovedOffer(offer: @offer)%>
-    </div>
-    <div class="col"></div>
-  </div>
-  <div class="row">
-    <div class='col'></div>
-    <div class='col-6'>
-      <p></p>
-      <p class="text-center font-weight-bold">
-        <%if @approved_count.zero?%>
-        <%else%>
-        Offer 1 of <%=@approved_count%>
+    <%= ShowApprovedOffer(offer: @offer)%>
+    <p></p>
+    <p class="text-center font-weight-bold">
+      <%if @approved_count.zero?%>
+      <%else%>
+      Offer 1 of <%=@approved_count%>
       <%end%>
     </p>
     </div>
-    <div class="col"></div>
-  </div>
-
-  <div class='col'></div>
+    <div class='col-3'></div>
 </div>
