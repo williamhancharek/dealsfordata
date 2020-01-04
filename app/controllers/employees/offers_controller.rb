@@ -14,7 +14,7 @@ class Employees::OffersController < ApplicationController
   def new
     @offer = @box.offers.build
     @boxes = Box.all
-    @campaign_name = Campaign.all.map {|t| [t.name, t.id]} #TODO this is a shit filter
+    @campaign_name = Campaign.all.map {|t| [t.name, t.id]} #TODO this is a shit filter; also not using campaign name right now
   end
 
   def create
@@ -31,7 +31,7 @@ class Employees::OffersController < ApplicationController
       if @offer.save
         if @offer.box.allow_email = true
           OfferMailer.with(offer_id: @offer.id).offer_email.deliver_later
-        end
+        end #TOFIX - wrong spot! should send email after moderator approves!
         format.html {redirect_back fallback_location: :new, notice: "offer was successfully created"}
         format.json {render :new, status: :create, location: @user}
       else
