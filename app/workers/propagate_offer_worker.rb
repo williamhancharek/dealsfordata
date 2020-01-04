@@ -27,9 +27,9 @@ class PropagateOfferWorker
         new_offer.original_offer_id ||= offer.id
         new_offer.approved ||= offer.approved
         new_offer.link ||= offer.link
-        new_offer.active ||= "true"
+        new_offer.active ||= true
         new_offer.save!
-        if sub.allow_email == "true"
+        if sub.allow_email == true
           OfferMailer.with(offer_id: new_offer.id).referral_email.deliver_later
         end
       end

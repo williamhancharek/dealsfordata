@@ -7,7 +7,7 @@
     <%=f.input :name, presence: true, wrapper_html: {class: "form-group row"}, label_html: {class: "col-sm-2 col-form-label"}, input_html: {class: "col-sm-10 form-control"}%>
     <%=f.input :search_terms, presence: true, wrapper_html: {class: "form-group row"}, label_html: {class: "col-sm-2 col-form-label"}, input_html: {class: "col-sm-10 form-control"}%>
     <%=f.input :public, as: :boolean, checked_value: "true", unchecked_value: "false"%>
-    <%=f.input :allow_email, as: :boolean, checked_value: "true", unchecked_value: "false", value: @box.allow_email%>
+    <%=f.input :allow_email, as: :boolean, checked_value: true, unchecked_value: false, value: @box.allow_email%>
     <%=f.input :background, as: :radio_buttons, collection: [["beige","f0f4c3"],["pink","fff8e1"],["grey","f5f5f5"]]%>
     <%=f.button :submit%>
   <%end%>
