@@ -41,7 +41,7 @@ class Offer < ApplicationRecord
       downloaded_image = open(image_url)
       self.image.attach(io: downloaded_image  , filename: "image.jpg")
     rescue
-      puts "image url was malformed"
+      puts "image url was probably malformed"
     end
   end
 
