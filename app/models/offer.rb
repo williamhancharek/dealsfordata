@@ -36,7 +36,7 @@ class Offer < ApplicationRecord
   end
 
   def grab_image(image_url)
-    image_url.prepend("https") if image_url.start_with?("//")
+    image_url.prepend("https:") if image_url.start_with?("//")
     begin
       downloaded_image = open(image_url)
       self.image.attach(io: downloaded_image  , filename: "image.jpg")
