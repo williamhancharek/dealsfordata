@@ -11,7 +11,7 @@
 <%settings = "active"%>
 <%end%>
 
-<div class="d-none d-md-block">
+<div class="d-none d-md-block col-2">
   <ul class="nav flex-column nav-pills nav-stacked">
     <li class="nav-item">
       <%=link_to "Offers", customer_box_offers_path(@box), html_options = {class: "nav-link #{offer if offer.present?}"}%>

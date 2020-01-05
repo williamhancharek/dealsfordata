@@ -54,4 +54,15 @@ class Offer < ApplicationRecord
     end
   end
 
+  def rotate_selection
+    index = self.options.index(self.selected_option)
+    count = self.options.count - 1
+    if index < count
+      index += 1
+    else
+      index = 0
+    end
+    self.selected_option = self.options[index]
+  end
+
 end

@@ -1,6 +1,6 @@
 class Customers::SubscriptionsController < ApplicationController
   load_and_authorize_resource
-
+#TODO this doesn't use strong params by requiring suscription - this is because I don't know how to send the properly nested link
   before_action only: [:index] do
     set_instance(instance:"box",id: params[:box_id], object: :Box)
   end

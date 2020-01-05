@@ -37,7 +37,7 @@ class Customers::BoxesController < ApplicationController
 
   end
 
-  def show
+  def show #TODO not using right now
 
   end
 

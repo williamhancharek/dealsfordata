@@ -1,34 +1,19 @@
-<div class="col-sm-6">
-  <div class="card mb-3">
-    <div class="row no-gutters">
-      <div class="col-md-4">
+<%case offer.selected_option%>
+  <%when "useful"%>
+    <%color = "success"%>
+  <%when "not useful"%>
+    <%color = "warning"%>
+  <%when "need info"%>
+    <%color = "info"%>
+  <%when "spam"%>
+    <%color = "dark" #NOTE - this color should never show up%>
+<%end%>
+      <div class="card text-white text-center p-1 m-1 bg-<%=color%>">
         <%if offer.image.attached?%>
           <%if offer.image.variable?%>
-            <%=image_tag(offer.image.variant(resize_to_limit: [300,300]), class:"card-img")%>
-          <%else%>
+            <%=link_to image_tag(offer.image.variant(resize_to_limit: [100,100]), class:"card-img"), customer_completed_offer_path(offer), method: :patch, remote: :true%>
+         <%end%>
+        <%else%>
             <p>image attached but can't be shown</p>
-          <%end%>
         <%end%>
       </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title"><%=offer.title%></h5>
-          <h5 class="card-subtitle text-muted"><%=offer.merchant_name%></h5>
-          <p class='card-text'><%=offer.description%></p>
-          <p class='card-text'>Selected Option: <%=offer.selected_option%></p>
-
-          <%= simple_form_for(offer, url: customer_completed_offer_path(offer)) do |f| %>
-          <%=f.input :selected_option,
-                      label: "options",
-                      as: :radio_buttons,
-                      collection: offer.options,
-                      wrapper_html: {class: ['i-checks']},
-                      item_wrapper_tag: :div,
-                      presence: true%>
-            <%= f.button :submit, "change your mind", class:["btn-sm", "btn-w-m btn-primary"] %>
-          <%end%>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>

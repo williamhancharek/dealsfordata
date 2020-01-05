@@ -14,9 +14,9 @@ class Customers::CompletedOffersController < ApplicationController
   end
 
   def update
+    @offer.rotate_selection
     respond_to do |format|
-      if @offer.update(completed_offer_params)
-        flash[:success] = "successfully updated" #possibly delete this stupid message
+      if @offer.save
         format.html { redirect_back(fallback_location: :index)}
         format.json { render :index, status: :ok  }
       else
@@ -29,7 +29,7 @@ class Customers::CompletedOffersController < ApplicationController
   private
 
   def completed_offer_params
-      params.require(:offer).permit(:selected_option)
+      params.permit(:selected_option)
   end
 
 end
