@@ -2,6 +2,7 @@
 
 <h5>Box Name:<%=@box.name%></h5>
 <div class="row">
+  <%=render partial: "partials/horizontal_box_tabs", locals: {box: @box, active: "archived"}%>
   <%=render partial: "partials/box_tabs", locals: {box: @box, active: "archived"}%>
   <div class="col-10">
   </div>
