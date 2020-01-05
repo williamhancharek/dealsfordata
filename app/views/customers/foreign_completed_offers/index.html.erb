@@ -1,12 +1,3 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item small" aria-current="page"><%=link_to "Home", customer_boxes_path%></li>
-    <li class="breadcrumb-item small" aria-current="page"><%=link_to @originating_box.name, customer_box_path(id:@originating_box.id)%></li>
-    <li class="breadcrumb-item small" aria-current="page"><%=link_to "follow other boxes", customer_box_foreign_boxes_path(box_id:@originating_box.id)%></li>
-    <li class="breadcrumb-item active small" aria-current="page">completed offers for <%=@box.name%></li>
-  </ol>
-</nav>
-
 <%=render partial: "partials/crumb", locals: {active: "completed offers for #{@box.name}", passive: [link_to("Home", customer_boxes_path), link_to(@originating_box.name, customer_box_path(id:@originating_box.id)), link_to("follow other boxes", customer_box_foreign_boxes_path(box_id:@originating_box.id))]}%>
 
 

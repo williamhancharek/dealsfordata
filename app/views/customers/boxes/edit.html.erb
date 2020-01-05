@@ -1,6 +1,5 @@
-<%=render partial: "partials/crumb", locals: {active: "edit", passive: [link_to("home", customer_boxes_path), link_to("#{@box.name}", customer_box_path(@box.id))]}%>
+<%=render partial: "partials/crumb", locals: {active: "edit", passive: [link_to("Home", customer_boxes_path), link_to("#{@box.name}", customer_box_path(@box.id))]}%>
 
-<div class="row">
   <%=render partial: "partials/horizontal_box_tabs", locals: {box: @box, active: "settings"}%>
   <%=render partial: "partials/box_tabs", locals: {box: @box, active: "settings"}%>
   <div class="col-10">
@@ -12,5 +11,4 @@
     <%=f.input :background, as: :radio_buttons, collection: [["beige","f0f4c3"],["pink","fff8e1"],["grey","f5f5f5"]]%>
     <%=f.button :submit%>
   <%end%>
-</div>
 </div>

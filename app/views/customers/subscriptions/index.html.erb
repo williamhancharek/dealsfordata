@@ -1,19 +1,19 @@
 <%=render partial: "partials/crumb", locals: {active: "Subscriptions", passive: [link_to("Home", customer_boxes_path), link_to(@box.name, customer_box_path(@box))]}%>
-<div class="row">
-  <%=render partial: "partials/horizontal_box_tabs", locals: {box: @box, active: "following"}%>
-  <%=render partial: "partials/box_tabs", locals: {box: @box, active: "following"}%>
 
-    <%if @box.subscribing.empty?%>
-    <div class='col-1'></div>
-    <div class='col-6'>
-      <h2 class="text-center font-weight-bold"><%=link_to "Find some boxes to follow!", customer_box_foreign_boxes_path(@box)%></h2>
-      <p class="text-center font-weight-light">Follow boxes to get the same offers as other boxes.</p>
+<%=render partial: "partials/horizontal_box_tabs", locals: {box: @box, active: "following"}%>
+<%=render partial: "partials/box_tabs", locals: {box: @box, active: "following"}%>
 
-    </div>
-    <div class='col-3'></div>
-    <%else%>
-    <div class='col-10'>
-      <%=link_to "Find more boxes to follow!", customer_box_foreign_boxes_path(@box)%>
+<%if @box.subscribing.empty?%>
+  <div class='col-1'></div>
+  <div class='col-6'>
+    <h2 class="text-center font-weight-bold"><%=link_to "Find some boxes to follow!", customer_box_foreign_boxes_path(@box)%></h2>
+    <p class="text-center font-weight-light">Follow boxes to get the same offers as other boxes.</p>
+
+  </div>
+  <div class='col-3'></div>
+<%else%>
+  <div class='col-10'>
+    <%=link_to "Find more boxes to follow!", customer_box_foreign_boxes_path(@box)%>
     <table>
       <tr>
         <th>Box Name</th>
@@ -23,6 +23,5 @@
       </tr>
       <%=render partial: "box", collection: @subscriptions, as: :box%>
     </table>
-    </div>
-    <%end%>
-</div>
+  </div>
+<%end%>
