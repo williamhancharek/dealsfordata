@@ -68,3 +68,5 @@ TODO: test that you cannot create and destroy subscriptions to boxes that you ar
 TODO: I'm tired of trying to do cancancan so just reverting to my old shitty way for now... I should rethink it later.
 TODO: turning off campaigns for now by setting it to default 1
 TODO: eliminate spam offers from completed offers
+TODO: make radio buttons of box settings horizontal and make them coloured.
+TODO: use the referrer thing as a strength of deal indicator or something

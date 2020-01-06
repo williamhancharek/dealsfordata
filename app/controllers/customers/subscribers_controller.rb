@@ -9,6 +9,7 @@ class Customers::SubscribersController < ApplicationController
   end
 
   def index
+    @offer = @box.offers.build
     @subscribers = @box.subscribers
   end
 

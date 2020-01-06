@@ -42,12 +42,13 @@ class Customers::OffersController < ApplicationController
   def create
     #TODO this has to be made so that after creating the offer, the person automatically has it listed in completed offers and it's sent
     @offer = Offer.new(offer_params)
+    @offer.original_offer_id = @offer.id
     @offer.options = ['useful', 'not useful', 'spam', 'need info']
     @offer.selected_option = 'useful'
     #TODO I am removing all options for customer sent things - just ads for now. no coupons or questions
     #@offer.options = JSON.parse(offer_params[:options])
     @offer.public_options = ['send']
-    @offer.public_selected_option = 'send'
+    @offer.public_selected_option = 'send' #TODO I am assuming any offer that is created wants to be sent.
     @offer.tags = offer_params[:tags].split(' ') #TODO taking out tags from view as well since users won't be tagging anything most probably
     @offer.active = false
     @offer.email_sent = true

@@ -19,6 +19,7 @@ class Employees::OffersController < ApplicationController
 
   def create
     @offer = Offer.new(offer_params)
+    @offer.original_offer_id = @offer.id #Whenever an offer is original, it is it's own originating offer
     @offer.options = JSON.parse(offer_params[:options])
     @offer.public_options = ['send']
     @offer.tags = offer_params[:tags].split(' ')
