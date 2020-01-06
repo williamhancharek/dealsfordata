@@ -1,8 +1,24 @@
 <%=render partial: "partials/crumb", locals: {active: "completed offers for #{@box.name}", passive: [link_to("Home", customer_boxes_path), link_to(@originating_box.name, customer_box_path(id:@originating_box.id)), link_to("follow other boxes", customer_box_foreign_boxes_path(box_id:@originating_box.id))]}%>
 
-
-customer completed offers - make this into table format for easier viewing
-
 <div class="row">
-  <%= render partial: "foreign_completed_offer", collection: @completed_offers, as: :offer%>
+<%=render partial: "partials/horizontal_box_tabs", locals: {box: @originating_box, active: "offer"}%>
+<%=render partial: "partials/box_tabs", locals: {box: @originating_box, active: "offer"}%>
+
+<div class="col">
+
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">image</th>
+          <th scope="col">title</th>
+          <th scope="col">deal</th>
+          <th scope="col">retail</th>
+          <th scope="col">commentary</th>
+        </tr>
+        </thead>
+        <%= render partial: "foreign_completed_offer", collection: @completed_offers, as: :offer%>
+
+      </table>
+
+</div>
 </div>

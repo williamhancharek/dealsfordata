@@ -1,7 +1,7 @@
 <tr>
   <td scope="row"><%=box.name%></td>
   <td><%=box.search_terms%></td>
-  <td>  <%=button_to "deals", customer_box_foreign_completed_offers_path(box), :method => :get, :class => "btn btn-primary btn-sm m-1" %>
+  <td>  <%=link_to "deals", customer_box_foreign_completed_offers_path(box_id: box.id, originating_box_id: @box.id), :method => :get, :class => "btn btn-primary btn-sm m-1" %>
 
     <%=button_to "unfollow", customer_subscription_path(Subscription.find_by(:subscribing_id => box.id, :subscriber_id => @box.id)), method: :delete, remote: :true, :class => "btn btn-danger btn-sm m-1" %>
 </tr>

@@ -1,27 +1,13 @@
-<div class="col-sm-6">
-  <div class="card mb-3">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <%if offer.image.attached?%>
-          <%if offer.image.variable?%>
-            <%=image_tag(offer.image.variant(resize_to_limit: [300,300]), class:"card-img")%>
-          <%else%>
-            <p>image attached but can't be shown</p>
-          <%end%>
-        <%end%>
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title"><%=offer.title%></h5>
-          <h5 class="card-subtitle text-muted"><%=offer.merchant_name%></h5>
-          <p class='card-text'><%=offer.description%></p>
-          <p class='card-text'>Offered Options:<%=offer.options.join(", ")%></p>
-          <p class='card-text'>Selected Option:
-            <%=offer.selected_option%></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-#TODO - map out the public/private part of boxes - when it's public then you can send offers to other boxes, and people can see your seleciton history
+<tr>
+  <td><%if offer.image.attached?%>
+    <%if offer.image.variable?%>
+      <%=image_tag(offer.image.variant(resize_to_limit: [150,150]), class:"img-thumbnail")%>
+    <%else%>
+      <p>image attached but can't be shown</p>
+    <%end%>
+  <%end%></td>
+  <td><%=offer.title%></td>
+  <td><%=offer.current_price%></td>
+  <td><%=offer.retail_price%></td>
+  <td><%=offer.commentary%></td>
+</tr>
