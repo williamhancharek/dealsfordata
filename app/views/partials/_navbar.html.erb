@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light navbar-expand-lg justify-content-center">
+<nav class="navbar navbar-light navbar-expand">
   <%= link_to fa_icon("adn 2x",text:"logo"), "", class:"navbar-brand"%>
   <%if current_user.present? #TODO feels janky%>
   <%=render "partials/navbars/#{current_user.role}"%>
