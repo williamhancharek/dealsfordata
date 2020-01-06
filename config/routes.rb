@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   }
 
   root to: "home#index"
-  
+
   namespace :plaid do
     resources :access_token, only: [:create]
   end
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   scope module: 'customers', as: 'customer', path: 'customers' do
     #resources :home, only: [:show] #DEPECRATED
     resources :offers, only: [:edit, :update, :show, :create, :destroy]
-    resources :completed_offers, only: [:update]
+    resources :completed_offers, only: [:update, :destroy, :show]
     resources :subscriptions, only: [:create, :edit, :update, :show, :destroy]
     resources :users, only: [:show, :edit, :update]
 

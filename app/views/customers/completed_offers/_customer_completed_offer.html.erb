@@ -1,19 +1,22 @@
 <%case offer.selected_option%>
-  <%when "useful"%>
-    <%color = "success"%>
-  <%when "not useful"%>
-    <%color = "danger"%>
-  <%when "need info"%>
-    <%color = "info"%>
-  <%when "spam"%>
-    <%color = "dark" #NOTE - this color should never show up%>
+<%when "useful"%>
+  <%color = "success"%>
+<%when "not useful"%>
+  <%color = "danger"%>
+<%when "need info"%>
+  <%color = "info"%>
+<%when "spam"%>
+  <%color = "dark" #NOTE - this color should never show up because it should just be deleted%>
 <%end%>
-      <div class="card text-white text-center p-1 m-1 bg-<%=color%>">
-        <%if offer.image.attached?%>
-          <%if offer.image.variable?%>
-            <%=link_to image_tag(offer.image.variant(resize_to_limit: [100,100]), class:"card-img"), customer_completed_offer_path(offer), method: :patch, remote: :true%>
-         <%end%>
-        <%else%>
-            <p>image attached but can't be shown</p>
-        <%end%>
-      </div>
+<div class="card text-white text-center p-1 m-1 bg-<%=color%>">
+  <%if offer.image.attached?%>
+    <%if offer.image.variable?%>
+      <%=link_to image_tag(offer.image.variant(resize_to_limit: [100,100]), class:"card-img p-1"), customer_completed_offer_path(offer), method: :patch, remote: :true%>
+    <%end%>
+  <%else%>
+    <p><%=link_to offer.description, customer_completed_offer_path(offer), method: :patch, remote: :true%></p>
+  <%end%>
+
+  <%= button_to "remove", customer_completed_offer_path(offer), :method => :delete, remote: :true, :class => "btn btn-primary btn-sm" %>
+
+</div>

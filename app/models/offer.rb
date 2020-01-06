@@ -59,10 +59,14 @@ class Offer < ApplicationRecord
     count = self.options.count - 1
     if index < count
       index += 1
+      index += 1 if self.options[index] == "spam"
+
     else
       index = 0
+      index += 1 if self.options[index] == "spam"
     end
     self.selected_option = self.options[index]
+    #TODO I don't want the user, at the archived page, to be able to select spam - it should have already been weeded out.  That being said, I don't want to necessarily destroy offers labelled as spam, because I need that data for training.  They have the opportunity to label as spam at the get-go, but afterwards, it has passed their "spam" filter.  Honestly, I don't know if "spam" as a category works since it's just a HARD dislike
   end
 
 end

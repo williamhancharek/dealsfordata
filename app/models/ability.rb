@@ -23,6 +23,7 @@ class Ability #TODO when this becomes bigger I should refactor into separate fil
       can :create, Offer
       can :read, Offer, box: {user: {id:user.id}}
       can :update, Offer, box: {user: {id: user.id}}
+      can :destroy, Offer, box: {user: {id: user.id}}
     #
       can :create, Box #TODO is this the correct permission?
       can :manage, Box, user: {id:user.id}

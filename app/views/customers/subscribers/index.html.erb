@@ -10,49 +10,56 @@
       <%if @box.public?%>
         <p class="text-center font-weight-bold"><%=link_to "send offer to your followers", new_customer_box_offer_path(@box)%></p>
         <div class="text-center">
-          <button type="button" class="font-weight-bold btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          <button type="button" class="font-weight-bold btn btn-primary m-1" data-toggle="modal" data-target="#exampleModal">
             send offer to followers
           </button>
         </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">New Offer</h5>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-              <div class="modal-body">
-                <%= simple_form_for(@offer, method: :post, url: customer_offers_path) do |f| %>
-                <%=f.input :link%>
-                <%=f.input :commentary%>
-                <%=f.input :tags%>
-                <%=f.input :retail_price%>
-                <%=f.input :current_price%>
-                <%=f.input :campaign_id, as: :hidden%>
-                <%=f.input :box_id, as: :hidden%>
-                <%=f.button :submit%>
-                <% end %>
 
-              </div>
-            </div>
-          </div>
-        </div>
       <%end%>
       <h2 class="text-center font-weight-bold">you have no subscribers</h2>
     </div>
+
     <div class="col-3"></div>
   <%else%>
-    <div class="col-10">
+    <div class="col">
+      <div class="text-center">
+        <button type="button" class="font-weight-bold btn btn-primary m-1" data-toggle="modal" data-target="#exampleModal">
+          send offer to followers
+        </button>
+      </div>
+
       <table>
         <tr>
-          <th>ID</th>
           <th>Name</th>
           <th>address</th>
           <th>search terms</th>
-          <th>key words</th>
         </tr>
         <%=render partial: "box", collection: @subscribers, as: :box%>
       </table>
     </div>
   <%end%>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Offer</h5>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(@offer, method: :post, url: customer_offers_path) do |f| %>
+        <%=f.input :link%>
+        <%=f.input :commentary%>
+        <%=f.input :tags%>
+        <%=f.input :retail_price%>
+        <%=f.input :current_price%>
+        <%=f.input :campaign_id, as: :hidden%>
+        <%=f.input :box_id, as: :hidden%>
+        <%=f.button :submit%>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
 </div>

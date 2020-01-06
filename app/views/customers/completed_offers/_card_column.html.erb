@@ -1,0 +1,9 @@
+<div class="row">
+  <p class="text-center">See your old offers and re-categorize them. Your selection of ads here will tell us what ads to send in the future </br>
+  <span class="badge badge-success">Useful</span><span class="badge badge-danger">Not Useful</span><span class="badge badge-info">Need Info</span></p>
+</div>
+<div class="row">
+  <div class="card-columns">
+    <%= render partial: "customer_completed_offer", collection: completed_offers, as: :offer%>
+  </div>
+</div>

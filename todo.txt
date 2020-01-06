@@ -70,3 +70,7 @@ TODO: turning off campaigns for now by setting it to default 1
 TODO: eliminate spam offers from completed offers
 TODO: make radio buttons of box settings horizontal and make them coloured.
 TODO: use the referrer thing as a strength of deal indicator or something
+TODO: create test suite especially for mailers and especially for workers
+TODO: use redflagdeals new forum post for category list to classify products
+TODO: no way to see detailed info on completed offers
+TODO: I didn't finish off the customer completed offers show page, which would have been accessible by clicking a button on the offers shown on the archived page 

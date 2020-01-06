@@ -5,7 +5,7 @@ class Customers::CompletedOffersController < ApplicationController
     set_instance(instance:"box", id:params[:box_id], object: :Box)
   end
 
-  before_action only: [:update] do
+  before_action only: [:update, :destroy, :show] do
     set_instance(instance:"offer", id:params[:id], object: :Offer)
   end #TODO this will create a possible problem REMINDER - when I look at this again tell myself why this might create a problem??
 
@@ -24,6 +24,18 @@ class Customers::CompletedOffersController < ApplicationController
         format.json {render json: @offer.errors, status: :unprocessable_entity}
       end
     end
+  end
+
+  def destroy
+    @offer.destroy
+    respond_to do |format|
+      format.html {redirect_back fallback_location: :index}
+      format.json {head :no_content}
+    end
+  end
+
+  def show
+
   end
 
   private
