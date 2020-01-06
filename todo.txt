@@ -73,4 +73,5 @@ TODO: use the referrer thing as a strength of deal indicator or something
 TODO: create test suite especially for mailers and especially for workers
 TODO: use redflagdeals new forum post for category list to classify products
 TODO: no way to see detailed info on completed offers
-TODO: I didn't finish off the customer completed offers show page, which would have been accessible by clicking a button on the offers shown on the archived page 
+TODO: I didn't finish off the customer completed offers show page, which would have been accessible by clicking a button on the offers shown on the archived page
+TODO: Decide whether people can see the subscriptions of foreign boxes - youtube doens't let you see who is subscribed to a channel so maybe I shouldn't either

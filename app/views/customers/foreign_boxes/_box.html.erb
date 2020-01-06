@@ -7,14 +7,13 @@
       <%=box.search_terms%></p>
   </div>
   <div class="card-body">
+    <div class="row">
     <%if (@box.subscribed?(box) == true)%>
-      <%=link_to "unfollow", customer_subscription_path(Subscription.find_by(:subscribing_id => box.id, :subscriber_id => @box.id)), method: :delete, remote: :true%>
+      <%=button_to "unfollow", customer_subscription_path(Subscription.find_by(:subscribing_id => box.id, :subscriber_id => @box.id)), method: :delete, remote: :true, :class => "btn btn-danger btn-sm m-1" %>
     <%else%>
-      <%=link_to "follow", customer_subscriptions_path(subscribing_id: box, subscriber_id: @box.id), method: :post, remote: :true%>
+      <%=button_to "follow", customer_subscriptions_path(subscribing_id: box, subscriber_id: @box.id), method: :post, remote: :true, :class => "btn btn-primary btn-sm m-1" %>
     <%end%>
-    |
-    <%=link_to "see subscriptions", customer_box_foreign_subscriptions_path(box_id: box.id, originating_box_id: @box.id)%>
-    |
-    <%=link_to "completed offers", customer_box_foreign_completed_offers_path(box_id: box.id, originating_box_id: @box.id)%>
+      <%=button_to "previous offers", customer_box_foreign_completed_offers_path(box_id: box.id, originating_box_id: @box.id), method: :get, :class => "btn btn-outline-primary btn-sm m-1" %>
+      </div>
   </div>
 </div>
