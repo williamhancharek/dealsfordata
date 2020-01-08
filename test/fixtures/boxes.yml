@@ -4,8 +4,104 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+c1box1:
+  public:
+  customer:
+  employee:
+  search_terms:
+  link:
+  allow_email:
+  status:
+  background:
+  subscriber:
+  subscription:
+
+c1box2:
+  public:
+  employee:
+  search_terms:
+  link:
+  allow_email:
+  status:
+  background:
+  subscriber:
+  subscription:
+
+c1box3:
+  public:
+  employee:
+  search_terms:
+  link:
+  allow_email:
+  status:
+  background:
+  subscriber:
+  subscription:
+
+c2box1:
+  public:
+  customer:
+  employee:
+  search_terms:
+  link:
+  allow_email:
+  status:
+  background:
+  subscriber:
+  subscription:
+
+c2box2:
+  public:
+  employee:
+  search_terms:
+  link:
+  allow_email:
+  status:
+  background:
+  subscriber:
+  subscription:
+
+c2box3:
+  public:
+  employee:
+  search_terms:
+  link:
+  allow_email:
+  status:
+  background:
+  subscriber:
+  subscription:
+
+c3box1:
+  public:
+  customer:
+  employee:
+  search_terms:
+  link:
+  allow_email:
+  status:
+  background:
+  subscriber:
+  subscription:
+
+c3box2:
+  public:
+  employee:
+  search_terms:
+  link:
+  allow_email:
+  status:
+  background:
+  subscriber:
+  subscription:
+
+c3box3:
+  public:
+  employee:
+  search_terms:
+  link:
+  allow_email:
+  status:
+  background:
+  subscriber:
+  subscription:
