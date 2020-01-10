@@ -1,5 +1,7 @@
 class Customers::ForeignBoxesController < ApplicationController
   load_and_authorize_resource :class => "Box"
+  skip_authorize_resource :only => :show
+  skip_before_action :authenticate_user!, :only => :show
 
   before_action only: [:index] do
     ensure_box_owner(box_id: params[:box_id])
@@ -11,6 +13,13 @@ class Customers::ForeignBoxesController < ApplicationController
 
   def index
     @foreign_boxes = Box.where("user_id != ? and public = ?", @box.user_id,1)
+  end
+
+  def show
+    @box = Box.find(params[:id])
+    @old_offers = @box.old_offers
+    @active_offers =@box.active_offers
+
   end
 
 end

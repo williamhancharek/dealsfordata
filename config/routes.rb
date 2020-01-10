@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     resources :completed_offers, only: [:update, :destroy, :show]
     resources :subscriptions, only: [:create, :edit, :update, :show, :destroy]
     resources :users, only: [:show, :edit, :update]
+    resources :foreign_boxes, only: [:show]
 
     resources :boxes, only: [:show, :edit, :update, :destroy, :index, :create] do
       resources :foreign_boxes, only: [:index]

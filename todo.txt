@@ -77,3 +77,4 @@ TODO: I didn't finish off the customer completed offers show page, which would h
 TODO: Decide whether people can see the subscriptions of foreign boxes - youtube doens't let you see who is subscribed to a channel so maybe I shouldn't either
 TODO: need to add serach funcitonality when following other boxes, and social stats and stuff
 TODO: need to add feedback summaries for followers so you can see what is appearling to them and what is not
+TODO: incorporate link shortener with affiliate link

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-light navbar-expand">
-  <%= link_to fa_icon("adn 2x",text:"logo"), "", class:"navbar-brand"%>
+  <%=link_to image_tag('dealsfordatalogosmall', class:"navbar-brand"), root_path%>
   <%if current_user.present? #TODO feels janky%>
   <%=render "partials/navbars/#{current_user.role}"%>
   <%else%>

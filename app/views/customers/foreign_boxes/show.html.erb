@@ -1,0 +1,46 @@
+<%=render partial: "partials/crumb", locals: {active: @box.name, passive: [link_to("home", root_path)]}%>
+
+<div class="col-10 d-none d-md-block">
+  Offers not yet reviewed
+  <table class="table">
+    <tr>
+      <th>Image</th>
+      <th>Info</th>
+      <th>feedback</th>
+    </tr>
+    <%=render partial: 'offer', collection: @active_offers%>
+  </table>
+
+  Reviewed offers
+  <table class="table">
+    <tr>
+      <th>Image</th>
+      <th>Info</th>
+      <th>feedback</th>
+    </tr>
+    <%=render partial: 'offer', collection: @old_offers%>
+  </table>
+</div>
+
+
+<div class="col-12 d-md-none">
+  Offers not reviewed
+  <table class="table">
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>feedback</th>
+    </tr>
+    <%=render partial: 'offer', collection: @active_offers%>
+  </table>
+
+  Reviewed offers
+  <table class="table">
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>feedback</th>
+    </tr>
+    <%=render partial: 'offer', collection: @old_offers%>
+  </table>
+</div>

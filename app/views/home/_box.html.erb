@@ -1,22 +1,39 @@
-<div class="col mb-4">
+<div class="col mb-3">
   <div class="accordion" id="accordion<%=box.id%>">
-    <div class="card h-100" style="border-width: 9px; border-style: solid; border-color:#<%=box.background%>">
+    <div class="card h-100">
       <div class="card-header" id="headingOne">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%=box.id%>" aria-expanded="true" aria-controls="collapseOne">
           <%=box.name%>
         </button>
+          <%=link_to "previous offers", customer_foreign_box_path(box)%>
       </div>
       <div class="card-body">
-        <p class='card-text'>Search terms:
+        <p class='card-text'>Looking for:
           <%=box.search_terms%></p>
       </div>
       <div id="collapse<%=box.id%>" class="collapse" aria-labelledby="headingOne" data-parent="#accordion<%=box.id%>">
         <div class="card-body">
-          Latest Offers approved by this box
           <table>
             <%=render partial: "offer", collection: box.offers.select{|t| t.image.present?}%>
           </table>
         </div>
+        <div class="card-footer">
+          <div data-controller="hello">
+    Send a recommendation
+    <div class=row>
+  <input data-target="hello.name" type="text">comment
+  </div>
+  <div class="row">
+<input data-target="hello.link" type="text"> product link
+</div>
+  <button data-action="click->hello#greet">
+    Greet
+  </button>
+
+  <span data-target="hello.output">
+  </span>
+</div>
+          </div>
       </div>
     </div>
   </div>

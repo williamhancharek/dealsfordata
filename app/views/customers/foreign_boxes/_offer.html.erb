@@ -1,0 +1,8 @@
+<tr>
+  <td><%=link_to(image_tag(offer.image.variant(resize_to_limit: [100,100])), offer.link) if offer.image.present?%></td>
+
+    <td><%=offer.title%>
+      <%=offer.commentary%>
+      <span class="text-muted"><%offer.retail_price if offer.retail_price.present?%> - <%=offer.current_price if offer.current_price.present?%></span></td>
+  <td><%=offer.selected_option%>:  <%=offer.received_commentary%></td>
+</tr>
