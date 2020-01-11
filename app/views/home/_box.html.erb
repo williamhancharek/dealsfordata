@@ -1,6 +1,5 @@
-<div class="col">
-  <div class="accordion" id="accordion<%=box.id%>">
-    <div class="card">
+
+    <div class="card mb-1">
       <div class="card-body">
         <table class="table table-sm">
           <tr>
@@ -28,31 +27,21 @@
         </table>
         <%=link_to "history", customer_foreign_box_path(box)%>
       </div>
-      <div class="card-body">
-        <table>
-          <%=render partial: "offer", collection: box.offers.select{|t| t.image.present?}%>
-        </table>
-      </div>
       <div class="card-footer">
-        <div class="btn-block">
-          <button class="btn btn-primary btn-block " type="button" data-toggle="collapse" data-target="#collapse<%=box.id%>" aria-expanded="true" aria-controls="collapseOne">
-            respond
-          </button>
-        </div>
-
-        <div id="collapse<%=box.id%>" class="collapse" aria-labelledby="headingOne" data-parent="#accordion<%=box.id%>">
           <div data-controller="responder">
+            <div class="row ">
+              <div class="col">
             <input data-target="responder.comment" type="text" , placeholder="add a comment">
             <input data-target="responder.link" type="text" , placeholder="submit a link">
-
+            </div>
+            <div class="col">
             <button data-action="click->responder#recommend">
               submit
             </button>
+            </div>
+            </div>
 
             <span data-target="hello.output"></span>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
