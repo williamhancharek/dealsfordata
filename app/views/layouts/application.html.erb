@@ -28,15 +28,17 @@
   </head>
 
   <body>
-    <div class="container-fluid fill p-3">
-      <div class="row fill">
-        <div class="col-3 d-none d-md-block fill">
+    <div class="d-md-none">
+      <%=horizontaltabsorter(active: nil, box:nil)%>
+    </div>
+    <div class="container-fluid p-3">
+      <div class="row">
+        <div class="col-3 d-none d-md-block">
           <%=tabsorter(active: nil, box:nil)%>
         </div>
 
-        <div class="col fill">
-          <div class="d-md-none fill">
-              <%=horizontaltabsorter(active: nil, box:nil)%>
+        <div class="col" role="main">
+          <div class="d-md-none row" style="padding-top: 100px;">
           </div>
           <%= render "layouts/messages" %>
           <%= yield %>

@@ -1,5 +1,5 @@
 
-
+/** Temporary fix for Bootstrap accordion bug -- see https://github.com/twbs/bootstrap/issues/26556 **/
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Quicksand', sans-serif !important;
 }
@@ -7,23 +7,15 @@ p, div {
     font-family: 'Quicksand', sans-serif !important;
 }
 
-html, body {
+body {
     font-family: 'Quicksand', sans-serif !important;
-    height: 100%;
-}
 
-.container {
-  min-height: 100%;
 }
 
 /* .nav .ol .li {
   font-size: 1px;
 } */
 
-
-.container {
-
-}
 
 .background {
   background-image: url(../images/isometric_cube_pattern.jpg);
