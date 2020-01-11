@@ -1,4 +1,4 @@
-<%=render partial: "partials/crumb", locals: {active: @box.name, passive: [link_to("Home", customer_boxes_path)]}%>
+<%render partial: "partials/crumb", locals: {active: @box.name, passive: [link_to("Home", customer_boxes_path)]}%>
 
 <div class="row">
   <%=render partial: "partials/horizontal_box_tabs", locals: {box: @box, active: "following"}%>

@@ -1,4 +1,4 @@
-<%=render partial: "partials/crumb", locals: {active: "subscriptions for #{@box.name}", passive: [link_to("Home", customer_boxes_path), link_to(@originating_box.name, customer_box_path(id:@originating_box.id)), link_to("follow other boxes", customer_box_foreign_boxes_path(box_id:@originating_box.id))]}%>
+<%render partial: "partials/crumb", locals: {active: "subscriptions for #{@box.name}", passive: [link_to("Home", customer_boxes_path), link_to(@originating_box.name, customer_box_path(id:@originating_box.id)), link_to("follow other boxes", customer_box_foreign_boxes_path(box_id:@originating_box.id))]}%>
 
 customer box subscriptions index Subscriptions for Box #<%=@box.id%>
 <table>

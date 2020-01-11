@@ -1,4 +1,4 @@
-<%=render partial: "partials/crumb", locals: {active: "#{@offer.title}", passive: [link_to("Home", customer_boxes_path), link_to(@box.name, customer_box_path(@box))]}%>
+<%render partial: "partials/crumb", locals: {active: "#{@offer.title}", passive: [link_to("Home", customer_boxes_path), link_to(@box.name, customer_box_path(@box))]}%>
 
 <ul>
   <li>title: <%=@offer.title%></li>

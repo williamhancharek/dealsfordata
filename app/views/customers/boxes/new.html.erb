@@ -1,4 +1,4 @@
-<%=render partial: "partials/crumb", locals: {active: "new", passive: [link_to("home", customer_boxes_path), link_to("#{@box.name}", customer_box_path(@box.id))]}%>customer new box file #depecrated
+<%render partial: "partials/crumb", locals: {active: "new", passive: [link_to("home", customer_boxes_path), link_to("#{@box.name}", customer_box_path(@box.id))]}%>customer new box file #depecrated
 
 <%=simple_form_for @box, url:customer_boxes_path do |f| %>
 <%=f.input :name,

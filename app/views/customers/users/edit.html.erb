@@ -1,4 +1,4 @@
-<%=render partial: "partials/crumb", locals: {active: "Edit User", passive: [link_to("Home", customer_boxes_path)]}%>
+<%render partial: "partials/crumb", locals: {active: "Edit User", passive: [link_to("Home", customer_boxes_path)]}%>
 
 <%=simple_form_for @customer, url: customer_path(@customer), method: :patch do |f| %>
   <%=f.input :search_terms, presence: true%>

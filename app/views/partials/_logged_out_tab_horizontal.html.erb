@@ -1,0 +1,17 @@
+<nav class="navbar navbar-dark navbar-expand-sm rounded-lg mb-1" style="background-color: rgb(124,180,180)">
+<%=link_to image_tag('dealsfordatalogosmall', class:"navbar-brand"), root_path%>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarsExample03">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item mr-2">
+      <%=link_to "make a box", new_user_session_path, class:"font-weight-bolder text-white"%>
+    </li>
+    <li class="nav-item">
+      <%=link_to "See your boxes", new_user_session_path, class:"font-weight-bolder text-white"%>
+    </li>
+  </ul>
+</div>
+</nav>
