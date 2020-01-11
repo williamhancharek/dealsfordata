@@ -1,39 +1,57 @@
-<div class="col mb-3">
+<div class="col">
   <div class="accordion" id="accordion<%=box.id%>">
-    <div class="card h-100">
-      <div class="card-header" id="headingOne">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%=box.id%>" aria-expanded="true" aria-controls="collapseOne">
-          <%=box.name%>
-        </button>
-          <%=link_to "previous offers", customer_foreign_box_path(box)%>
+    <div class="card">
+      <div class="card-body">
+        <table class="table table-sm">
+          <tr>
+            <th>Request</th>
+            <td><%=box.name%></td>
+          </tr>
+          <tr>
+            <th>Priority</th>
+            <td><%=box.priority.present? ? box.priority : "not stated"%></td>
+          </tr>
+          <tr>
+            <th>Price</th>
+            <td><%=box.price_range%> </td>
+            </tr>
+          <tr>
+            <th>Notes</th>
+            <td><%=truncate(box.search_terms, length: 20)%></td>
+
+            </tr>
+        </table>
+        <%=link_to "history", customer_foreign_box_path(box)%>
       </div>
       <div class="card-body">
-        <p class='card-text'>Looking for:
-          <%=box.search_terms%></p>
+        <table>
+          <%=render partial: "offer", collection: box.offers.select{|t| t.image.present?}%>
+        </table>
       </div>
-      <div id="collapse<%=box.id%>" class="collapse" aria-labelledby="headingOne" data-parent="#accordion<%=box.id%>">
-        <div class="card-body">
-          <table>
-            <%=render partial: "offer", collection: box.offers.select{|t| t.image.present?}%>
-          </table>
+      <div class="card-footer">
+        <div class="btn-block">
+        <button class="btn btn-primary btn-block " type="button" data-toggle="collapse" data-target="#collapse<%=box.id%>" aria-expanded="true" aria-controls="collapseOne">
+          respond
+        </button>
         </div>
-        <div class="card-footer">
-          <div data-controller="hello">
-    Send a recommendation
-    <div class=row>
-  <input data-target="hello.name" type="text">comment
-  </div>
-  <div class="row">
-<input data-target="hello.link" type="text"> product link
-</div>
-  <button data-action="click->hello#greet">
-    Greet
-  </button>
 
-  <span data-target="hello.output">
-  </span>
-</div>
+
+        <div id="collapse<%=box.id%>" class="collapse" aria-labelledby="headingOne" data-parent="#accordion<%=box.id%>">
+          <div data-controller="hello">
+            <div class="row">
+              <input data-target="hello.name" type="text">comment
+            </div>
+            <div class="row">
+              <input data-target="hello.link" type="text">
+              link
+            </div>
+            <button data-action="click->hello#greet">
+              Greet
+            </button>
+
+            <span data-target="hello.output"></span>
           </div>
+        </div>
       </div>
     </div>
   </div>

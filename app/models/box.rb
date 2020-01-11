@@ -5,6 +5,7 @@ class Box < ApplicationRecord
   validates :name, presence: true
   validates :search_terms, presence: true
   store_accessor :settings, :allow_email, :status, :background
+  validates :min_price, :max_price, numericality: {only_integer: true, allow_nil: true}
 
   has_many :assignments
   has_many :employees, through: :assignments, source: 'user'
@@ -72,6 +73,18 @@ class Box < ApplicationRecord
 
   def list_employee_ids
     self.employees.map {|t| t.id}
+  end
+
+  def price_range
+    if self.min_price.present? && self.max_price.present?
+      "$#{self.min_price} - $#{self.max_price}"
+    elsif self.min_price.present?
+      "$#{self.min_price}"
+    elsif self.max_price.present?
+      "$#{self.max_price}"
+    else
+      "no price range given"
+    end
   end
 
 end
