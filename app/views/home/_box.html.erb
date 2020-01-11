@@ -19,7 +19,9 @@
           <tr>
             <th>Notes</th>
             <td><%=truncate(box.search_terms,length: 50)%>
-              <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-content="<%=box.search_terms%>"> more </a>
+              <%if box.search_terms.length > 50 %>
+                <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-content="<%=box.search_terms%>"> more </a>
+                <%end%>
             </td>
 
           </tr>

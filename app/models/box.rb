@@ -4,7 +4,7 @@ class Box < ApplicationRecord
   geocoded_by :address
   validates :name, presence: true
   validates :search_terms, presence: true
-  store_accessor :settings, :allow_email, :status, :background
+  store_accessor :settings, :allow_email, :background
   validates :min_price, :max_price, numericality: {only_integer: true, allow_nil: true}
 
   has_many :assignments
