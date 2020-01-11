@@ -78,3 +78,4 @@ TODO: Decide whether people can see the subscriptions of foreign boxes - youtube
 TODO: need to add serach funcitonality when following other boxes, and social stats and stuff
 TODO: need to add feedback summaries for followers so you can see what is appearling to them and what is not
 TODO: incorporate link shortener with affiliate link
+TODO: set up box status - where is it set, etc.

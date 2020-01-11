@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_11_061044) do
+ActiveRecord::Schema.define(version: 2020_01_11_224114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2020_01_11_061044) do
     t.string "priority"
     t.integer "min_price"
     t.integer "max_price"
+    t.string "status"
     t.index ["settings"], name: "index_boxes_on_settings", using: :gin
     t.index ["user_id"], name: "index_boxes_on_user_id"
   end

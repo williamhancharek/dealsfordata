@@ -1,20 +1,18 @@
 <%render partial: "partials/crumb", locals: {active: @box.name, passive: [link_to("home", root_path)]}%>
 
-<div class="col-10 d-none d-md-block">
-  Offers not yet reviewed
-  <table class="table">
-    <tr>
-      <th>Image</th>
-      <th>Info</th>
-      <th>feedback</th>
-    </tr>
-    <%=render partial: 'offer', collection: @active_offers%>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <td><%=@box.name%>
+      </tr>
+  <th>Status</th>
+  <td><%=@box.status if @box.status.present?%></td>
   </table>
 
   Reviewed offers
   <table class="table">
     <tr>
-      <th>Image</th>
+      <th>Recommendation</th>
       <th>Info</th>
       <th>feedback</th>
     </tr>
