@@ -1,6 +1,6 @@
 <div class="card">
-  <div class="card-body">
-    <table class="table table-sm">
+
+    <table class="table table-sm table-borderless m-1">
       <tr>
         <th>Request</th>
         <td><%=box.name%></td>
@@ -25,9 +25,15 @@
         </td>
 
       </tr>
+      <tr>
+        <td></td>
+        <td>
+          <%=link_to "history", customer_foreign_box_path(box)%>
+        </td>
+        </tr>
+
     </table>
-    <%=link_to "history", customer_foreign_box_path(box)%>
-  </div>
+
   <div class="card-footer">
     <div data-controller="responder">
 

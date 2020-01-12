@@ -6,12 +6,10 @@
 </div>
 
 <!-- Button trigger modal -->
-<%if @boxes.count < 3%>
+
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newBoxModal">
   Create new box
 </button>
-<%end%>
-
 
 <!-- Modal -->
 <%=simple_form_for @box, url:customer_boxes_path do |f| %>

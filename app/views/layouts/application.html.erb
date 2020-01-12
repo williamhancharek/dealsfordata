@@ -28,6 +28,8 @@
   </head>
 
   <body>
+    <div class="row" style="padding-top: 20px;">
+    </div>
     <div class="d-xl-none">
       <%=horizontaltabsorter(active: nil, box:nil)%>
     </div>
@@ -38,7 +40,9 @@
           <%=tabsorter(active: nil, box:nil)%>
         </div>
         <div class="col">
-          <div class="d-xl-none row" style="padding-top: 110px;">
+          <div class="d-xl-none row" style="padding-top: 100px;">
+          </div>
+          <div class="d-none d-xl-block row" style="padding-top: 50px;">
           </div>
           <%= render "layouts/messages" %>
           <%= yield %>

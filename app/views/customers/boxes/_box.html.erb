@@ -1,15 +1,52 @@
-<%offer = box.approved_active_offer%>
-<div class="card" style="border-width: 9px; border-style: solid;
-  border-color:#<%=box.background%>">
-  <div class="card-body">
-    <h3 class="card-title">
-      <%=box.name%></h3>
-    <p class='card-text'>Search terms:
-      <%=box.search_terms%></p>
-  </div>
-  <div class="card-body">
+<div class="card">
 
-    <%=link_to "show box", customer_box_offers_path(box)%>
+    <table class="table table-sm table-borderless m-1">
+      <tr>
+        <th>Request</th>
+        <td><%=box.name%></td>
+      </tr>
+      <tr>
+        <th>Priority</th>
+        <td><%=box.priority.present? ? box.priority : "not stated"%></td>
+      </tr>
+      <tr>
+        <th>Price</th>
+        <td><%=box.price_range%>
+        </td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td><%=truncate(box.search_terms,length: 50)%>
+          <%if box.search_terms.length > 50 %>
+            <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-content="<%=box.search_terms%>">
+              more
+            </a>
+          <%end%>
+        </td>
 
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <%=link_to "history", customer_box_offers_path(box)%>
+        </td>
+        </tr>
+
+    </table>
+
+  <div class="card-footer">
+    <div data-controller="responder">
+
+
+          <input data-target="responder.comment" type="text" placeholder="add a comment" style="width:100%;">
+          <input data-target="responder.link" type="text" placeholder="submit a link" style='width:100%;'>
+
+          <button data-action="click->responder#recommend">
+            submit
+          </button>
+
+
+      <span data-target="hello.output"></span>
+    </div>
   </div>
 </div>

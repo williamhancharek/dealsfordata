@@ -1,4 +1,8 @@
 
+.nav, .navbar {
+  background-color: rgb(60,60,60);
+}
+
 /** Temporary fix for Bootstrap accordion bug -- see https://github.com/twbs/bootstrap/issues/26556 **/
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Quicksand', sans-serif !important;
