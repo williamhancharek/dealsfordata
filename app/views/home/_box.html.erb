@@ -1,47 +1,46 @@
+<div class="card">
+  <div class="card-body">
+    <table class="table table-sm">
+      <tr>
+        <th>Request</th>
+        <td><%=box.name%></td>
+      </tr>
+      <tr>
+        <th>Priority</th>
+        <td><%=box.priority.present? ? box.priority : "not stated"%></td>
+      </tr>
+      <tr>
+        <th>Price</th>
+        <td><%=box.price_range%>
+        </td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td><%=truncate(box.search_terms,length: 50)%>
+          <%if box.search_terms.length > 50 %>
+            <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-content="<%=box.search_terms%>">
+              more
+            </a>
+          <%end%>
+        </td>
 
-    <div class="card mb-1">
-      <div class="card-body">
-        <table class="table table-sm">
-          <tr>
-            <th>Request</th>
-            <td><%=box.name%></td>
-          </tr>
-          <tr>
-            <th>Priority</th>
-            <td><%=box.priority.present? ? box.priority : "not stated"%></td>
-          </tr>
-          <tr>
-            <th>Price</th>
-            <td><%=box.price_range%>
-            </td>
-          </tr>
-          <tr>
-            <th>Notes</th>
-            <td><%=truncate(box.search_terms,length: 50)%>
-              <%if box.search_terms.length > 50 %>
-                <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-content="<%=box.search_terms%>"> more </a>
-                <%end%>
-            </td>
+      </tr>
+    </table>
+    <%=link_to "history", customer_foreign_box_path(box)%>
+  </div>
+  <div class="card-footer">
+    <div data-controller="responder">
 
-          </tr>
-        </table>
-        <%=link_to "history", customer_foreign_box_path(box)%>
-      </div>
-      <div class="card-footer">
-          <div data-controller="responder">
-            <div class="row ">
-              <div class="col">
-            <input data-target="responder.comment" type="text" , placeholder="add a comment">
-            <input data-target="responder.link" type="text" , placeholder="submit a link">
-            </div>
-            <div class="col">
-            <button data-action="click->responder#recommend">
-              submit
-            </button>
-            </div>
-            </div>
 
-            <span data-target="hello.output"></span>
-          </div>
-        </div>
-      </div>
+          <input data-target="responder.comment" type="text" placeholder="add a comment" style="width:100%;">
+          <input data-target="responder.link" type="text" placeholder="submit a link" style='width:100%;'>
+
+          <button data-action="click->responder#recommend">
+            submit
+          </button>
+
+
+      <span data-target="hello.output"></span>
+    </div>
+  </div>
+</div>
