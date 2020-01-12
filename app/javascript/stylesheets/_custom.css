@@ -15,6 +15,14 @@ button .btn .btn-sm .custom-button3 {
   background-color:  #FFC385;
 } */
 
+div .text-pink {
+  color: #FF89C0;
+}
+
+div a:hover {
+  color: #FF89C0;
+}
+
 .nav, .navbar {
   background-color: rgb(60,60,60);
 }

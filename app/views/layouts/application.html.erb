@@ -30,14 +30,14 @@
   <body>
     <div class="row" style="padding-top: 20px;">
     </div>
-    <div class="d-xl-none">
-      <%=horizontaltabsorter(active: nil, box:nil)%>
-    </div>
 
     <div class="container-fluid">
       <div class="row">
+        <div class="d-xl-none">
+          <%=horizontaltabsorter(active: @active, box:@new_box)%>
+        </div>
         <div class="col-3 d-none d-xl-block">
-          <%=tabsorter(active: nil, box:nil)%>
+          <%=tabsorter(active: @active, box:@new_box)%>
         </div>
         <div class="col">
           <div class="d-xl-none row" style="padding-top: 100px;">

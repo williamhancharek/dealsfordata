@@ -7,25 +7,17 @@ module ApplicationHelper
 
   def tabsorter(active:, box: )
     if user_signed_in?
-      if box.present?
-        render partial: "partials/tabs_box", locals: {active: active, box: box}
-      else
-        render partial: "partials/tabs_index"
-      end
+      render partial: "partials/tabs_index", locals: {active: active, box: box}
     else
-    render partial: "partials/tabs_logged_out" if !(user_signed_in?)
+    render partial: "partials/tabs_logged_out", locals: {active: active}
     end
   end
 
   def horizontaltabsorter(active:, box: )
     if user_signed_in?
-      if box.present?
-        render partial: "partials/tabs_box_horizontal", locals: {active: active, box: box}
-      else
-        render partial: "partials/tabs_index_horizontal"
-      end
+      render partial: "partials/tabs_index_horizontal", locals: {active: active, box: box}
     else
-      render partial: "partials/tabs_logged_out_horizontal" if !(user_signed_in?)
+      render partial: "partials/tabs_logged_out_horizontal", locals: {active: active}
     end
   end
 

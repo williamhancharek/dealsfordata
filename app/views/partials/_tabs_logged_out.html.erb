@@ -1,12 +1,30 @@
+<%link0,link1,link2,link3 = "white","white","white","white"%>
+<%case active%>
+<%when 0%>
+<%link0 = "pink"%>
+<%when 1%>
+<%link1 = "pink"%>
+<%when 2%>
+<%link2 = "pink"%>
+<%when 3%>
+<%link3 = "pink"%>
+<%end%>
+
 <ul class="nav flex-column h-100 w-100 rounded-lg">
 <div class="mx-auto">
 <%=link_to image_tag('dealsfordatalogolarge.png', class:"p-4"), root_path%>
 </div>
 
     <li class="nav-item p-1 mx-auto">
-      <%=link_to "Make a box", new_user_session_path, class:"font-weight-bolder text-white"%>
+      <%=link_to "Log in", new_user_session_path, class:"font-weight-bolder text-#{link0}"%>
     </li>
     <li class="nav-item p-1 mx-auto">
-      <%=link_to "See your boxes", new_user_session_path, class:"font-weight-bolder text-white"%>
+      <%=link_to "See requests", root_path, class:"font-weight-bolder text-#{link1}"%>
+    </li>
+    <li class="nav-item p-1 mx-auto">
+      <%=link_to "Make a request", new_user_session_path, class:"font-weight-bolder text-#{link2}"%>
+    </li>
+    <li class="nav-item p-1 mx-auto">
+      <%=link_to "See your requests", new_user_session_path, class:"font-weight-bolder text-#{link3}"%>
     </li>
 </ul>
