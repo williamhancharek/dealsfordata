@@ -1,20 +1,9 @@
-TODO:create offers@dealsfordata.com
 TODO:Make it so the customers don't see which customer number they are. it should just say /customers/welcome or something
-TODO: need to implement cancancan authorizations.. for now it seems it's just authentication
 TODO: run reek on my files
-
-TODO: build coupon model
-  -have pictures
-
-TODO: integrate plaid
-TODO: store user transaction data
-TODO: have method of presenting analysing transaction data
 
 TODO: Declare Active Storage services in config/storage.yml
 TODO: add encryption for certain tables in the datbase, namely the access token which are two private API
 keys for plaid
-TODO: use something locally, and then something on heroku to store the PLAID client_id and secret
-https://guides.rubyonrails.org/active_storage_overview.html
 TODO: for the plaid link, do I need to include the link to jquery, or isn't it already installed in webpacker?
 TODO: make sure plaid item id is set to plaid's unique identifier and not just 1,2,3 etc.
 TODO: need a way for plaid items to show they are disconnected, and then for user to reset them
@@ -24,23 +13,16 @@ TODO: only allow plaid webhook requests from the following IP addresses:
 52.41.247.19
 52.88.82.239
 https://support.plaid.com/hc/en-us/articles/360008414233-Webhook-overview
-TODO: tag_controller = I can't individually remove tags until i make it into a list and I'm super like... not feeling that
 https://codepen.io/gregja/pen/LdYjmE
-TODO: take care of this error: A cookie associated with a cross-site resource at
-http://cdn.plaid.com/ was set without the `SameSite` attribute. A future release
-of Chrome will only deliver cookies with cross-site requests if they are set with
- `SameSite=None` and `Secure`. You can review cookies in developer tools under
- Application>Storage>Cookies and see more details at
- https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.
-
 TODO: took the following out of procfile.. webpacker: ./bin/webpack-dev-server
 TODO: I don't know how to set up the procfile correctly - before I uploaded to heroku, I had this thing to automatically start
 ./bin/webpack-dev-server.  However, I removed that from the procfile so it wouldn't fuck with the heroku start... so am I supposed
 to have two procfiles? or somethign?  I don't know
 TODO: when I try to run rails db:seed with foreman start going then it fails... I don't really understand why... but ignoring this issue for now
+
 TODO: A box can subscribe to itself.  This is wrong.
 TODO: what happens when a customer makes an offer for his own box - what campaign should be assigned?
-TODO: the employee offer create form has no javascript side protections - should incorpoate basics - tried to fix but it's not working - it still hits server first..
+TODO: the employee offer create form has no javascript side protections - should incorporate basics - tried to fix but it's not working - it still hits server first..
 TODO: I don't have SSL enabled - when I do I will probably have to mess around with the domain name thing on namecheap
 TODO: I don't have mailing enabled - when i do will probably have to fuss with the domain name shit again
 TODO: datafordeals.com, wishjar.ca, and wishjar.app are not forwarding correctly. Need to incorporate ssl.
@@ -79,3 +61,4 @@ TODO: need to add serach funcitonality when following other boxes, and social st
 TODO: need to add feedback summaries for followers so you can see what is appearling to them and what is not
 TODO: incorporate link shortener with affiliate link
 TODO: set up box status - where is it set, etc.
+TODO: write about 'about' - only a certain amount of untouched offers in a box before a box can no longer accept suggestions - use the status to set whether the box can take suggestions (open, archived, full, old)

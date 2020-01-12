@@ -1,10 +1,10 @@
     <h1>Help others find what they're looking for!</h1>
     <p class="mb-3">How this works: People post a search request, and you can submit an answer.  You can also see other answers and how the person responded to them.</p>
-    <div class="row" style="padding-top: 15px;">
-
-      </div>
+    <div class="row" style="padding-top: 15px;"></div>
 
 
 <div class="card-columns">
       <%=render partial: 'box', collection: @boxes%>
 </div>
+
+<%=render partial: "partials/create_new_box", locals: {box: @box} %>

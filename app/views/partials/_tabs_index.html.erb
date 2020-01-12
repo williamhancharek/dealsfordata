@@ -4,15 +4,17 @@
 </div>
 
     <li class="nav-item p-1 mx-auto">
-      <%=link_to "make a box", new_user_session_path, class:"font-weight-bolder text-white"%>
+      <span class="font-weight-bolder text-white" data-toggle="modal" data-target="#newBoxModal">
+        Create new box
+      </span>
     </li>
     <li class="nav-item p-1 mx-auto">
       <%=link_to "See your boxes", customer_boxes_path, class:"font-weight-bolder text-white"%>
     </li>
     <li class="nav-item p-1 mx-auto">
-      <%=link_to "Settings", new_user_session_path, class:"font-weight-bolder text-white"%>
+      <%=link_to "Settings", customer_user_path(current_user), class:"font-weight-bolder text-white"%>
     </li>
     <li class="nav-item p-1 mx-auto">
-      <%=link_to "Log out", new_user_session_path, class:"font-weight-bolder text-white"%>
+      <%=link_to "Log out", destroy_user_session_path, class:"font-weight-bolder text-white"%>
     </li>
 </ul>

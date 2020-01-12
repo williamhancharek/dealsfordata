@@ -2,7 +2,7 @@
 
     <table class="table table-sm table-borderless m-1">
       <tr>
-        <th>Request</th>
+        <th width="40px">Request</th>
         <td><%=box.name%></td>
       </tr>
       <tr>
@@ -34,15 +34,15 @@
 
     </table>
 
-  <div class="card-footer">
+  <div class="card-footer" >
     <div data-controller="responder">
 
 
-          <input data-target="responder.comment" type="text" placeholder="add a comment" style="width:100%;">
+          <input data-target="responder.comment" type="text" placeholder="add a message" style="width:100%;">
           <input data-target="responder.link" type="text" placeholder="submit a link" style='width:100%;'>
 
-          <button data-action="click->responder#recommend">
-            submit
+          <button data-action="click->responder#recommend" class="btn btn-sm btn-dark">
+            send
           </button>
 
 
