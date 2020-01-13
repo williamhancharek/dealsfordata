@@ -1,6 +1,6 @@
 <%render partial: "partials/crumb", locals: {active: @box.name, passive: [link_to("Home", customer_boxes_path)]}%>
 <div class="row">
-  <%=render partial: "partials/horizontal_box_tabs", locals: {box: @box, active: "settings"}%>
+  <%=render partial: "partials/tabs_index_horizontal", locals: {box: @box, active: "settings"}%>
   <%=render partial: "partials/box_tabs", locals: {box: @box, active: "settings"}%>
 
   <div class="col-12 d-md-none p-3">

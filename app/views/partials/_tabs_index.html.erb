@@ -1,23 +1,37 @@
-<ul class="nav flex-column h-100 w-100 rounded-lg fill" >
+<%link0,link1,link2,link3,link4 = "white","white","white","white","white"%>
+<%case active%>
+<%when 0%>
+<%link0 = "pink"%>
+<%when 1%>
+<%link1 = "pink"%>
+<%when 2%>
+<%link2 = "pink"%>
+<%when 3%>
+<%link3 = "pink"%>
+<%when 4%>
+<%link4 = "pink"%>
+<%end%>
+
+<ul class="sidebar nav flex-column rounded-lg">
 <div class="mx-auto">
 <%=link_to image_tag('dealsfordatalogolarge.png', class:"p-4"), root_path%>
 </div>
 
-  <li class="nav-item p-1 mx-auto">
-    <%=link_to "see boxes by others", customer_boxes_path, class:"font-weight-bolder text-white"%>
-  </li>
-  <li class="nav-item p-1 mx-auto">
-    <span class="font-weight-bolder text-white" data-toggle="modal" data-target="#newBoxModal">
-      Make a box
-    </span>
-  </li>
-  <li class="nav-item p-1 mx-auto">
-    <%=link_to "See your boxes", customer_boxes_path, class:"font-weight-bolder text-white"%>
-  </li>
-  <li class="nav-item p-1 mx-auto">
-    <%=link_to "Settings", customer_user_path(current_user), class:"font-weight-bolder text-white"%>
-  </li>
-  <li class="nav-item p-1 mx-auto">
-    <%=link_to "Log out", destroy_user_session_path, class:"font-weight-bolder text-white"%>
-  </li>
+    <li class="nav-item p-1 mx-auto">
+      <%=link_to "Log out", destroy_user_session_path, class:"font-weight-bolder text-#{link0}", method: :delete%>
+    </li>
+    <li class="nav-item p-1 mx-auto">
+      <%=link_to "See requests", root_path, class:"font-weight-bolder text-#{link1}"%>
+    </li>
+    <li class="nav-item p-1 mx-auto">
+      <span class="font-weight-bolder text-<%=link2%>" data-toggle="modal" data-target="#newBoxModal">
+        Make a request
+      </span>
+    </li>
+    <li class="nav-item p-1 mx-auto">
+      <%=link_to "See your requests", customer_boxes_path, class:"font-weight-bolder text-#{link3}"%>
+    </li>
+    <li class="nav-item p-1 mx-auto">
+      <%=link_to "Settings", customer_user_path(current_user), class:"font-weight-bolder text-#{link4}"%>
+    </li>
 </ul>

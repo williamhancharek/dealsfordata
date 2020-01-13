@@ -2,6 +2,7 @@ class Customers::UsersController < ApplicationController
   load_and_authorize_resource
 
   def show
+    @active = 4
 
   end
 

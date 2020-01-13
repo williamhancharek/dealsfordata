@@ -27,22 +27,18 @@
     <tr>
       <td></td>
       <td>
-        <%=link_to "history", customer_box_offers_path(box)%>
+        <%if box.user == current_user%>
+          <%=link_to "history", customer_box_offers_path(box)%>
+        <%else%>
+          <%=link_to "history", customer_foreign_box_path(box)%>
+        <%end%>
       </td>
     </tr>
 
   </table>
 
   <div class="card-footer panel-custom">
-    <div data-controller="responder">
-      <input data-target="responder.comment" type="text" placeholder="add a message" style="width:100%;">
-      <input data-target="responder.link" type="text" placeholder="submit a link" style='width:100%;'>
+    <%=render partial: "partials/recommendation_form"%>
 
-      <button data-action="click->responder#recommend" ,="," class="btn btn-sm text-white font-weight-bold" style="background-color: <%=["#FF89C0","#FFA4A5","#FFC385"][rand(0..2)]%>;">
-        send
-      </button>
-
-      <span data-target="hello.output"></span>
-    </div>
   </div>
 </div>

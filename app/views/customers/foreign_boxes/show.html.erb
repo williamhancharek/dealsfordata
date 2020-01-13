@@ -1,44 +1,27 @@
 <%render partial: "partials/crumb", locals: {active: @box.name, passive: [link_to("home", root_path)]}%>
-
-<table class="table">
-  <tr>
-    <th>Name</th>
-    <td><%=@box.name%>
+  <table class="table">
+    <tr>
+      <th width="40px">Name</th>
+      <td><%=@box.name%>
       </tr>
-  <th>Status</th>
-  <td><%=@box.status if @box.status.present?%></td>
-  </table>
+      <tr>
+        <th>Status</th>
+        <td><%=@box.status if @box.status.present?%></td>
+      </tr>
+      <tr>
+        <th>recommendations awaiting review</th>
+        <td><%=@active_offers.count%></td>
+      </tr>
+    </table>
 
-  Reviewed offers
-  <table class="table">
-    <tr>
-      <th>Recommendation</th>
-      <th>Info</th>
-      <th>feedback</th>
-    </tr>
-    <%=render partial: 'offer', collection: @old_offers%>
-  </table>
-</div>
+    <h5>Reviewed offers</h5>
+    <table class="table">
+      <tr>
+        <th>Recommendation</th>
+        <th>Info</th>
+        <th>feedback</th>
+      </tr>
+      <%=render partial: 'offer', collection: @old_offers%>
+    </table>
 
-
-<div class="col-12 d-md-none">
-  Offers not reviewed
-  <table class="table">
-    <tr>
-      <th>Image</th>
-      <th>Title</th>
-      <th>feedback</th>
-    </tr>
-    <%=render partial: 'offer', collection: @active_offers%>
-  </table>
-
-  Reviewed offers
-  <table class="table">
-    <tr>
-      <th>Image</th>
-      <th>Title</th>
-      <th>feedback</th>
-    </tr>
-    <%=render partial: 'offer', collection: @old_offers%>
-  </table>
-</div>
+<%=render partial: 'partials/recommendation_form'%>

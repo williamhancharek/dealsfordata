@@ -5,6 +5,7 @@ class Customers::BoxesController < ApplicationController
     @box = Box.new
     @boxes = current_user.boxes #overriding cancancan @boxes
     @box_count = @boxes.count
+    @active = 3
   end
 
   def edit
