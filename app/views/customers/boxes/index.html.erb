@@ -1,8 +1,8 @@
 <%# <%render partial: "partials/crumb", locals: {active: "Home"}%>
 
 <%=createWelcomeMessage(box_count: @box_count, foreign_box: @foreign_box)%>
-<h1>Check your boxes for recent recommendations!</h1>
-<p class="mb-3">check out your boxes for new recommendations!</p>
+<%=render partial: "partials/title", locals: {title:"Check your request boxes for recent recommendations!"}%>
+<p class="mb-3">Check out your request boxes for new recommendations!</p>
 <div class="row" style="padding-top: 15px;"></div>
 
 <div class="card-columns">
@@ -11,7 +11,7 @@
 
 <!-- Button trigger modal -->
 
-<button type="button" class="btn btn-dark font-weight-bold btn-sm" data-toggle="modal" data-target="#newBoxModal">
+<button type="button" class="btn btn-dark font-weight-bold btn-sm mb-3" data-toggle="modal" data-target="#newBoxModal">
   Create new box
 </button>
 

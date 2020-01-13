@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   def index
     @new_box = current_user.boxes.build if current_user.present?
-    @boxes = Box.where(public: "true").take(12)
+    @boxes = Box.where("public= ? AND status= ? AND user_id != ?", 1, "active", current_user.id).take(12)
     @active = 1
   end
 

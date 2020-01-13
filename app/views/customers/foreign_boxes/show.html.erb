@@ -1,4 +1,7 @@
-<%render partial: "partials/crumb", locals: {active: @box.name, passive: [link_to("home", root_path)]}%>
+
+<h1 class="font-weight-bold">History for <%=@box.name%></h1>
+<p class="mb-3">Below are the details for this person's search request.</p>
+<div class="row" style="padding-top: 15px;"></div>
   <table class="table">
     <tr>
       <th width="40px">Name</th>
@@ -9,19 +12,21 @@
         <td><%=@box.status if @box.status.present?%></td>
       </tr>
       <tr>
-        <th>recommendations awaiting review</th>
+        <th>Recommendations awaiting review</th>
         <td><%=@active_offers.count%></td>
       </tr>
     </table>
 
-    <h5>Reviewed offers</h5>
+    <h5>Reviewed recommendations</h5>
     <table class="table">
       <tr>
         <th>Recommendation</th>
         <th>Info</th>
-        <th>feedback</th>
+        <th>Feedback</th>
       </tr>
       <%=render partial: 'offer', collection: @old_offers%>
     </table>
 
 <%=render partial: 'partials/recommendation_form'%>
+
+<%=link_to "Back to all", root_path, class:"btn btn-dark font-weight-bold btn-sm mt-3"%>
