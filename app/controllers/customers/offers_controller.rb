@@ -16,6 +16,8 @@ class Customers::OffersController < ApplicationController
   def index
     @offer = @box.approved_active_offer
     @approved_count = @box.approved_active_offers.count
+    @old_offers = @box.old_offers
+    @active_offers = @box.active_offers
   end
 
   def edit

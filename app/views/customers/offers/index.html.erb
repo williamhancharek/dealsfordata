@@ -1,17 +1,47 @@
-      <h2 class="text-center font-weight-bold">Offers available for you</h2>
-      <p class="text-center font-weight-light">Based on your feedback and comments, our algorithm will learn your preferences and send you more relevant offers.</p>
-      <p class="text-center font-weight-bold">
-        <%if @approved_count.zero?%>
-        No offers available
-        <%else%>
-        Offer 1 of <%=@approved_count%>
-      <%end%>
-    </p>
-    <%= ShowApprovedOffer(offer: @offer)%>
-    <p></p>
-    <p class="text-center font-weight-bold">
-      <%if @approved_count.zero?%>
-      <%else%>
-      Offer 1 of <%=@approved_count%>
-      <%end%>
-    </p>
+<h2 class="text-center"><%=render partial: "partials/title", locals: {title: "Offers available for you"}%></h2>
+<p class="text-center font-weight-light">Based on your feedback and comments, our algorithm will learn your preferences and send you more relevant offers.</p>
+<p class="text-center font-weight-bold">
+  <%if @approved_count.zero?%>
+    No offers available
+  <%else%>
+    Offer 1 of
+    <%=@approved_count%>
+  <%end%>
+</p>
+<%= ShowApprovedOffer(offer: @offer)%>
+<p></p>
+<p class="text-center font-weight-bold">
+  <%if @approved_count.zero?%>
+  <%else%>
+    Offer 1 of
+    <%=@approved_count%>
+  <%end%>
+</p>
+
+
+<h5 class="font-weight-bold">History for <%=@box.name%></h5>
+<div class="row" style="padding-top: 15px;"></div>
+  <table class="table">
+    <tr>
+      <th width="40px">Name</th>
+      <td><%=@box.name%>
+      </tr>
+      <tr>
+        <th>Status</th>
+        <td><%=@box.status if @box.status.present?%></td>
+      </tr>
+      <tr>
+        <th>Recommendations awaiting review</th>
+        <td><%=@active_offers.count%></td>
+      </tr>
+    </table>
+
+    <h5>Reviewed recommendations</h5>
+    <table class="table">
+      <tr>
+        <th>Recommendation</th>
+        <th>Info</th>
+        <th>Requester Feedback</th>
+      </tr>
+      <%=render partial: 'offer_review', collection: @old_offers, as: :offer%>
+    </table>

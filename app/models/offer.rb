@@ -49,7 +49,6 @@ class Offer < ApplicationRecord
 
   def setup_iframe(link)
     response = Iframe.new(link)
-    binding.pry_remote
     if response.valid? #TODO this is shitty error handling
       self.description = response.description
       self.html = response.html
