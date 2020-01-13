@@ -7,9 +7,11 @@ module Customer::OffersHelper
   end
 
   def referralInfo(offer:)
-    if offer.original_offer_id.present?
+    if offer.original_offer_id.present? && offer.referrer.present?
       box = Box.find(offer.referrer.last)
-      render partial: 'referral_info', locals: {offer:offer, box: box}
+      if box.present?
+        render partial: 'referral_info', locals: {offer:offer, box: box}
+      end
     end
   end
 

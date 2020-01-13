@@ -1,10 +1,8 @@
 <%=simple_form_for(@box, url: customer_box_path) do |f|%>
-<%=f.input :name, presence: true, wrapper_html: {class: "form-group row"}, label_html: {class: "col-3 col-form-label"}, input_html: {class: "col-9 form-control"}%>
-<%=f.input :search_terms, presence: true, wrapper_html: {class: "form-group row"}, label_html: {class: "col-3 col-form-label"}, input_html: {class: "col-9 form-control"}%>
-<%=f.input :public, as: :boolean, checked_value: "true", unchecked_value: "false"%>
+<%=f.input :name, label: "Name your request", presence: true, wrapper_html: {class: "form-group row"}, label_html: {class: "col-3 col-form-label"}, input_html: {class: "col-9 form-control"}%>
+<%=f.input :search_terms, label: "Make a request", presence: true, wrapper_html: {class: "form-group row"}, label_html: {class: "col-3 col-form-label"}, input_html: {class: "col-9 form-control"}%>
+<%# <%=f.input :public, as: :boolean, checked_value: "true", unchecked_value: "false"%>
 <%=f.input :allow_email, as: :boolean, checked_value: true, unchecked_value: false, value: @box.allow_email%>
 
-<%=f.input :background, as: :radio_buttons,
-            collection: [["beige","f0f4c3"],["pink","fff8e1"],["grey","f5f5f5"]], item_wrapper_class: 'inline'%>
-<%=f.button :submit, class: "btn, btn-primary"%>
+<%=f.button :submit, class: "btn, btn-dark"%>
 <%end%>

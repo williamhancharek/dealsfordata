@@ -43,7 +43,7 @@
     <%=button_to "archive", customer_box_path(box), class:"btn btn-dark btn-sm font-weight-bolder", method: :patch, params: {'box[status]' => "archive"}%>
 
       <%else%>
-      <%=render partial: "partials/recommendation_form"%>
+      <%=render partial: "partials/recommendation_form", locals:{box:box}%>
       <%end%>
   </div>
 </div>

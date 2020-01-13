@@ -30,10 +30,10 @@ class Employees::OffersController < ApplicationController
 
     respond_to do |format|
       if @offer.save
-        format.html {redirect_back fallback_location: :new, notice: "offer was successfully created"}
+        format.html {redirect_back fallback_location: :new, notice: "recommendation was successfully created"}
         format.json {render :new, status: :create, location: @user}
       else
-        format.html {redirect_back fallback_location: :index, alert: "offer was not created"}
+        format.html {redirect_back fallback_location: :index, alert: "recommendation was not created"}
         format.json {render json: @offer.errors, status: :unprocessable_entity}
       end
     end

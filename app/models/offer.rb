@@ -36,12 +36,14 @@ class Offer < ApplicationRecord
   end
 
   def grab_image(image_url)
-    image_url.prepend("https:") if image_url.start_with?("//")
-    begin
-      downloaded_image = open(image_url)
-      self.image.attach(io: downloaded_image  , filename: "image.jpg")
-    rescue
-      puts "image url was probably malformed"
+    unless image_url == nil
+      image_url.prepend("https:") if image_url.start_with?("//")
+      begin
+        downloaded_image = open(image_url)
+        self.image.attach(io: downloaded_image  , filename: "image.jpg")
+      rescue
+        puts "image url was probably malformed or did not exist"
+      end
     end
   end
 
@@ -51,6 +53,8 @@ class Offer < ApplicationRecord
       self.description = response.description
       self.html = response.html
       self.grab_image(response.thumbnail_url)
+      self.current_price = response.price
+      self.tags << response.category
     end
   end
 

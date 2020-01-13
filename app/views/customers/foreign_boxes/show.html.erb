@@ -27,6 +27,6 @@
       <%=render partial: 'offer', collection: @old_offers%>
     </table>
 
-<%=render partial: 'partials/recommendation_form'%>
+<%=render partial: 'partials/recommendation_form', locals: {box:@box}%>
 
 <%=link_to "Back to all", root_path, class:"btn btn-dark font-weight-bold btn-sm mt-3"%>

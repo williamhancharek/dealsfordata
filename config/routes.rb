@@ -90,4 +90,6 @@ Rails.application.routes.draw do
 
   resources :moderators, only: [:show]
 
+  resources :faq, only: [:index]
+
 end

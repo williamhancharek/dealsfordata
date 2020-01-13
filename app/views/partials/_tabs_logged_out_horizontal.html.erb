@@ -1,4 +1,4 @@
-<%link0,link1,link2 = "white","white","white"%>
+<%link0,link1,link2,link3 = "white","white","white","white"%>
 <%case active%>
 <%when 0%>
 <%link0 = "pink"%>
@@ -6,7 +6,10 @@
 <%link1 = "pink"%>
 <%when 2%>
 <%link2 = "pink"%>
+<%when 3%>
+<%link3 = "pink"%>
 <%end%>
+
 
 <nav class="navbar fixed-top navbar-expand-sm rounded-lg">
 <%=link_to image_tag('dealsfordatalogosmall.png', class:"navbar-brand"), root_path%>
@@ -24,6 +27,9 @@
     </li>
     <li class="nav-item">
       <%=link_to "Make a box", new_user_session_path, class:"font-weight-bolder nav-link text-#{link2}"%>
+    </li>
+    <li class="nav-item">
+      <%=link_to "FAQ", faq_index_path, class:"font-weight-bolder text-#{link3}"%>
     </li>
   </ul>
 </div>

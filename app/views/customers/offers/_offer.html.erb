@@ -6,9 +6,9 @@
       <%if offer.retail_price.present?%>
         <p><%=offer.retail_price%> <%="discounted to #{offer.current_price}" if offer.current_price.present?%></p>
       <%end%>
-      <%if offer.commentary.present?%>
-        <p class='font-weight-bold'>Notes from Wishjar:</p>
-        <p><%=offer.commentary%></p>
+      <%if offer.received_commentary.present?%>
+        <p class='font-weight-bold'>Message from the sender:</p>
+        <p><%=offer.received_commentary%></p>
       <%end%>
       <%= referralInfo(offer: offer)%>
       <%= simple_form_for(offer, url: customer_offer_path(offer.id), method: :put) do |f| %>
@@ -21,8 +21,8 @@
                   label: "What do you think?"
                   %>
       </div>
-      <%=f.input :received_commentary,
-                  label: "Your commentary:",
+      <%=f.input :commentary,
+                  label: "Your feedback:",
                   label_html: {class: "font-weight-bold"}%>
       <%= f.button :submit, "submit", class:["btn-sm", "btn-w-m btn-primary"] %>
     <%end%>

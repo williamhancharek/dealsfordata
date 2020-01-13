@@ -22,6 +22,22 @@ class Iframe
     self.class.get("/api/iframely", @options)
   end
 
+  def price
+    if self.iframely["meta"]["price"].present?
+      self.iframely["meta"]["price"]
+    else
+      nil
+    end
+  end
+
+  def category
+    if self.iframely["meta"]["category"].present?
+      self.iframely["meta"]["category"]
+    else
+      nil
+    end
+  end
+
   def description
     self.oembed["description"]
   end
@@ -39,7 +55,14 @@ class Iframe
   end
 
   def thumbnail_url
-    self.oembed["thumbnail_url"]
+    if self.oembed["thumbnail"].present?
+      self.oembed["thumbnail_url"]
+    elsif
+      self.iframely["links"]["icon"][0]["href"].present?
+      self.iframely["links"]["icon"][0]["href"]
+    else
+      nil
+    end
   end
 
   def html

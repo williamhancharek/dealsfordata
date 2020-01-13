@@ -1,10 +1,9 @@
+
 <div data-controller="responder">
-  <input data-target="responder.comment" type="text" placeholder="add a recommendation" style="width:100%; max-width: 300px">
-  <input data-target="responder.link" type="text" placeholder="submit a link" style='width:100%;max-width: 300px'>
-
-  <button data-action="click->responder#recommend" ,="," class="btn btn-sm text-white font-weight-bold" style="background-color: <%=["#FF89C0","#FFA4A5","#FFC385"][rand(0..2)]%>;">
-    send
-  </button>
-
-  <span data-target="hello.output"></span>
+<%=simple_form_for(box.offers.build, url: customer_offers_path, method: :post, remote: :true) do |f|%>
+<%= text_field(:offer, :received_commentary, placeholder:"add a recommendation", style:"max-width:300px;width:100%", "data-target"=>"responder.comment") %>
+<%= url_field(:offer, :link, placeholder: "submit a link", style:"max-width:300px;width:100%", "data-target" =>"responder.link") %>
+<%=f.input :box_id, as: :hidden%>
+<%= submit_tag("send", style:"background-color:#{['#FF89C0','#FFA4A5','#FFC385'][rand(0..2)]}", class: "btn btn-sm text-white font-weight-bold") %><span data-target="responder.notification"></span>
+<%end%>
 </div>

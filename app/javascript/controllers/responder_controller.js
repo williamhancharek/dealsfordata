@@ -10,11 +10,17 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "comment", "link" ]
+  static targets = [ "comment", "link", "notification"]
 
   recommend() {
     event.preventDefault()
-    this.outputTarget.textContent =
-      `${this.nameTarget.value + this.outputTarget.textContent}!`
+    this.notificationTarget.textContent =  this.linkTarget.value
+    this.commentTarget.value = ""
+
+    // `${this.linkTarget.value + this.commentTarget.value}!`
+    //
+    // this.linkTarget.textContent = ""
+    // this.commentTarget.textContent = ""
+
   }
 }

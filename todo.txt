@@ -62,3 +62,4 @@ TODO: need to add feedback summaries for followers so you can see what is appear
 TODO: incorporate link shortener with affiliate link
 TODO: set up box status - where is it set, etc.
 TODO: write about 'about' - only a certain amount of untouched offers in a box before a box can no longer accept suggestions - use the status to set whether the box can take suggestions (open, archived, full, old)
+TODO: now that people can just shove offers into each others' boxes, offers are recommended/referred by other boxes AND straight up other users
