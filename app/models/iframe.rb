@@ -67,10 +67,8 @@ class Iframe
   def thumbnail_url
     if self.oembed["thumbnail_url"].present?
       self.oembed["thumbnail_url"]
-    elsif self.iframely["links"]["icon"][0]["href"].present?
-      self.iframely["links"]["icon"][0]["href"]
     else
-      nil
+      self.iframely.dig('links', 'icon',0,"href")
     end
   end
 
