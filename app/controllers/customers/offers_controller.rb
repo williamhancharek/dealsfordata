@@ -1,6 +1,7 @@
 class Customers::OffersController < ApplicationController
   load_and_authorize_resource
-    skip_before_action :authenticate_user!, :only => [:create]
+  skip_authorize_resource :only => :create
+  skip_before_action :authenticate_user!, :only => [:create]
 
   before_action only: [:index, :new] do
     set_instance(instance:"box",id: params[:box_id], object: :Box)
@@ -62,10 +63,11 @@ class Customers::OffersController < ApplicationController
       @offer.active = true
       @offer.email_sent = false
     end
-
     #TODO I no longer provide option to attach image to make things simpler
     #@offer.image.attach offer_params[:image]
+
     @offer.setup_iframe(offer_params[:link]) if offer_params[:link].present?
+
     respond_to do |format|
       if @offer.save
 

@@ -9,6 +9,16 @@ class Iframe
     @options[:query] = @options[:query].merge(splat)
   end
 
+  def valid?
+    status = self.oembed["status"]
+
+    if status.present? && status.between?(399,500)
+      return false
+    else
+      return true
+    end
+  end
+
   def oembed_small
     @options[:query]["&iframe"]="card-small"
     self.class.get("/api/oembed", @options)
@@ -55,10 +65,9 @@ class Iframe
   end
 
   def thumbnail_url
-    if self.oembed["thumbnail"].present?
+    if self.oembed["thumbnail_url"].present?
       self.oembed["thumbnail_url"]
-    elsif
-      self.iframely["links"]["icon"][0]["href"].present?
+    elsif self.iframely["links"]["icon"][0]["href"].present?
       self.iframely["links"]["icon"][0]["href"]
     else
       nil

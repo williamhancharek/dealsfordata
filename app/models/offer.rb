@@ -49,7 +49,7 @@ class Offer < ApplicationRecord
 
   def setup_iframe(link)
     response = Iframe.new(link)
-    if response.code == 200 #TODO this is shitty error handling
+    if response.valid? #TODO this is shitty error handling
       self.description = response.description
       self.html = response.html
       self.grab_image(response.thumbnail_url)
